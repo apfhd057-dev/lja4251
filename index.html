@@ -18,23 +18,33 @@
         #wrap > div:nth-child(3){background-color: rgb(135, 222, 208);}
         #wrap > div:nth-child(4){background-color: rgb(135, 183, 222);}
         #wrap > div:nth-child(5){background-color: rgb(222, 135, 208);}
-        #wrap > div > div{margin: 0 auto; width: 1500px;  height: 100vh;
-                          /* background-color:rgba(255, 244, 146, 0.5); */
-                          }
+        #wrap > div > div{margin: 0 auto; width: 1500px;  height: 100vh; }
+        #main .in_main{ background-color: #000;}
         #main .header{ width: 100%; height: 120px;} 
         #main .logo{float: left; margin:  20px 0 0 0;  
-                    width: 180px; height: 80px;  color: #716E64;} 
+                    width: 180px; height: 80px;  color: #fff;} 
         #main .nav{ float: right; margin: 50px 0 0 0;}
         #main .nav li{ float: left; margin-right: 50px;}     
-        #main .nav a{font-size: 20px; font-weight: 600; color:#716E64; 
+        #main .nav a{font-size: 20px; font-weight: 600; color:#fff; 
                     } 
         #main .nav li.on a{color:#000;}
-
-        #main h2{ float: left; width: 100%; margin:300px 0 0 0; 
-                  font-size:50px; text-align: right;
-                  padding-right:100px; box-sizing: border-box;}
-        #main p{float:right; margin:20px 100px 0 0; 
-                font-size:16px; color: #D6CBC2;}
+        #main .introduce{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        #main .i_left h5{
+            color: #D9ADFF;
+            font-size: 64px;
+        }
+        #main .i_left h1{
+            color: #fff;
+            font-size: 200px;
+        }
+        #main .i_right img{
+            width: 986px;
+            height: 726px;
+        }
 
         #q_mn{
             position: absolute; right:20px; top: 300px; z-index: 9999;
@@ -128,10 +138,16 @@
                   </ul>
                   
               </div> 
-                    <h2>
-                        Hello, I'm Kim Soon Jo
-                    </h2>
-                    <p>UX Designer & Front End Developer</p>   
+                <div class="introduce">
+                    <div class="i_left">
+                        <h5>UX Designer & Web Publisher</h5>
+                        <h1>Portfolio</h1>
+                    </div>
+                    <div class="i_right">
+                        <img src="./images/미래적 유리와 크롬 조각상.png" alt="">
+                    </div>
+
+                </div>  
             </div>
         </div>
         <!-- 소개 -->
