@@ -3,811 +3,660 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>LIA Portfolio Snap Interactive</title>
+<title>LIA Portfolio — Titles Centered</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800;900&family=Noto+Sans+KR:wght@400;500;700;900&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
-<style>
-:root{--black:#030303;--white:#f7f7f4;--paper:#f5f5f0;--ink:#101010;--gray:#e8e8e4;--purple:#b78aff;--violet:#7b43ff;--line:#d9d9d4;--muted:#73736f}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-snap-type:y mandatory;scroll-padding-top:0}
-body{font-family:'Inter','Noto Sans KR',sans-serif;background:var(--paper);color:var(--ink);overflow-x:hidden}
-a{text-decoration:none;color:inherit}
-.cursor{position:fixed;width:16px;height:16px;border:1px solid var(--purple);border-radius:50%;left:0;top:0;transform:translate(-50%,-50%);pointer-events:none;z-index:9999;mix-blend-mode:difference;transition:.22s}.cursor.big{width:74px;height:74px;background:rgba(183,138,255,.2);backdrop-filter:blur(4px)}
-header{position:fixed;top:0;left:0;width:100%;z-index:100;padding:28px 8vw;display:flex;align-items:center;justify-content:space-between;color:#fff;mix-blend-mode:difference;font-size:13px;font-weight:900;letter-spacing:.08em}.logo{font-size:24px}.nav{display:flex;gap:28px;font-size:11px}
-.snap-section{width:100vw;height:100vh;position:relative;overflow:hidden;scroll-snap-align:start;scroll-snap-stop:always}
-.hero{background:#000;color:#fff;display:flex;align-items:center;justify-content:center}.hero:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 70% 42%,rgba(183,138,255,.22),transparent 17%),radial-gradient(circle at 50% 100%,rgba(255,255,255,.08),transparent 28%)}
-.hero-orb{position:absolute;right:15vw;top:31vh;width:320px;height:230px;filter:drop-shadow(0 20px 35px rgba(0,0,0,.6));transform-style:preserve-3d;animation:float 4s ease-in-out infinite}.hero-orb span{position:absolute;inset:0;border-radius:48% 52% 45% 55%;background:radial-gradient(circle at 25% 18%,#fff 0 7%,transparent 15%),conic-gradient(from 30deg,#222,#fff,#b78aff,#6ee6ff,#111,#fff,#f2c6ff,#222);box-shadow:inset 0 0 25px rgba(255,255,255,.65),0 0 50px rgba(183,138,255,.22);animation:spin 9s linear infinite}.hero-orb span:nth-child(2){transform:rotate(62deg) scale(.78);opacity:.78}.hero-orb span:nth-child(3){transform:rotate(128deg) scale(.58);opacity:.58}.orbit{position:absolute;right:9vw;top:25vh;width:470px;height:330px;border:1px dashed rgba(255,255,255,.18);border-radius:50%;transform:rotate(-15deg);animation:orbit 12s linear infinite}.hero-inner{position:relative;width:min(1180px,86vw);z-index:2}.script{font-family:'Playfair Display',serif;font-style:italic;color:var(--purple);font-size:clamp(22px,3vw,42px);margin-left:3px}.hero h1{font-size:clamp(76px,12vw,180px);line-height:.77;letter-spacing:-.09em;font-weight:900}
-.intro{background:#fff;color:#111;padding:13vh 8vw}.intro h2{font-size:clamp(34px,4vw,64px);line-height:1.05;letter-spacing:-.05em;margin-bottom:20px}.intro p{color:#777;line-height:1.8}.profile-grid{margin-top:7vh;border-top:1px dashed #cfcfc8;padding-top:5vh;display:grid;grid-template-columns:260px 1fr 1fr;gap:70px}.profile-card{border:1px solid var(--line);padding:18px;background:#fff}.avatar{height:240px;background:linear-gradient(160deg,#e8e8e8,#fff);display:grid;place-items:center;font-size:88px;border:1px solid #ddd}.info h3{font-size:16px;margin-bottom:20px}.info p{font-size:13px;color:#555;line-height:2}
-/* 핵심 수정: 긴 400vh 삭제. 한 구간은 100vh만 차지하고, 휠 1번에 패널 1개씩 딱 전환 */
-.horizontal-wrap{height:100vh;background:#f5f5f0;scroll-snap-align:start;scroll-snap-stop:always;position:relative;overflow:hidden}.horizontal-sticky{height:100vh;overflow:hidden}.horizontal-track{height:100%;display:flex;width:400vw;will-change:transform;transition:transform .72s cubic-bezier(.77,0,.18,1)}
-.case-panel{width:100vw;height:100vh;flex:0 0 100vw;display:grid;grid-template-columns:45% 55%;align-items:center;padding:0 7vw;gap:4vw;background:var(--paper);position:relative}.case-panel:before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:#ddd}.case-panel:nth-child(even){background:#fff}.case-text .num{font-size:12px;color:var(--violet);font-weight:900;letter-spacing:.14em;margin-bottom:22px}.case-text h2{font-size:clamp(42px,6vw,92px);line-height:.88;letter-spacing:-.07em}.case-text p{margin-top:25px;max-width:460px;color:#656565;font-size:15px;line-height:1.75}.case-tag{display:inline-flex;margin-top:30px;border:1px solid #111;border-radius:999px;padding:11px 18px;font-size:12px;font-weight:900}.snap-hint{position:absolute;right:7vw;bottom:6vh;font-size:12px;font-weight:900;color:#b78aff;letter-spacing:.12em}.snap-hint:after{content:'';display:block;width:70px;height:2px;background:#b78aff;margin-top:10px;animation:hint 1.2s ease-in-out infinite}@keyframes hint{50%{transform:translateX(28px);opacity:.35}}
-.device-stage{height:68vh;position:relative;display:grid;place-items:center;perspective:1200px}.browser{width:min(620px,82%);height:390px;background:#111;border-radius:22px 22px 8px 8px;padding:18px;box-shadow:0 35px 70px rgba(0,0,0,.18);transform:rotateY(-13deg) rotateX(7deg);transition:.5s;position:relative}.browser:before{content:"";position:absolute;width:46%;height:20px;top:-20px;left:8%;background:#151515;border-radius:24px 24px 0 0}.screen{height:100%;border-radius:10px;overflow:hidden;background:linear-gradient(135deg,var(--c1),var(--c2));position:relative}.screen:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 20%,rgba(255,255,255,.65),transparent 14%),linear-gradient(120deg,transparent,rgba(255,255,255,.45),transparent);animation:shine 3s ease-in-out infinite}.screen h3{position:absolute;left:34px;bottom:34px;color:#fff;font-size:34px;letter-spacing:-.05em;text-shadow:0 8px 20px rgba(0,0,0,.28)}.phone,.tablet{position:absolute;background:#0b0b0b;border-radius:26px;padding:10px;box-shadow:0 28px 60px rgba(0,0,0,.2)}.phone{width:130px;height:250px;left:3%;bottom:6%;transform:rotateY(22deg) rotateZ(-5deg)}.tablet{width:250px;height:170px;right:0;bottom:10%;transform:rotateY(-25deg) rotateZ(5deg)}.phone i,.tablet i{display:block;height:100%;border-radius:18px;background:linear-gradient(135deg,var(--c2),#fff)}
-.dots{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);display:flex;gap:10px;z-index:5}.dot{width:8px;height:8px;border:1px solid #111;border-radius:99px;opacity:.35;transition:.35s}.dot.on{width:34px;background:#111;opacity:1}.wheel-guide{position:absolute;left:7vw;bottom:6vh;font-size:11px;color:#888;font-weight:900;letter-spacing:.12em;z-index:4}
-.dark-band{background:#000;color:#fff;display:grid;place-items:center;text-align:center;padding:0 6vw}.dark-band h2{font-size:clamp(48px,8vw,110px);line-height:.82;letter-spacing:-.08em}.dark-band .mini{color:var(--purple);font-family:'Playfair Display',serif;font-size:28px;margin-bottom:20px}
-.gallery-showcase{background:#000;color:#fff;display:grid;place-items:center;overflow:hidden;isolation:isolate}
-.gallery-showcase:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 30%,rgba(183,138,255,.17),transparent 22%),linear-gradient(180deg,#000 0%,#000 42%,#050505 100%);z-index:-4}
-.gallery-copy{position:absolute;top:13vh;left:50%;transform:translateX(-50%);width:min(980px,86vw);text-align:center;z-index:7;pointer-events:none}.gallery-copy .mini{font-family:'Playfair Display',serif;font-size:clamp(24px,2.5vw,42px);color:var(--purple);font-style:italic;margin-bottom:22px}.gallery-copy h2{font-size:clamp(44px,6.9vw,108px);line-height:.83;letter-spacing:-.08em;text-transform:uppercase}.gallery-copy p{margin:28px auto 0;max-width:760px;font-size:clamp(14px,1.25vw,20px);line-height:1.65;color:rgba(255,255,255,.75);font-weight:500}.gallery-perspective{position:absolute;left:50%;bottom:-10vh;width:150vw;height:58vh;transform:translateX(-50%) perspective(900px) rotateX(58deg);transform-origin:center bottom;z-index:2}.gallery-wrapper{position:absolute;inset:0;display:flex;flex-direction:column;gap:22px;will-change:transform}.gallery-row{display:flex;gap:22px;width:max-content;will-change:transform;transform:translateX(var(--move,0px));transition:transform .45s cubic-bezier(.2,.8,.2,1)}.gallery-thumb{width:270px;height:165px;border-radius:16px;overflow:hidden;position:relative;flex:0 0 auto;background:linear-gradient(135deg,var(--c1),var(--c2));box-shadow:0 22px 55px rgba(0,0,0,.52);border:1px solid rgba(255,255,255,.16);transform:translateZ(0)}.gallery-thumb:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 24% 20%,rgba(255,255,255,.78),transparent 13%),linear-gradient(120deg,transparent 15%,rgba(255,255,255,.32),transparent 44%),repeating-linear-gradient(90deg,rgba(255,255,255,.12) 0 1px,transparent 1px 34px);mix-blend-mode:screen;opacity:.72}.gallery-thumb:after{content:attr(data-title);position:absolute;left:18px;bottom:16px;font-size:16px;font-weight:900;letter-spacing:-.03em;color:#fff;text-shadow:0 8px 20px rgba(0,0,0,.5)}.gallery-thumb i{position:absolute;right:14px;top:14px;width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.22);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.18)}.gallery-fade{position:absolute;inset:0;background:linear-gradient(180deg,#000 0%,rgba(0,0,0,.55) 37%,rgba(0,0,0,.06) 58%,#000 100%),linear-gradient(90deg,#000 0%,transparent 18%,transparent 82%,#000 100%);z-index:5;pointer-events:none}.gallery-glow{position:absolute;width:520px;height:520px;border-radius:50%;left:50%;bottom:0;transform:translateX(-50%);background:radial-gradient(circle,rgba(183,138,255,.2),transparent 65%);filter:blur(14px);z-index:1}.gallery-scroll-note{position:absolute;right:8vw;bottom:8vh;z-index:8;font-size:11px;font-weight:900;letter-spacing:.16em;color:rgba(183,138,255,.85)}
-.carousel-3d{background:#fff;display:grid;place-items:center;overflow:hidden}.carousel-3d h2{position:absolute;top:12vh;font-size:clamp(36px,5vw,78px);letter-spacing:-.06em;color:#777}.stage3d{width:100%;height:70vh;position:relative;perspective:1400px;display:grid;place-items:center}.ring{position:relative;width:280px;height:380px;transform-style:preserve-3d;animation:ringSpin 13s linear infinite}.p-card{position:absolute;inset:0;border-radius:22px;overflow:hidden;background:#111;box-shadow:0 30px 60px rgba(0,0,0,.18);transform:rotateY(calc(var(--i)*60deg)) translateZ(420px)}.p-card div{height:100%;display:grid;place-items:end center;padding:26px;color:#fff;font-weight:900;font-size:24px;background:linear-gradient(135deg,var(--c1),var(--c2))}.p-card div:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 25% 25%,rgba(255,255,255,.75),transparent 12%),linear-gradient(120deg,transparent,rgba(255,255,255,.32),transparent)}
-.box-section{min-height:100vh;background:#fff;padding:16vh 8vw;scroll-snap-align:start;scroll-snap-stop:always}.box-section h2{text-align:center;font-size:clamp(40px,6vw,80px);line-height:.9;letter-spacing:-.07em;margin-bottom:8vh}.box-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}.box{height:270px;background:#f5f5f0;border:1px solid #dfdfda;border-radius:28px;padding:30px;position:relative;overflow:hidden;transition:.5s}.box:before{content:"";position:absolute;width:160px;height:160px;border-radius:50%;background:linear-gradient(135deg,var(--purple),#fff);right:-50px;top:-50px;opacity:.65}.box:hover{transform:translateY(-18px);box-shadow:0 30px 70px rgba(0,0,0,.12)}.box b{font-size:44px;color:var(--violet)}.box h3{font-size:22px;margin:65px 0 12px}.box p{font-size:13px;color:#666;line-height:1.7}
-.footer{height:100vh;background:#000;color:#fff;display:flex;align-items:end;justify-content:space-between;padding:8vw;overflow:hidden}.footer h2{font-size:clamp(70px,12vw,170px);line-height:.72;letter-spacing:-.1em}.footer-orb{position:absolute;width:480px;height:480px;right:8vw;top:18vh;border-radius:50%;background:radial-gradient(circle at 25% 20%,#fff,transparent 12%),conic-gradient(#111,#fff,#b78aff,#7ee8ff,#111);opacity:.75;animation:spin 10s linear infinite}
-.reveal{opacity:0;transform:translateY(70px);transition:1s cubic-bezier(.16,1,.3,1)}.reveal.on{opacity:1;transform:none}@keyframes float{50%{transform:translateY(-24px) rotate(2deg)}}@keyframes spin{to{rotate:360deg}}@keyframes orbit{to{transform:rotate(345deg)}}@keyframes shine{50%{transform:translateX(24px)}}@keyframes ringSpin{to{transform:rotateY(-360deg)}}
-@media(max-width:900px){html{scroll-snap-type:none}header{padding:22px}.nav{display:none}.profile-grid{grid-template-columns:1fr}.horizontal-wrap{height:auto;overflow:visible}.horizontal-track{display:block;width:100%;transition:none}.case-panel{width:100%;height:auto;min-height:100vh;grid-template-columns:1fr;padding:90px 24px}.device-stage{height:46vh}.browser{height:260px}.phone,.tablet{display:none}.box-grid{grid-template-columns:1fr}.ring{transform:scale(.62)}.p-card{transform:rotateY(calc(var(--i)*60deg)) translateZ(290px)}.dots,.wheel-guide{display:none}}
-
-/* gallery reference fixed: 카드가 바닥에 너무 붙어 누워 보이지 않게 전체를 위로 올리고 크게 보이도록 수정 */
-.gallery-showcase{align-items:start!important;}
-.gallery-copy{top:8.5vh!important;}
-.gallery-copy p{display:none;}
-.gallery-perspective{
-  bottom:-2vh!important;
-  width:132vw!important;
-  height:66vh!important;
-  transform:translateX(-50%) perspective(1100px) rotateX(43deg)!important;
-  transform-origin:center 82%!important;
-  z-index:4!important;
-}
-.gallery-wrapper{gap:18px!important;top:4vh!important;}
-.gallery-row{gap:18px!important;}
-.gallery-thumb{
-  width:292px!important;
-  height:178px!important;
-  border-radius:10px!important;
-  box-shadow:0 28px 70px rgba(0,0,0,.58)!important;
-}
-.gallery-fade{
-  background:
-    linear-gradient(180deg,#000 0%,rgba(0,0,0,.92) 19%,rgba(0,0,0,.24) 43%,rgba(0,0,0,.05) 63%,#000 100%),
-    linear-gradient(90deg,#000 0%,transparent 11%,transparent 89%,#000 100%)!important;
-  z-index:5!important;
-}
-.gallery-glow{bottom:18vh!important;z-index:3!important;}
-.gallery-scroll-note{bottom:7vh!important;}
-@media(max-width:900px){.gallery-perspective{width:190vw!important;height:60vh!important;bottom:-6vh!important;transform:translateX(-50%) perspective(850px) rotateX(48deg)!important}.gallery-thumb{width:190px!important;height:118px!important}.gallery-copy{top:12vh!important}}
-
-
-
-/* ================================
-   Lavender Purple Portfolio Theme
-   - 기존 구조/휠스냅/갤러리 동작은 유지
-   - 색감만 연보라 + 화이트 + 딥퍼플 포인트로 정리
-================================ */
-:root{
-  --black:#171331;
-  --white:#ffffff;
-  --paper:#f1eff7;
-  --ink:#171331;
-  --gray:#e9e5f2;
-  --purple:#9b70ff;
-  --violet:#6235ff;
-  --line:rgba(98,53,255,.13);
-  --muted:#625b82;
-  --lavender:#f7f5ff;
-  --lavender2:#ece7f8;
-  --sky:#7ddcff;
-}
-html{background:#f1eff7;}
-body{
-  background:#f1eff7;
-  color:#171331;
-}
-body:before{
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  z-index:999;
-  opacity:.18;
-  background-image:radial-gradient(#fff 1px,transparent 1px);
-  background-size:4px 4px;
-  mix-blend-mode:overlay;
-}
-.cursor{border-color:#6235ff;mix-blend-mode:normal;box-shadow:0 0 0 6px rgba(98,53,255,.05)}
-.cursor.big{background:rgba(98,53,255,.12);border-color:#6235ff;backdrop-filter:blur(5px)}
-header{
-  color:#1d1740;
-  mix-blend-mode:normal;
-  background:rgba(247,245,255,.68);
-  backdrop-filter:blur(18px);
-  border-bottom:1px solid rgba(98,53,255,.09);
-}
-.logo{color:#171331}.nav a{color:#1d1740}.nav a:hover{color:#6235ff}
-.snap-section{background:#f1eff7;}
-.hero{
-  color:#171331;
-  background:
-    radial-gradient(circle at 70% 38%,rgba(98,53,255,.16),transparent 18%),
-    radial-gradient(circle at 22% 24%,rgba(125,220,255,.18),transparent 20%),
-    linear-gradient(180deg,#fbfaff 0%,#f1eff7 100%);
-}
-.hero:before{
-  background:
-    radial-gradient(circle at 50% 12%,rgba(255,255,255,.95) 0 13%,transparent 36%),
-    radial-gradient(circle at 70% 42%,rgba(98,53,255,.16),transparent 17%),
-    radial-gradient(circle at 50% 100%,rgba(125,220,255,.16),transparent 31%);
-}
-.orbit{border-color:rgba(98,53,255,.18)}
-.script{color:#6235ff;text-shadow:0 12px 35px rgba(98,53,255,.22)}
-.hero h1{
-  background:linear-gradient(90deg,#171331 0%,#241d46 48%,#6235ff 100%);
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
-}
-.hero-orb{filter:drop-shadow(0 28px 45px rgba(98,53,255,.22))}
-.hero-orb span{
-  background:radial-gradient(circle at 25% 18%,#fff 0 7%,transparent 15%),conic-gradient(from 30deg,#f7f5ff,#fff,#9b70ff,#7ddcff,#e8ddff,#fff,#6235ff,#f7f5ff);
-  box-shadow:inset 0 0 28px rgba(255,255,255,.8),0 0 60px rgba(98,53,255,.22);
-}
-.intro{
-  background:#fff;
-  color:#171331;
-}
-.intro:before{
-  content:"";
-  position:absolute;
-  inset:auto -10vw -30vh auto;
-  width:420px;height:420px;border-radius:50%;
-  background:radial-gradient(circle,#d8d2ff,transparent 68%);
-  opacity:.75;filter:blur(2px);
-}
-.intro h2{color:#171331}.intro p,.info p{color:#625b82}.profile-grid{border-top-color:rgba(98,53,255,.18)}
-.profile-card,.info{
-  background:rgba(255,255,255,.72);
-  border-radius:22px;
-}
-.profile-card{border-color:rgba(98,53,255,.11);box-shadow:0 20px 60px rgba(41,30,100,.07)}
-.avatar{background:linear-gradient(160deg,#ece7f8,#fff);border-color:rgba(98,53,255,.12)}
-.horizontal-wrap,.case-panel{
-  background:#f1eff7;
-}
-.case-panel:nth-child(even){background:#f7f5ff}
-.case-panel:before{background:rgba(98,53,255,.1)}
-.case-text .num,.snap-hint{color:#6235ff}
-.snap-hint:after{background:#6235ff}.case-text h2{color:#171331}.case-text p{color:#625b82}
-.case-tag{
-  border:0;
-  background:#241d46;
-  color:#fff;
-  box-shadow:0 16px 35px rgba(70,40,160,.16);
-}
-.browser{
-  background:#241d46;
-  box-shadow:0 35px 85px rgba(45,31,115,.18);
-}
-.browser:before{background:#241d46}
-.phone,.tablet{background:#241d46;box-shadow:0 28px 70px rgba(45,31,115,.18)}
-.screen:before{opacity:.72}.dots .dot{border-color:#6235ff}.dot.on{background:#6235ff}.wheel-guide{color:#8c80c7}
-.gallery-showcase{
-  background:
-    radial-gradient(circle at 50% 24%,rgba(98,53,255,.18),transparent 22%),
-    linear-gradient(180deg,#f7f5ff 0%,#f1eff7 55%,#e9e5f2 100%);
-  color:#171331;
-}
-.gallery-showcase:before{
-  background:
-    radial-gradient(circle at 50% 30%,rgba(98,53,255,.22),transparent 23%),
-    radial-gradient(circle at 20% 52%,rgba(125,220,255,.14),transparent 20%),
-    linear-gradient(180deg,#f7f5ff 0%,#f1eff7 52%,#e7e2f4 100%);
-}
-.gallery-copy .mini{color:#6235ff}.gallery-copy h2{color:#171331;text-shadow:none}.gallery-copy p{color:#625b82}
-.gallery-thumb{
-  border:1px solid rgba(255,255,255,.75)!important;
-  box-shadow:0 28px 80px rgba(45,31,115,.17)!important;
-}
-.gallery-thumb:before{
-  background:
-    radial-gradient(circle at 24% 20%,rgba(255,255,255,.82),transparent 13%),
-    linear-gradient(120deg,transparent 15%,rgba(255,255,255,.48),transparent 44%),
-    repeating-linear-gradient(90deg,rgba(255,255,255,.16) 0 1px,transparent 1px 34px);
-  opacity:.82;
-}
-.gallery-thumb:after{text-shadow:0 8px 18px rgba(36,29,70,.4)}
-.gallery-thumb i{background:rgba(255,255,255,.32);border-color:rgba(255,255,255,.28)}
-.gallery-fade{
-  background:
-    linear-gradient(180deg,#f7f5ff 0%,rgba(247,245,255,.78) 18%,rgba(241,239,247,.18) 43%,rgba(241,239,247,.05) 63%,#f1eff7 100%),
-    linear-gradient(90deg,#f1eff7 0%,transparent 11%,transparent 89%,#f1eff7 100%)!important;
-}
-.gallery-glow{background:radial-gradient(circle,rgba(98,53,255,.24),transparent 65%)}
-.gallery-scroll-note{color:#6235ff}
-.carousel-3d{
-  background:
-    radial-gradient(circle at 50% 18%,#fff 0 11%,transparent 28%),
-    linear-gradient(180deg,#f7f5ff,#f1eff7);
-}
-.carousel-3d h2{color:rgba(36,29,70,.55)}
-.p-card{box-shadow:0 32px 80px rgba(45,31,115,.16)}
-.box-section{
-  background:#f1eff7;
-}
-.box-section h2{color:#171331}
-.box{
-  background:rgba(255,255,255,.65);
-  border-color:rgba(98,53,255,.1);
-  backdrop-filter:blur(10px);
-  box-shadow:0 18px 55px rgba(41,30,100,.06);
-}
-.box:before{background:linear-gradient(135deg,#6235ff,#7ddcff,#fff)}
-.box b{color:#6235ff}.box h3{color:#241d46}.box p{color:#625b82}
-.footer{
-  background:
-    radial-gradient(circle at 50% 30%,rgba(98,53,255,.18),transparent 26%),
-    linear-gradient(180deg,#f1eff7,#e7e2f4);
-  color:#171331;
-}
-.footer h2{color:#171331}.footer p{color:#5b527b}
-.footer-orb{
-  background:radial-gradient(circle at 25% 20%,#fff,transparent 12%),conic-gradient(#f7f5ff,#fff,#9b70ff,#7ddcff,#6235ff,#f7f5ff);
-  opacity:.9;
-  box-shadow:0 35px 90px rgba(98,53,255,.22);
-}
-/* 카드 기본 컬러도 보라톤에 맞춰 살짝 정리 */
-.case-panel:nth-child(1){--c1:#241d46!important;--c2:#d8d2ff!important}
-.case-panel:nth-child(2){--c1:#6235ff!important;--c2:#7ddcff!important}
-.case-panel:nth-child(3){--c1:#171331!important;--c2:#9b70ff!important}
-.case-panel:nth-child(4){--c1:#9b70ff!important;--c2:#f7d7ff!important}
-@media(max-width:900px){
-  .gallery-showcase,.footer{background:#f1eff7;color:#171331}
-}
-
-</style>
-<style>
-
-/* =========================================================
-   FINAL COLOR DIRECTION : Lotte Dutyfree Purple Rhythm
-   - 기본 구조/휠스냅/갤러리 동작 유지
-   - 색 흐름: BLACK → WHITE → PURPLE → WHITE → BLACK → SOFT LAVENDER → BLACK → WHITE → WHITE/BLACK
-========================================================= */
-:root{
-  --deep:#080515;
-  --navy:#171331;
-  --purple:#6b43ff;
-  --purple2:#4d35f5;
-  --lavender:#f5f1ff;
-  --lavender2:#eee8ff;
-  --pink:#f8d6ea;
-  --sky:#b9e7ff;
-  --muted:#78728f;
-}
-
-html{background:#fff;scroll-snap-type:y mandatory;}
-body{background:#fff;color:var(--navy);}
-body:before{opacity:.12;background-image:radial-gradient(rgba(255,255,255,.8) 1px,transparent 1px);}
-
-/* cursor */
-.cursor{border-color:#7b43ff;mix-blend-mode:difference;box-shadow:0 0 0 6px rgba(123,67,255,.08)}
-.cursor.big{background:rgba(123,67,255,.14);border-color:#7b43ff;}
-
-/* header: 어떤 배경에서도 보이게 */
-header{
-  background:transparent!important;
-  border:0!important;
-  color:#fff!important;
-  mix-blend-mode:difference!important;
-  backdrop-filter:none!important;
-}
-.logo,.nav a{color:#fff!important;}
-
-/* 01 Hero - Black + purple object */
-.hero{
-  background:#000!important;
-  color:#fff!important;
-}
-.hero:before{
-  background:
-    radial-gradient(circle at 68% 38%,rgba(123,67,255,.25),transparent 18%),
-    radial-gradient(circle at 48% 86%,rgba(255,255,255,.08),transparent 28%),
-    linear-gradient(180deg,#000 0%,#05030d 100%)!important;
-}
-.hero h1{
-  background:none!important;
-  -webkit-background-clip:initial!important;
-  background-clip:initial!important;
-  color:#fff!important;
-  text-shadow:0 20px 80px rgba(123,67,255,.22);
-}
-.script{color:#b78aff!important;text-shadow:0 0 28px rgba(183,138,255,.4)!important;}
-.orbit{border-color:rgba(255,255,255,.18)!important;}
-.hero-orb span{
-  background:
-    radial-gradient(circle at 25% 18%,#fff 0 7%,transparent 15%),
-    conic-gradient(from 30deg,#0b0b0b,#fff,#b78aff,#6ee6ff,#111,#fff,#f2c6ff,#111)!important;
-  box-shadow:inset 0 0 25px rgba(255,255,255,.65),0 0 80px rgba(123,67,255,.28)!important;
-}
-
-/* 02 About - Clean white */
-.intro{
-  background:#fff!important;
-  color:#171331!important;
-}
-.intro:before{
-  content:"";
-  position:absolute;
-  right:-12vw;bottom:-22vh;
-  width:520px;height:520px;border-radius:50%;
-  background:radial-gradient(circle,rgba(123,67,255,.16),transparent 68%);
-  filter:blur(2px);opacity:1;
-}
-.intro h2{color:#171331!important;}
-.intro p,.info p{color:#66617a!important;}
-.profile-grid{border-top-color:rgba(23,19,49,.14)!important;}
-.profile-card,.info{background:#fff!important;border-radius:20px;}
-.profile-card{border-color:rgba(23,19,49,.12)!important;box-shadow:0 24px 60px rgba(23,19,49,.06)!important;}
-.avatar{background:linear-gradient(160deg,#f2eff8,#fff)!important;border-color:rgba(23,19,49,.1)!important;}
-
-/* Works common */
-.horizontal-wrap{background:#fff!important;}
-.case-panel{border:0!important;}
-.case-panel:before{display:none!important;}
-.case-text .num{color:#6b43ff!important;}
-.case-tag{
-  border:0!important;
-  background:#6b43ff!important;
-  color:#fff!important;
-  box-shadow:0 18px 45px rgba(78,53,245,.22)!important;
-}
-.dots .dot{border-color:#6b43ff!important;}
-.dot.on{background:#6b43ff!important;}
-.snap-hint{color:#6b43ff!important;}
-.snap-hint:after{background:#6b43ff!important;}
-.wheel-guide{color:#7b43ff!important;}
-.browser,.phone,.tablet{background:#18142b!important;box-shadow:0 35px 90px rgba(35,24,74,.18)!important;}
-.browser:before{background:#18142b!important;}
-
-/* 03 Hans - Lotte style purple gradient */
-.case-panel:nth-child(1){
-  background:
-    radial-gradient(circle at 76% 18%,rgba(255,255,255,.42),transparent 22%),
-    radial-gradient(circle at 50% 0%,rgba(255,255,255,.35),transparent 30%),
-    linear-gradient(135deg,#7b43ff 0%,#6b43ff 38%,#8d7cff 62%,#f4eaff 100%)!important;
-  color:#fff!important;
-}
-.case-panel:nth-child(1) .case-text .num,
-.case-panel:nth-child(1) .snap-hint,
-.case-panel:nth-child(1) .wheel-guide{color:#fff!important;}
-.case-panel:nth-child(1) .snap-hint:after{background:#fff!important;}
-.case-panel:nth-child(1) .case-text h2,
-.case-panel:nth-child(1) .case-text p{color:#fff!important;}
-.case-panel:nth-child(1) .case-tag{background:transparent!important;border:1px solid rgba(255,255,255,.75)!important;color:#fff!important;box-shadow:none!important;}
-.case-panel:nth-child(1){--c1:#301d8f!important;--c2:#efe7ff!important;}
-
-/* 04 Samsung - Clean white with soft lavender/blue */
-.case-panel:nth-child(2){
-  background:
-    radial-gradient(circle at 72% 50%,rgba(123,67,255,.14),transparent 30%),
-    radial-gradient(circle at 20% 18%,rgba(185,231,255,.18),transparent 25%),
-    linear-gradient(180deg,#fff 0%,#fbfaff 48%,#f4f0ff 100%)!important;
-  color:#171331!important;
-}
-.case-panel:nth-child(2) .case-text h2{color:#171331!important;}
-.case-panel:nth-child(2) .case-text p{color:#6d6685!important;}
-.case-panel:nth-child(2){--c1:#6b43ff!important;--c2:#8fdfff!important;}
-
-/* 05 Sonicast - Black section */
-.case-panel:nth-child(3){
-  background:
-    radial-gradient(circle at 68% 38%,rgba(64,157,255,.22),transparent 22%),
-    radial-gradient(circle at 28% 72%,rgba(123,67,255,.18),transparent 26%),
-    linear-gradient(180deg,#040404 0%,#171331 100%)!important;
-  color:#fff!important;
-}
-.case-panel:nth-child(3) .case-text .num,
-.case-panel:nth-child(3) .snap-hint,
-.case-panel:nth-child(3) .wheel-guide{color:#b78aff!important;}
-.case-panel:nth-child(3) .snap-hint:after{background:#b78aff!important;}
-.case-panel:nth-child(3) .case-text h2{color:#fff!important;}
-.case-panel:nth-child(3) .case-text p{color:rgba(255,255,255,.72)!important;}
-.case-panel:nth-child(3) .case-tag{background:#fff!important;color:#171331!important;box-shadow:0 18px 45px rgba(0,0,0,.25)!important;}
-.case-panel:nth-child(3){--c1:#050505!important;--c2:#409dff!important;}
-
-/* 06 Neungyule - Soft pink/lavender */
-.case-panel:nth-child(4){
-  background:
-    radial-gradient(circle at 80% 22%,rgba(123,67,255,.13),transparent 28%),
-    radial-gradient(circle at 12% 70%,rgba(255,191,221,.26),transparent 32%),
-    linear-gradient(135deg,#fff 0%,#fff7fb 36%,#f5efff 72%,#e8ddff 100%)!important;
-  color:#171331!important;
-}
-.case-panel:nth-child(4) .case-text h2{color:#171331!important;}
-.case-panel:nth-child(4) .case-text p{color:#6d6685!important;}
-.case-panel:nth-child(4){--c1:#ff93c6!important;--c2:#fff0b8!important;}
-
-/* 07 Gallery - Black, keep dramatic */
-.gallery-showcase{
-  background:#000!important;
-  color:#fff!important;
-}
-.gallery-showcase:before{
-  background:
-    radial-gradient(circle at 50% 38%,rgba(123,67,255,.23),transparent 24%),
-    radial-gradient(circle at 50% 100%,rgba(10,90,120,.12),transparent 28%),
-    linear-gradient(180deg,#000 0%,#06030f 52%,#000 100%)!important;
-}
-.gallery-copy .mini{color:#b78aff!important;}
-.gallery-copy h2{color:#fff!important;text-shadow:0 30px 90px rgba(123,67,255,.18)!important;}
-.gallery-thumb{border:1px solid rgba(255,255,255,.16)!important;box-shadow:0 28px 80px rgba(0,0,0,.6)!important;}
-.gallery-fade{
-  background:
-    linear-gradient(180deg,#000 0%,rgba(0,0,0,.9) 18%,rgba(0,0,0,.24) 43%,rgba(0,0,0,.05) 63%,#000 100%),
-    linear-gradient(90deg,#000 0%,transparent 11%,transparent 89%,#000 100%)!important;
-}
-.gallery-glow{background:radial-gradient(circle,rgba(123,67,255,.22),transparent 65%)!important;}
-.gallery-scroll-note{color:#b78aff!important;}
-
-/* 08 3D Carousel - White + purple airy */
-.carousel-3d{
-  background:
-    radial-gradient(circle at 76% 42%,rgba(123,67,255,.17),transparent 27%),
-    radial-gradient(circle at 36% 35%,rgba(185,231,255,.15),transparent 24%),
-    linear-gradient(180deg,#ffffff 0%,#f8f6ff 55%,#f1eff7 100%)!important;
-}
-.carousel-3d h2{color:rgba(23,19,49,.48)!important;}
-.p-card{box-shadow:0 38px 90px rgba(23,19,49,.12)!important;}
-
-/* 09 Other works - clean white */
-.box-section{
-  background:#fff!important;
-}
-.box-section h2{color:#171331!important;}
-.box{
-  background:linear-gradient(180deg,#fff,#f8f6ff)!important;
-  border:1px solid rgba(23,19,49,.08)!important;
-  box-shadow:0 24px 60px rgba(23,19,49,.06)!important;
-}
-.box:before{background:linear-gradient(135deg,#6b43ff,#dcd3ff,#fff)!important;}
-.box b{color:#6b43ff!important;}
-.box p{color:#6d6685!important;}
-
-/* 10 Contact - top white / bottom black */
-.footer{
-  background:
-    radial-gradient(circle at 78% 38%,rgba(123,67,255,.34),transparent 18%),
-    linear-gradient(180deg,#f7f5ff 0%,#f7f5ff 49.8%,#09070f 50%,#09070f 100%)!important;
-  color:#fff!important;
-}
-.footer h2{
-  color:#fff!important;
-  text-shadow:0 24px 70px rgba(123,67,255,.35);
-}
-.footer p{color:rgba(255,255,255,.78)!important;}
-.footer-orb{
-  background:
-    radial-gradient(circle at 28% 22%,#fff,transparent 12%),
-    conic-gradient(#6b43ff,#e8ddff,#b9e7ff,#7b43ff,#f8d6ea,#6b43ff)!important;
-  opacity:.9!important;
-  box-shadow:0 34px 110px rgba(123,67,255,.35)!important;
-}
-
-@media(max-width:900px){
-  header{mix-blend-mode:difference!important;}
-  .case-panel:nth-child(1),.case-panel:nth-child(2),.case-panel:nth-child(3),.case-panel:nth-child(4){padding:90px 24px!important;}
-  .gallery-showcase{background:#000!important;color:#fff!important;}
-}
-
-</style>
-
-<style>
-/* ================================
-   INTRO LANDING / PRELOADER
-================================ */
-body.loading{
-  height:100vh;
-  overflow:hidden;
-}
-
-.intro-loader{
-  position:fixed;
-  inset:0;
-  z-index:10000;
-  background:
-    radial-gradient(circle at 70% 35%,rgba(255,255,255,.18),transparent 24%),
-    radial-gradient(circle at 20% 82%,rgba(75,42,203,.34),transparent 26%),
-    linear-gradient(180deg,#8a52ff 0%,#7b43ff 100%);
-  display:grid;
-  place-items:center;
-  color:#fff;
-  overflow:hidden;
-  transition:opacity .9s ease, visibility .9s ease, transform .9s ease;
-}
-
-.intro-loader:before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background-image:
-    radial-gradient(circle at center, rgba(255,255,255,.12) 0 62px, transparent 63px);
-  background-size:166px 166px;
-  opacity:.5;
-}
-
-.intro-loader:after{
-  content:"";
-  position:absolute;
-  width:520px;
-  height:520px;
-  border-radius:50%;
-  right:-120px;
-  bottom:-140px;
-  background:radial-gradient(circle,rgba(255,255,255,.24),transparent 64%);
-  filter:blur(4px);
-}
-
-.intro-loader.hide{
-  opacity:0;
-  visibility:hidden;
-  transform:scale(1.04);
-  pointer-events:none;
-}
-
-.intro-loader-inner{
-  position:relative;
-  z-index:2;
-  text-align:center;
-  width:min(900px,88vw);
-}
-
-.intro-small{
-  font-size:12px;
-  font-weight:900;
-  letter-spacing:.32em;
-  margin-bottom:24px;
-  opacity:0;
-  transform:translateY(20px);
-  animation:introUp .8s ease forwards;
-}
-
-.intro-logo{
-  display:inline-block;
-  font-size:clamp(64px,13vw,170px);
-  line-height:.78;
-  font-weight:900;
-  letter-spacing:-.1em;
-  color:#fff;
-  text-shadow:0 28px 90px rgba(75,42,203,.34);
-  white-space:nowrap;
-  overflow:hidden;
-  border-right:5px solid rgba(255,255,255,.9);
-  width:0;
-  animation:
-    typing 1.25s steps(9) .35s forwards,
-    caret .55s step-end infinite;
-}
-
-.intro-sub{
-  margin:30px auto 0;
-  max-width:620px;
-  color:rgba(255,255,255,.78);
-  font-size:clamp(14px,1.4vw,18px);
-  line-height:1.7;
-  opacity:0;
-  transform:translateY(18px);
-  animation:introUp .9s ease 1.65s forwards;
-}
-
-.intro-progress{
-  position:relative;
-  width:min(360px,64vw);
-  height:3px;
-  margin:38px auto 0;
-  background:rgba(255,255,255,.24);
-  border-radius:999px;
-  overflow:hidden;
-  opacity:0;
-  animation:introFade .6s ease 1.9s forwards;
-}
-
-.intro-progress span{
-  display:block;
-  height:100%;
-  width:0;
-  background:#fff;
-  border-radius:999px;
-  animation:progressFill 1.25s cubic-bezier(.77,0,.18,1) 2s forwards;
-}
-
-.intro-skip{
-  position:absolute;
-  right:34px;
-  bottom:30px;
-  z-index:3;
-  padding:10px 14px;
-  border:1px solid rgba(255,255,255,.32);
-  border-radius:999px;
-  color:#fff;
-  background:rgba(255,255,255,.1);
-  backdrop-filter:blur(10px);
-  font-size:11px;
-  font-weight:900;
-  letter-spacing:.08em;
-  cursor:pointer;
-}
-
-.page-wrap{
-  opacity:0;
-  transform:translateY(26px);
-  transition:opacity .9s ease, transform .9s ease;
-}
-
-body.loaded .page-wrap{
-  opacity:1;
-  transform:none;
-}
-
-@keyframes typing{
-  from{width:0}
-  to{width:9ch}
-}
-
-@keyframes caret{
-  50%{border-color:transparent}
-}
-
-@keyframes introUp{
-  to{opacity:1;transform:none}
-}
-
-@keyframes introFade{
-  to{opacity:1}
-}
-
-@keyframes progressFill{
-  to{width:100%}
-}
-
-@media(max-width:900px){
-  .intro-logo{border-right-width:3px}
-  .intro-skip{right:20px;bottom:20px}
-}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;600;700;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link
+  rel="stylesheet"
+  crossorigin
+  href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+/>
+<link rel="stylesheet" href="./css/style.css">
 
 </head>
 <body class="loading">
 <div class="intro-loader" id="introLoader">
   <div class="intro-loader-inner">
     <div class="intro-small">WELCOME TO MY PORTFOLIO</div>
-    <div class="intro-logo">LIAFOLIO</div>
+    <div class="intro-logo"><span>LIA</span><em>PORTFOLIO</em></div>
     <p class="intro-sub">UX/UI Design · Web Publishing · Interactive Motion</p>
     <div class="intro-progress"><span></span></div>
   </div>
   <button class="intro-skip" type="button" id="introSkip">SKIP</button>
 </div>
 
+<div class="scroll-progress" aria-hidden="true"><i></i></div>
+
 <div class="page-wrap" id="pageWrap">
 
 <div class="cursor"></div>
-<header><div class="logo">LIA</div><nav class="nav"><a href="#about">About</a><a href="#works">Works</a><a href="#projects">Projects</a><a href="#contact">Contact</a></nav></header>
-<section class="snap-section hero"><div class="orbit"></div><div class="hero-orb"><span></span><span></span><span></span></div><div class="hero-inner"><div class="script reveal">UX Designer & Web Publisher</div><h1 class="reveal">Portfolio</h1></div></section>
-<section id="about" class="snap-section intro"><h2 class="reveal">안녕하세요!<br>UXUI 디자이너 이지아입니다.</h2><p class="reveal">브랜드와 사용자를 연결하는 경험을 만듭니다. 기획, 디자인, 퍼블리싱을 하나의 흐름으로 정리해 완성도 높은 웹사이트를 구현합니다.</p><div class="profile-grid reveal"><div class="profile-card"><div class="avatar">👩🏻‍💻</div><p style="margin-top:16px;font-weight:900">이지아 / LEE JIA</p><p style="font-size:12px;color:#777;margin-top:8px">UXUI DESIGNER · WEB PUBLISHER</p></div><div class="info"><h3>Education</h3><p>UX/UI 웹디자인 과정 수료<br>웹퍼블리싱 HTML/CSS/JS<br>반응형 웹사이트 제작</p><br><h3>License</h3><p>웹디자인 기능사 준비<br>GTQ / 컴퓨터그래픽스</p></div><div class="info"><h3>Work</h3><p>기업형 웹사이트 리뉴얼<br>브랜드 상세페이지 제작</p><br><h3>Used Tools</h3><p>Photoshop · Illustrator · Figma<br>HTML · CSS · JavaScript</p></div></div></section>
-<section id="works" class="horizontal-wrap"><div class="horizontal-sticky"><div class="horizontal-track">
-<article class="case-panel" style="--c1:#111;--c2:#cfcfcf"><div class="case-text reveal"><div class="num">01 / HANS CAKE</div><h2>한스케익<br>리뉴얼 디자인</h2><p>브랜드의 고급스러움과 제품 이미지를 강조한 반응형 웹 리뉴얼 프로젝트입니다. 휠 한 번에 한 화면씩 딱 전환됩니다.</p><span class="case-tag">VIEW PROJECT</span></div><div class="device-stage"><div class="browser"><div class="screen"><h3>HANS</h3></div></div><div class="phone"><i></i></div><div class="tablet"><i></i></div><div class="snap-hint">WHEEL SNAP 01</div></div></article>
-<article class="case-panel" style="--c1:#123dff;--c2:#9ee8ff"><div class="case-text reveal"><div class="num">02 / SAMSUNG BIOLOGICS</div><h2>삼성바이오로직스<br>기업 웹사이트</h2><p>글로벌 바이오 기업의 신뢰감과 미래지향성을 중심으로 구성한 기업형 웹사이트 디자인입니다.</p><span class="case-tag">VIEW PROJECT</span></div><div class="device-stage"><div class="browser"><div class="screen"><h3>BIOLOGICS</h3></div></div><div class="phone"><i></i></div><div class="tablet"><i></i></div><div class="snap-hint">WHEEL SNAP 02</div></div></article>
-<article class="case-panel" style="--c1:#050505;--c2:#409dff"><div class="case-text reveal"><div class="num">03 / SONICAST</div><h2>소니캐스트<br>인터랙티브 웹</h2><p>음향 기술과 이어폰 제품을 3D 오브제, 영상형 히어로, 스크롤 모션으로 표현한 프로젝트입니다.</p><span class="case-tag">VIEW PROJECT</span></div><div class="device-stage"><div class="browser"><div class="screen"><h3>SONICAST</h3></div></div><div class="phone"><i></i></div><div class="tablet"><i></i></div><div class="snap-hint">WHEEL SNAP 03</div></div></article>
-<article class="case-panel" style="--c1:#ff8fb9;--c2:#fff0a8"><div class="case-text reveal"><div class="num">04 / NEUNGYULE</div><h2>능률<br>교육 콘텐츠</h2><p>밝고 친근한 교육 브랜드 이미지를 살린 이벤트/콘텐츠형 웹 디자인 프로젝트입니다.</p><span class="case-tag">VIEW PROJECT</span></div><div class="device-stage"><div class="browser"><div class="screen"><h3>NEUNGYULE</h3></div></div><div class="phone"><i></i></div><div class="tablet"><i></i></div><div class="snap-hint">WHEEL SNAP 04</div></div></article>
-</div><div class="wheel-guide">WHEEL / TOUCH TO CHANGE PROJECT</div><div class="dots"><button class="dot on" aria-label="1"></button><button class="dot" aria-label="2"></button><button class="dot" aria-label="3"></button><button class="dot" aria-label="4"></button></div></div></section>
-<section class="snap-section gallery-showcase">
+<header id="header">
+  <a class="logo" href="#hero" aria-label="메인 화면으로 이동">LIA</a>
+
+  <nav class="nav" aria-label="주요 메뉴">
+    <a href="#about">About</a>
+    <a href="#works">Works</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <button
+    class="mobile-menu-btn"
+    type="button"
+    aria-label="모바일 메뉴 열기"
+    aria-controls="mobileMenu"
+    aria-expanded="false"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</header>
+
+<nav
+  class="mobile-menu"
+  id="mobileMenu"
+  aria-label="모바일 전체 메뉴"
+  aria-hidden="true"
+>
+  <div class="mobile-menu-inner">
+    <p class="mobile-menu-kicker">MENU / LIA PORTFOLIO</p>
+
+    <div class="mobile-menu-links">
+      <a href="#hero"><span>00</span><strong>HOME</strong></a>
+      <a href="#about"><span>01</span><strong>ABOUT</strong></a>
+      <a href="#works"><span>02</span><strong>WORKS</strong></a>
+      <a href="#galleryshowcase"><span>03</span><strong>HIGHLIGHTS</strong></a>
+      <a href="#projects"><span>04</span><strong>DETAIL PAGES</strong></a>
+      <a href="#box_project"><span>05</span><strong>DESIGN WORKS</strong></a>
+      <a href="#contact"><span>06</span><strong>CONTACT</strong></a>
+    </div>
+
+    <p class="mobile-menu-foot">
+      UX/UI DESIGNER · WEB PUBLISHER<br>
+      LEE JIA / 2026
+    </p>
+  </div>
+</nav>
+
+<aside class="edge-index" aria-label="섹션 바로가기">
+  <a href="#hero" class="active"><span>00</span><i></i></a>
+  <a href="#about"><span>01</span><i></i></a>
+  <a href="#works"><span>02</span><i></i></a>
+  <a href="#galleryshowcase"><span>03</span><i></i></a>
+  <a href="#projects"><span>04</span><i></i></a>
+  <a href="#box_project"><span>05</span><i></i></a>
+  <a href="#contact"><span>06</span><i></i></a>
+</aside>
+
+<section id="hero" class="snap-section">
+
+  <div class="hero-outline hero-outline-left">L</div>
+  <div class="hero-outline hero-outline-right">IA</div>
+
+  <div class="hero-blur blur-purple"></div>
+  <div class="hero-blur blur-mint"></div>
+
+  <div class="hero-inner">
+    <div class="hero-top-meta reveal">
+      <span>PORTFOLIO / 2026</span>
+      <span>UX/UI · WEB PUBLISHING</span>
+      <span>LEE JIA / CHANGWON</span>
+    </div>
+
+    <h1 class="reveal">
+      <span class="hero-solid">DESIGNING DIGITAL.</span>
+      <span class="hero-stroke">BUILDING EXPERIENCE.</span>
+    </h1>
+
+    <div class="hero-bottom-meta reveal">
+      <div>
+        <small>SELECTED PORTFOLIO</small>
+        <p>사용자의 경험과 브랜드의 인상을<br>하나의 화면 안에서 설계합니다.</p>
+      </div>
+      <span>LEE JIA<br>UX/UI DESIGNER<br>WEB PUBLISHER</span>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <span>01</span>
+    <i></i>
+    <em>Scroll down</em>
+  </div>
+
+</section>
+<section id="about" class="snap-section intro">
+  <div class="sub_title">Introduction</div>
+  <h2 class="reveal">
+      <span>THINK. DESIGN.</span>
+      <em>BUILD.</em>
+    </h2>
+  <p class="reveal">브랜드와 사용자를 연결하는 경험을 만듭니다. 기획, 디자인, 퍼블리싱을 하나의 흐름으로 정리해 완성도 높은 웹사이트를 구현합니다.</p>
+  <div class="profile-grid reveal">
+    <div class="profile-card">
+      <div class="profile_img">
+        <img src="./images/profile_img.png" alt="" onerror="this.style.display='none'">
+      </div>
+      <h5>이지아 / LEE JIA</h5>
+      <ul>
+        <li><i></i>1999.04.25</li>
+        <li><i></i>010-2245-0192</li>
+        <li><i></i>lja425@naver.com</li>
+      </ul>
+    </div>
+    <div class="info">
+      <h3>Education</h3>
+      <p>2022.02 창원대학교 졸업<br>2018.03 창원대학교 입학<br>2018.02 창원여자고등학교 졸업<br>2018.02 창원여자고등학교 졸업</p><br>
+      <h3>Work</h3>
+      <p>2023.08-2025.09 '웹싱크' 웹디자이너 사원</p>
+    </div>
+    <div class="info">
+      <h3>License</h3>
+      <p>2023.05 웹디자인기능사<br>2023.05 컴퓨터그래픽스운용기능사<br>2020.11 컴퓨터활용능력<br>2019.08 운전면허증</p><br>
+      <h3>Used Tools</h3>
+      <ul class="toolbox">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+  </div>
+</section>
+<section id="works" class="horizontal-wrap">
+  <div class="works-impact-rail" aria-hidden="true">
+    <div class="works-impact-rail-track">
+      <span>SELECTED PROJECTS — WEB REDESIGN — CASE STUDY —</span>
+      <span>SELECTED PROJECTS — WEB REDESIGN — CASE STUDY —</span>
+    </div>
+  </div>
+  <div class ="horizontal-sticky">
+    <div class="horizontal-track">
+      <article class="case-panel" style="--c1:#030303;--c2:#cfcfcf">
+        <div class="case-text reveal">
+          <div class="num">01 / HANS CAKE</div>
+          <h2>한스케익<br>리뉴얼 디자인</h2>
+          <ul class="case_list">
+            <li>
+              <h4>작업 기간</h4>
+              <p>2026.04 - 2026.05</p>
+            </li>
+            <li>
+              <h4>기여도</h4>
+              <p>개인프로젝트(100%)</p>
+            </li>
+            <li>
+              <h4>작업개요</h4>
+              <p>한스케익의 따뜻한 브랜드 감성과 제품 이미지를 현대적으로 재해석한 반응형 웹 리뉴얼 프로젝트입니다.</p>
+            </li>
+          </ul>
+          <p></p>
+          <span class="case-tag"><a href="./hans_page.html">VIEW PROJECT</a></span>
+        </div>
+        <div class="device-stage">
+          <span class="decor decor-a" aria-hidden="true"></span>
+          <span class="decor decor-b" aria-hidden="true"></span>
+          <img src="./images/mokup_hans.png" alt="" onerror="this.style.display='none'">
+        </div>
+      </article>
+      <article class="case-panel" style="--c1:#123dff;--c2:#9ee8ff">
+        <div class="case-text reveal">
+          <div class="num">02 / SAMSUNG BIOLOGICS</div>
+          <h2>삼성바이오로직스<br>기업 웹사이트</h2>
+          <ul class="case_list">
+            <li>
+              <h4>작업 기간</h4>
+              <p>2026.04 - 2026.05</p>
+            </li>
+            <li>
+              <h4>기여도</h4>
+              <p>개인프로젝트(100%)</p>
+            </li>
+            <li>
+              <h4>작업개요</h4>
+              <p>기존 웹사이트를 바탕으로 글로벌 바이오 기업의 전문성과 신뢰감을 강화한 리뉴얼 프로젝트입니다.</p>
+            </li>
+          </ul>
+          <span class="case-tag"><a href="./samsung_page.html">VIEW PROJECT</a></span>
+        </div>
+        <div class="device-stage">
+          <span class="decor decor-a" aria-hidden="true"></span>
+          <span class="decor decor-b" aria-hidden="true"></span>
+          <img src="./images/mokup_samsung.png" alt="" onerror="this.style.display='none'">
+        </div>
+      </article>
+      <article class="case-panel" style="--c1:#050505;--c2:#409dff">
+        <div class="case-text reveal">
+          <div class="num">03 / SONICAST</div>
+          <h2>소니캐스트<br>인터랙티브 웹</h2>
+          <ul class="case_list">
+            <li>
+              <h4>작업 기간</h4>
+              <p>2026.04 - 2026.05</p>
+            </li>
+            <li>
+              <h4>기여도</h4>
+              <p>개인프로젝트(100%)</p>
+            </li>
+            <li>
+              <h4>작업개요</h4>
+              <p>소니캐스트의 음향 기술력과 제품의 정교한 이미지를 강조한 웹사이트 리뉴얼 프로젝트입니다.</p>
+            </li>
+          </ul>
+          <span class="case-tag"><a href="./sonicast_page.html">VIEW PROJECT</a></span>
+        </div>
+        <div class="device-stage">
+          <span class="decor decor-a" aria-hidden="true"></span>
+          <span class="decor decor-b" aria-hidden="true"></span>
+          <img src="./images/mokup_sonicast.png" alt="" onerror="this.style.display='none'">
+        </div>
+      </article>
+      <article class="case-panel" style="--c1:#ff8fb9;--c2:#fff0a8">
+        <div class="case-text reveal">
+          <div class="num">04 / NEUNGYULE</div>
+          <h2>NE 능률<br>교육 콘텐츠</h2>
+          <ul class="case_list">
+            <li>
+              <h4>작업 기간</h4>
+              <p>2026.04 - 2026.05</p>
+            </li>
+            <li>
+              <h4>기여도</h4>
+              <p>개인프로젝트(100%)</p>
+            </li>
+            <li>
+              <h4>작업개요</h4>
+              <p>NE능률의 교육 전문성과 친근한 브랜드 이미지를 강조한 웹사이트 리뉴얼 프로젝트입니다.</p>
+            </li>
+          </ul>
+          <span class="case-tag"><a href="./ne_page.html">VIEW PROJECT</a></span>
+        </div>
+        <div class="device-stage">
+          <span class="decor decor-a" aria-hidden="true"></span>
+          <span class="decor decor-b" aria-hidden="true"></span>
+          <img src="./images/mokup_NE.png" alt="" onerror="this.style.display='none'">
+        </div>
+      </article>
+    </div>
+    <div class="wheel-guide">WHEEL / TOUCH TO CHANGE PROJECT</div>
+    <div class="dots">
+      <button class="dot on" aria-label="1"></button>
+      <button class="dot" aria-label="2"></button>
+      <button class="dot" aria-label="3"></button>
+      <button class="dot" aria-label="4"></button>
+    </div>
+  </div>
+</section>
+<section id="galleryshowcase" class="snap-section gallery-showcase">
   <div class="gallery-copy">
     <div class="mini reveal">Selected Works</div>
-    <h2 class="reveal">PROJECTS THAT<br>MOVE IN 3D</h2>
-    <p class="reveal">포트폴리오 프로젝트들이 바닥에 펼쳐진 갤러리처럼 지나가고, 스크롤과 마우스 움직임에 따라 좌우로 반응하는 인터랙티브 쇼케이스입니다.</p>
+    <h2 class="reveal">PROJECT <br><em>HIGHLIGHTS.</em></h2>
+    <p class="reveal">기획부터 인터랙션까지,브랜드의 개성을 담아 완성한 프로젝트입니다.</p>
   </div>
-  <div class="gallery-glow"></div>
   <div class="gallery-perspective">
     <div class="gallery-wrapper">
       <div class="gallery-row row-left">
-        <div class="gallery-thumb" data-title="HANS CAKE" style="--c1:#111;--c2:#d8d8d8"><i></i></div>
-        <div class="gallery-thumb" data-title="SAMSUNG BIO" style="--c1:#123dff;--c2:#9ee8ff"><i></i></div>
-        <div class="gallery-thumb" data-title="SONICAST" style="--c1:#030303;--c2:#409dff"><i></i></div>
-        <div class="gallery-thumb" data-title="NEUNGYULE" style="--c1:#ff8fb9;--c2:#fff0a8"><i></i></div>
-        <div class="gallery-thumb" data-title="BRAND UI" style="--c1:#25124d;--c2:#b78aff"><i></i></div>
-        <div class="gallery-thumb" data-title="EVENT PAGE" style="--c1:#ff6f91;--c2:#ffd6e4"><i></i></div>
-        <div class="gallery-thumb" data-title="DETAIL PAGE" style="--c1:#4e944f;--c2:#d3ffc5"><i></i></div>
-        <div class="gallery-thumb" data-title="LANDING" style="--c1:#111;--c2:#fff"><i></i></div>
+        <div class="gallery-thumb" data-title="HANS CAKE" style="--c1:#111;--c2:#d8d8d8">
+          <img src="./images/gallery_hans2.png" alt="" onerror="this.style.display='none'">
+        </div>
+        <div class="gallery-thumb" data-title="SAMSUNG BIO" style="--c1:#123dff;--c2:#9ee8ff">
+          <img src="./images/gallery_hans3.png" alt="" onerror="this.style.display='none'">
+        </div>
+        <div class="gallery-thumb" data-title="SONICAST" style="--c1:#030303;--c2:#409dff">
+          <img src="./images/gallery_hans1.png" alt="" onerror="this.style.display='none'">
+        </div>
+        <div class="gallery-thumb" data-title="NEUNGYULE" style="--c1:#ff8fb9;--c2:#fff0a8">
+          <img src="./images/gallery_hans2.png" alt="" onerror="this.style.display='none'">
+        </div>
+        <div class="gallery-thumb" data-title="BRAND UI" style="--c1:#25124d;--c2:#b78aff">
+          <img src="./images/gallery_hans3.png" alt="" onerror="this.style.display='none'">
+        </div>
+        <div class="gallery-thumb" data-title="EVENT PAGE" style="--c1:#ff6f91;--c2:#ffd6e4">
+          <img src="./images/gallery_hans4.png" alt="" onerror="this.style.display='none'">
+        </div>
+        <div class="gallery-thumb" data-title="DETAIL PAGE" style="--c1:#4e944f;--c2:#d3ffc5">
+          <img src="./images/gallery_hans5.png" alt="" onerror="this.style.display='none'">
+        </div>
+        <div class="gallery-thumb" data-title="LANDING" style="--c1:#111;--c2:#fff">
+          <img src="./images/gallery_hans1.png" alt="" onerror="this.style.display='none'">
+        </div>
       </div>
       <div class="gallery-row row-right">
-        <div class="gallery-thumb" data-title="UIUX FLOW" style="--c1:#764ba2;--c2:#667eea"><i></i></div>
-        <div class="gallery-thumb" data-title="MOBILE APP" style="--c1:#ff9a9e;--c2:#fad0c4"><i></i></div>
-        <div class="gallery-thumb" data-title="WEB PUBLISH" style="--c1:#101010;--c2:#b78aff"><i></i></div>
-        <div class="gallery-thumb" data-title="PROMOTION" style="--c1:#00c6ff;--c2:#0072ff"><i></i></div>
-        <div class="gallery-thumb" data-title="TYPO SYSTEM" style="--c1:#232526;--c2:#757f9a"><i></i></div>
-        <div class="gallery-thumb" data-title="GRAPHIC" style="--c1:#ffecd2;--c2:#fcb69f"><i></i></div>
-        <div class="gallery-thumb" data-title="RESPONSIVE" style="--c1:#43cea2;--c2:#185a9d"><i></i></div>
-        <div class="gallery-thumb" data-title="INTERACTION" style="--c1:#000;--c2:#7ee8ff"><i></i></div>
+        <div class="gallery-thumb" data-title="UIUX FLOW" style="--c1:#764ba2;--c2:#667eea">
+          <img src="./images/gallery_samsung1.png" alt="" onerror="this.style.display='none'">
+        </div>
+        <div class="gallery-thumb" data-title="MOBILE APP" style="--c1:#ff9a9e;--c2:#fad0c4">
+          <img src="./images/gallery_samsung7.png" alt="" onerror="this.style.display='none'">
+        </div>
+        <div class="gallery-thumb" data-title="WEB PUBLISH" style="--c1:#101010;--c2:#b78aff">
+          <img src="./images/gallery_samsung6.png" alt="" onerror="this.style.display='none'">
+        </div>
+        <div class="gallery-thumb" data-title="PROMOTION" style="--c1:#00c6ff;--c2:#0072ff">
+          <img src="./images/gallery_samsung5.png" alt="" onerror="this.style.display='none'">
+        </div>
+        <div class="gallery-thumb" data-title="TYPO SYSTEM" style="--c1:#232526;--c2:#757f9a">
+          <img src="./images/gallery_samsung1.png" alt="" onerror="this.style.display='none'">
+        </div>
+        <div class="gallery-thumb" data-title="GRAPHIC" style="--c1:#ffecd2;--c2:#fcb69f">
+          <img src="./images/gallery_samsung2.png" alt="" onerror="this.style.display='none'">
+        </div>
+        <div class="gallery-thumb" data-title="RESPONSIVE" style="--c1:#43cea2;--c2:#185a9d">
+          <img src="./images/gallery_samsung3.png" alt="" onerror="this.style.display='none'">
+        </div>
+        <div class="gallery-thumb" data-title="INTERACTION" style="--c1:#000;--c2:#7ee8ff">
+          <img src="./images/gallery_samsung4.png" alt="" onerror="this.style.display='none'">
+        </div>
       </div>
       <div class="gallery-row row-left">
-        <div class="gallery-thumb" data-title="PACKAGE" style="--c1:#8360c3;--c2:#2ebf91"><i></i></div>
-        <div class="gallery-thumb" data-title="CARD NEWS" style="--c1:#f7971e;--c2:#ffd200"><i></i></div>
-        <div class="gallery-thumb" data-title="BANNER" style="--c1:#ff758c;--c2:#ff7eb3"><i></i></div>
-        <div class="gallery-thumb" data-title="PORTFOLIO" style="--c1:#111;--c2:#b78aff"><i></i></div>
-        <div class="gallery-thumb" data-title="DESIGN SYSTEM" style="--c1:#1f4037;--c2:#99f2c8"><i></i></div>
-        <div class="gallery-thumb" data-title="EDITORIAL" style="--c1:#bdc3c7;--c2:#2c3e50"><i></i></div>
-        <div class="gallery-thumb" data-title="AWWWARD" style="--c1:#0f2027;--c2:#2c5364"><i></i></div>
-        <div class="gallery-thumb" data-title="CREATIVE" style="--c1:#ee9ca7;--c2:#ffdde1"><i></i></div>
+        <div class="gallery-thumb" data-title="CONCEPT" style="--c1:#614385;--c2:#516395">
+          <img src="./images/gallery_sony5.png" alt="" onerror="this.style.display='none'">
+        </div>
+        <div class="gallery-thumb" data-title="VISUAL" style="--c1:#1d2b64;--c2:#f8cdda">
+          <img src="./images/gallery_sony6.png" alt="" onerror="this.style.display='none'">
+        </div>
+        <div class="gallery-thumb" data-title="SCROLL FX" style="--c1:#000428;--c2:#004e92">
+          <img src="./images/gallery_sony7.png" alt="" onerror="this.style.display='none'">
+        </div>
+        <div class="gallery-thumb" data-title="3D OBJECT" style="--c1:#20002c;--c2:#cbb4d4">
+          <img src="./images/gallery_sony1.png" alt="" onerror="this.style.display='none'">
+        </div>
+        <div class="gallery-thumb" data-title="BRANDING" style="--c1:#141e30;--c2:#b78aff">
+          <img src="./images/gallery_sony2.png" alt="" onerror="this.style.display='none'">
+        </div>
+        <div class="gallery-thumb" data-title="WEB MOTION" style="--c1:#3a1c71;--c2:#ffaf7b">
+          <img src="./images/gallery_sony3.png" alt="" onerror="this.style.display='none'">
+        </div>
+        <div class="gallery-thumb" data-title="UX CASE" style="--c1:#000;--c2:#fff">
+          <img src="./images/gallery_sony4.png" alt="" onerror="this.style.display='none'">
+        </div>
+        <div class="gallery-thumb" data-title="FINAL" style="--c1:#7b43ff;--c2:#6ee6ff">
+          <img src="./images/gallery_sony5.png" alt="" onerror="this.style.display='none'">
+        </div>
       </div>
       <div class="gallery-row row-right">
-        <div class="gallery-thumb" data-title="CONCEPT" style="--c1:#614385;--c2:#516395"><i></i></div>
-        <div class="gallery-thumb" data-title="VISUAL" style="--c1:#1d2b64;--c2:#f8cdda"><i></i></div>
-        <div class="gallery-thumb" data-title="SCROLL FX" style="--c1:#000428;--c2:#004e92"><i></i></div>
-        <div class="gallery-thumb" data-title="3D OBJECT" style="--c1:#20002c;--c2:#cbb4d4"><i></i></div>
-        <div class="gallery-thumb" data-title="BRANDING" style="--c1:#141e30;--c2:#b78aff"><i></i></div>
-        <div class="gallery-thumb" data-title="WEB MOTION" style="--c1:#3a1c71;--c2:#ffaf7b"><i></i></div>
-        <div class="gallery-thumb" data-title="UX CASE" style="--c1:#000;--c2:#fff"><i></i></div>
-        <div class="gallery-thumb" data-title="FINAL" style="--c1:#7b43ff;--c2:#6ee6ff"><i></i></div>
+        <div class="gallery-thumb" data-title="PACKAGE" style="--c1:#8360c3;--c2:#2ebf91">
+          <img src="./images/gallery_ne1.png" alt="" onerror="this.style.display='none'">
+        </div>
+        <div class="gallery-thumb" data-title="CARD NEWS" style="--c1:#f7971e;--c2:#ffd200">
+          <img src="./images/gallery_ne1.png" alt="" onerror="this.style.display='none'">
+        </div>
+        <div class="gallery-thumb" data-title="BANNER" style="--c1:#ff758c;--c2:#ff7eb3">
+          <img src="./images/gallery_ne2.png" alt="" onerror="this.style.display='none'">
+        </div>
+        <div class="gallery-thumb" data-title="PORTFOLIO" style="--c1:#111;--c2:#b78aff">
+          <img src="./images/gallery_ne3.png" alt="" onerror="this.style.display='none'">
+        </div>
+        <div class="gallery-thumb" data-title="DESIGN SYSTEM" style="--c1:#1f4037;--c2:#99f2c8">
+          <img src="./images/gallery_ne4.png" alt="" onerror="this.style.display='none'">
+        </div>
+        <div class="gallery-thumb" data-title="EDITORIAL" style="--c1:#bdc3c7;--c2:#2c3e50">
+          <img src="./images/gallery_ne5.png" alt="" onerror="this.style.display='none'">
+        </div>
+        <div class="gallery-thumb" data-title="AWWWARD" style="--c1:#0f2027;--c2:#2c5364">
+          <img src="./images/gallery_ne6.png" alt="" onerror="this.style.display='none'">
+        </div>
+        <div class="gallery-thumb" data-title="CREATIVE" style="--c1:#ee9ca7;--c2:#ffdde1">
+          <img src="./images/gallery_ne1.png" alt="" onerror="this.style.display='none'">
+        </div>
       </div>
     </div>
   </div>
   <div class="gallery-fade"></div>
   <div class="gallery-scroll-note">SCROLL REACTIVE GALLERY</div>
 </section>
-<section id="projects" class="snap-section carousel-3d"><h2 class="reveal">PROJECTS</h2><div class="stage3d"><div class="ring"><div class="p-card" style="--i:0;--c1:#111;--c2:#bbb"><div>SONICAST</div></div><div class="p-card" style="--i:1;--c1:#2f63ff;--c2:#9ee8ff"><div>BIO</div></div><div class="p-card" style="--i:2;--c1:#4e944f;--c2:#d3ffc5"><div>FOOD</div></div><div class="p-card" style="--i:3;--c1:#ff90b8;--c2:#ffe2ec"><div>EVENT</div></div><div class="p-card" style="--i:4;--c1:#222;--c2:#b78aff"><div>BRAND</div></div><div class="p-card" style="--i:5;--c1:#111;--c2:#fff"><div>UIUX</div></div></div></div></section>
-<section class="box-section"><h2 class="reveal">OTHER DESIGN<br>WORKS</h2><div class="box-grid"><article class="box reveal"><b>01</b><h3>Landing Page</h3><p>프로모션과 전환을 위한 랜딩페이지 디자인.</p></article><article class="box reveal"><b>02</b><h3>Banner</h3><p>SNS, 광고, 이벤트 배너 그래픽 제작.</p></article><article class="box reveal"><b>03</b><h3>Detail Page</h3><p>상품의 장점을 직관적으로 전달하는 상세페이지.</p></article><article class="box reveal"><b>04</b><h3>Brand UI</h3><p>브랜드 무드를 반영한 UI 컴포넌트 제작.</p></article></div></section>
-<footer id="contact" class="snap-section footer"><div class="footer-orb"></div><h2 class="reveal">LET'S<br>MAKE IT</h2><p class="reveal">© 2026 LIA PORTFOLIO</p></footer>
-<script>
-const cursor=document.querySelector('.cursor');document.addEventListener('mousemove',e=>{cursor.style.left=e.clientX+'px';cursor.style.top=e.clientY+'px'});document.querySelectorAll('a,.case-tag,.box,.p-card,.dot').forEach(el=>{el.addEventListener('mouseenter',()=>cursor.classList.add('big'));el.addEventListener('mouseleave',()=>cursor.classList.remove('big'))});
-const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')})},{threshold:.16});document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-const wrap=document.querySelector('.horizontal-wrap'),track=document.querySelector('.horizontal-track'),dots=[...document.querySelectorAll('.dot')];
-let currentPanel=0;let isLock=false;let touchStartY=0;const maxPanel=3;
-function setPanel(i){currentPanel=Math.max(0,Math.min(maxPanel,i));track.style.transform=`translateX(${-currentPanel*100}vw)`;dots.forEach((d,idx)=>d.classList.toggle('on',idx===currentPanel));}
-function inWorks(){const r=wrap.getBoundingClientRect();return r.top<=2 && r.bottom>=innerHeight-2;}
-function lock(){isLock=true;setTimeout(()=>isLock=false,760)}
-function leaveWorks(dir){const target=dir>0?wrap.nextElementSibling:wrap.previousElementSibling;if(target) target.scrollIntoView({behavior:'smooth',block:'start'});}
-window.addEventListener('wheel',e=>{
-  if(innerWidth<=900 || !inWorks()) return;
-  e.preventDefault();
-  if(isLock || Math.abs(e.deltaY)<8) return;
-  const dir=e.deltaY>0?1:-1;
-  if(dir>0 && currentPanel<maxPanel){setPanel(currentPanel+1);lock();return;}
-  if(dir<0 && currentPanel>0){setPanel(currentPanel-1);lock();return;}
-  lock();leaveWorks(dir);
-},{passive:false});
-wrap.addEventListener('touchstart',e=>{touchStartY=e.touches[0].clientY},{passive:true});
-wrap.addEventListener('touchmove',e=>{
-  if(innerWidth<=900 || !inWorks()) return;
-  const diff=touchStartY-e.touches[0].clientY;if(Math.abs(diff)<35 || isLock) return;
-  e.preventDefault();const dir=diff>0?1:-1;
-  if(dir>0 && currentPanel<maxPanel){setPanel(currentPanel+1);lock()}else if(dir<0 && currentPanel>0){setPanel(currentPanel-1);lock()}else{lock();leaveWorks(dir)}
-},{passive:false});
-dots.forEach((d,i)=>d.addEventListener('click',()=>setPanel(i)));
-window.addEventListener('resize',()=>setPanel(currentPanel));setPanel(0);
-const gallery=document.querySelector('.gallery-showcase');
-const galleryRows=document.querySelectorAll('.gallery-row');
-function moveGallery(){
-  if(!gallery) return;
-  const r=gallery.getBoundingClientRect();
-  const progress=Math.min(1,Math.max(0,(innerHeight-r.top)/(innerHeight+r.height)));
-  galleryRows.forEach((row,idx)=>{
-    const dir=row.classList.contains('row-left')?-1:1;
-    const base=idx%2===0?-180:180;
-    const scrollMove=(progress-.5)*420*dir;
-    row.style.setProperty('--move',`${base+scrollMove}px`);
-  });
-}
-window.addEventListener('scroll',moveGallery,{passive:true});
-window.addEventListener('resize',moveGallery);moveGallery();
-if(gallery){gallery.addEventListener('mousemove',e=>{const x=(e.clientX/innerWidth-.5)*80;galleryRows.forEach((row,idx)=>{const dir=row.classList.contains('row-left')?-1:1;row.style.translate=`${x*dir}px 0`;});});gallery.addEventListener('mouseleave',()=>galleryRows.forEach(row=>row.style.translate='0 0'));}
-document.querySelectorAll('.browser').forEach(card=>{card.addEventListener('mousemove',e=>{const r=card.getBoundingClientRect();const x=e.clientX-r.left,y=e.clientY-r.top;card.style.transform=`rotateY(${(x/r.width-.5)*-20}deg) rotateX(${(.5-y/r.height)*14}deg) translateY(-8px)`});card.addEventListener('mouseleave',()=>card.style.transform='rotateY(-13deg) rotateX(7deg)')});
-</script>
+<section id="projects" class="snap-section carousel-3d">
+  <h2 class="reveal">DETAIL <em>PAGES.</em></h2>
+  <div class="project-guide">( DRAG · CLICK )</div>
+
+  <button class="project-btn project-prev" type="button" aria-label="Previous project">
+    <img src="./images/prev_btn.svg" alt="" onerror="this.style.display='none'">
+  </button>
+  <button class="project-btn project-next" type="button" aria-label="Next project">
+    <img src="./images/next_btn.svg" alt="" onerror="this.style.display='none'">
+  </button>
+
+  <div class="stage3d">
+    <div class="ring" id="projectRing">
+      <div class="p-card p01" style="--i:0;--c1:#111;--c2:#bbb">
+        <div>
+          <span>01</span>
+          <div class="card_img">
+            <img src="./images/pcard01.png" alt="" onerror="this.style.display='none'">
+          </div>
+          <strong>FOOD UI</strong>
+          <em>Interactive Web</em>
+        </div>
+      </div>
+      <div class="p-card p02" style="--i:1;--c1:#2f63ff;--c2:#9ee8ff">
+        <div>
+          <span>02</span>
+          <div class="card_img">
+            <img src="./images/pcard02.png" alt="" onerror="this.style.display='none'">
+          </div>
+          <strong>BIOLOGICS</strong>
+          <em>Corporate Website</em>
+        </div>
+      </div>
+      <div class="p-card p03" style="--i:2;--c1:#4e944f;--c2:#d3ffc5">
+        <div>
+          <span>03</span>
+          <div class="card_img">
+            <img src="./images/pcard03.png" alt="" onerror="this.style.display='none'">
+          </div>
+          <strong>FOOD UI</strong>
+          <em>Brand Renewal</em>
+        </div>
+      </div>
+      <div class="p-card p04" style="--i:3;--c1:#ff90b8;--c2:#ffe2ec">
+        <div>
+          <span>04</span>
+          <div class="card_img">
+            <img src="./images/pcard05.png" alt="" onerror="this.style.display='none'">
+          </div>
+          <strong>EVENT</strong>
+          <em>Promotion Page</em>
+        </div>
+      </div>
+      <div class="p-card p05" style="--i:4;--c1:#222;--c2:#b78aff">
+        <div>
+          <span>05</span>
+          <div class="card_img">
+            <img src="./images/pcard04.png" alt="" onerror="this.style.display='none'">
+          </div>
+          <strong>BRAND UI</strong>
+          <em>Design System</em>
+        </div>
+      </div>
+      <div class="p-card p06" style="--i:5;--c1:#111;--c2:#fff">
+        <div>
+          <span>06</span>
+          <div class="card_img">
+            <img src="./images/pcard06.png" alt="" onerror="this.style.display='none'">
+          </div>
+          <strong>UIUX</strong>
+          <em>Case Study</em>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+</section>
+
+
+<div class="project-modal" id="projectModal" aria-hidden="true">
+  <div class="project-modal-box" role="dialog" aria-modal="true" aria-labelledby="projectModalTitle">
+    <div class="project-modal-head">
+      <div>
+        <span class="project-modal-kicker" id="projectModalKicker">PROJECT 01</span>
+        <h3 class="project-modal-title" id="projectModalTitle">SONICAST</h3>
+      </div>
+      <button class="project-modal-close" type="button" aria-label="팝업 닫기">×</button>
+    </div>
+    <div class="project-modal-scroll">
+      <div class="project-modal-visual" id="projectModalVisual"><strong id="projectModalVisualText">SONICAST</strong></div>
+      <p class="project-modal-desc" id="projectModalDesc"></p>
+      <div class="project-modal-grid">
+        <div class="project-modal-card">
+          <h4>Overview</h4>
+          <p id="projectModalOverview"></p>
+        </div>
+        <div class="project-modal-card">
+          <h4>Role & Tools</h4>
+          <p id="projectModalRole"></p>
+          <div class="project-modal-tags" id="projectModalTags"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
-<script>
-(function(){
-  const loader = document.getElementById('introLoader');
-  const skip = document.getElementById('introSkip');
 
-  function enterSite(){
-    document.body.classList.remove('loading');
-    document.body.classList.add('loaded');
-    if(loader) loader.classList.add('hide');
-  }
+<section id="box_project" class="box-section">
+  <div class="box-head reveal">
+    <span>Design Works</span>
+    <h2>OTHER DESIGN<br><em>WORKS.</em></h2>
+  </div>
 
-  window.addEventListener('load', function(){
-    setTimeout(enterSite, 3400);
-  });
+  <div class="box-marquee reveal">
+    <div class="box-track">
 
-  if(skip){
-    skip.addEventListener('click', enterSite);
-  }
-})();
-</script>
+        <!-- POSTER -->
+        <article class="box">
 
+            <div class="box-title">
+                <h3>POSTER</h3>
+                <span>DESIGN</span>
+                
+            </div>
+
+            <div class="box-track-img">
+                <img src="./images/poster_icon.png" alt="" onerror="this.style.display='none'">
+            </div>
+
+        </article>
+
+        <!-- BLOG -->
+        <article class="box is-active">
+
+            <div class="box-title">
+                <h3>BLOG</h3>
+                <span>DESIGN</span>
+            </div>
+
+            <div class="box-track-img">
+                <img src="./images/blog_icon.png" alt="" onerror="this.style.display='none'">
+            </div>
+
+        </article>
+
+        <!-- BROCHURE -->
+        <article class="box">
+
+            <div class="box-title">
+                <h3>BROCHURE</h3>
+                <span>DESIGN</span>
+            </div>
+
+            <div class="box-track-img">
+                <img src="./images/brochure_icon.png" alt="" onerror="this.style.display='none'">
+            </div>
+
+        </article>
+
+        <!-- BUSINESS -->
+        <article class="box">
+
+            <div class="box-title">
+                <h3>BUSINESSCARD</h3>
+                <span>DESIGN</span>
+            </div>
+
+            <div class="box-track-img">
+                <img src="./images/businesscard_icon.png" alt="" onerror="this.style.display='none'">
+            </div>
+
+        </article>
+
+        <!-- BANNER -->
+        <article class="box">
+
+            <div class="box-title">
+                <h3>BANNER</h3>
+                <span>DESIGN</span>
+            </div>
+
+            <div class="box-track-img">
+                <img src="./images/banner_icon.png" alt="" onerror="this.style.display='none'">
+            </div>
+
+        </article>
+
+    </div>
+</div>
+  </section>
+
+<div class="box-modal" id="boxModal" aria-hidden="true">
+  <div class="box-modal-box">
+    <button class="box-modal-close" type="button">×</button>
+    <span id="boxModalKicker">DESIGN WORK</span>
+    <h3 id="boxModalTitle">Landing Page</h3>
+    <p id="boxModalDesc"></p>
+  </div>
+</div>
+
+<footer id="contact" class="snap-section footer">
+  <div class="contact_group">
+    <div class="contact-left">
+    <h2 class="reveal">LET’S<br><em>WORK.</em></h2>
+    <p class="reveal">© 2026 LIA PORTFOLIO</p>
+  </div>
+  <div class="contact-links">
+
+      <!-- 카카오톡 -->
+      <a
+          href="https://open.kakao.com/o/여기에주소"
+          class="contact-link kakao"
+          target="_blank"
+          rel="noopener"
+          aria-label="카카오톡으로 문의하기"
+      >
+          <img src="./images/icon_kakao.png" alt="">
+          <span>KAKAO</span>
+      </a>
+
+      <!-- 전화 -->
+      <a
+          href="tel:01022450192"
+          class="contact-link phone"
+          aria-label="전화 걸기"
+      >
+          <img src="./images/icon_phone.png" alt="">
+          <span>CALL</span>
+      </a>
+
+      <!-- 이메일 -->
+      <a
+          href="mailto:lja425@naver.com?subject=포트폴리오 문의"
+          class="contact-link email"
+          aria-label="이메일 보내기"
+      >
+          <img src="./images/icon_email.png" alt="">
+          <span>EMAIL</span>
+      </a>
+
+  </div>
+  </div>
+<hr>
+</footer>
+</div>
+
+
+  <script src="./js/script.js"></script>
+  <script src="./js/motion.js"></script>
 </body>
 </html>

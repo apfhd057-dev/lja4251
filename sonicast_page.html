@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+  <head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="HANS CAKE UX/UI 리디자인 포트폴리오 상세 페이지" name="description"/>
+    <title>HANS CAKE — Portfolio Case Study</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&amp;family=Noto+Sans+KR:wght@400;500;600;700;900&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+    <link href="./css/han_style.css" rel="stylesheet"/>
+  </head>
+  <body class="is-loading" data-project="sonicast">
+    <div aria-hidden="true" class="page-loader">
+      <div class="loader-head">
+        <span data-bind="projectName">HANS CAKE</span>
+        <span>CASE STUDY / 2026</span>
+      </div>
+      <div class="loader-number">
+        <b>00</b>
+        <i>%</i>
+      </div>
+      <div class="loader-track">
+        <i></i>
+      </div>
+    </div>
+    <div aria-hidden="true" class="scroll-progress">
+      <i></i>
+    </div>
+    <div aria-hidden="true" class="cursor">
+      <span class="cursor-dot"></span>
+      <span class="cursor-ring"></span>
+      <span class="cursor-label">VIEW</span>
+    </div>
+
+    <aside aria-label="섹션 이동" class="side-nav">
+      <a class="active" href="#top"><span>00</span><i></i></a>
+      <a href="#overview"><span>01</span><i></i></a>
+      <a href="#research"><span>02</span><i></i></a>
+      <a href="#direction"><span>03</span><i></i></a>
+      <a href="#system"><span>05</span><i></i></a>
+      <a href="#result"><span>07</span><i></i></a>
+    </aside>
+
+    <div aria-hidden="true" class="noise"></div>
+
+    <header id="header" class="header">
+        <a class="logo magnetic" href="./index.html">LIA</a>
+
+        <nav class="nav">
+            <a href="#overview">Overview</a>
+            <a href="#research">Research</a>
+            <a href="#system">System</a>
+            <a href="#result">Result</a>
+        </nav>
+
+        <button
+        class="case-menu-btn"
+        type="button"
+        aria-label="모바일 메뉴 열기"
+        aria-controls="caseMobileMenu"
+        aria-expanded="false"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </header>
+
+    <nav
+      class="case-mobile-menu"
+      id="caseMobileMenu"
+      aria-label="모바일 프로젝트 전체 메뉴"
+      aria-hidden="true"
+    >
+      <div class="case-mobile-menu-inner">
+        <div class="case-mobile-menu-head">
+          <span>HANS CAKE</span>
+          <span>CASE STUDY / 2026</span>
+        </div>
+
+        <div class="case-mobile-menu-links">
+          <a href="#top"><span>00</span><strong>TOP</strong></a>
+          <a href="#overview"><span>01</span><strong>OVERVIEW</strong></a>
+          <a href="#research"><span>02</span><strong>RESEARCH</strong></a>
+          <a href="#direction"><span>03</span><strong>DIRECTION</strong></a>
+          <a href="#concept"><span>04</span><strong>CONCEPT</strong></a>
+          <a href="#system"><span>05</span><strong>SYSTEM</strong></a>
+          <a href="#responsive"><span>06</span><strong>RESPONSIVE</strong></a>
+          <a href="#result"><span>07</span><strong>RESULT</strong></a>
+        </div>
+
+        <a class="case-mobile-home" href="./index.html">
+          PORTFOLIO HOME <span>↗</span>
+        </a>
+      </div>
+    </nav>
+
+    <main id="top">
+
+      <section class="hero" data-section="00">
+        <div aria-hidden="true" class="hero-lines"></div>
+        <div class="hero-topline">
+          <span>UX/UI CASE STUDY</span>
+          <span>PERSONAL PROJECT / 100%</span>
+          <span>WEB · RESPONSIVE</span>
+        </div>
+        <div class="hero-title reveal">
+          <p class="eyebrow" data-bind="eyebrow">PREMIUM DESSERT BRAND REDESIGN</p>
+          <h1>
+            <span data-bind="titleTop">HANS</span>
+            <span class="outline" data-bind="titleBottom">CAKE</span>
+          </h1>
+        </div>
+        <div class="hero-layout">
+
+          <!-- 왼쪽 설명 -->
+          <div class="hero-copy reveal" data-delay="80">
+            <p data-bind="description">한스케익의 브랜드 감성과 제품 탐색 흐름을 동시에 정돈한 반응형 웹사이트 UX/UI 리디자인 프로젝트입니다.</p>
+            <a class="hero-link magnetic" href="https://apfhd057-dev.github.io/sonicast/">EXPLORE CASE<span>↘</span></a>
+          </div>
+
+          <!-- 가운데 이미지 -->
+          <div class="hero-mockup reveal tilt" data-delay="150">
+            <div class="browser">
+              <img src="./images/sonicast_mian.png" alt="">
+            </div>
+          </div>
+
+          <!-- 오른쪽 정보 -->
+          <div class="hero-meta reveal" data-delay="220">
+            <dl>
+              <div>
+                <dt>ROLE</dt>
+                <dd>UX Planning<br>UI Design<br>Publishing</dd>
+              </div>
+              <div>
+                <dt>PERIOD</dt>
+                <dd data-bind="period">2026.04<br>— 2026.05</dd>
+              </div>
+              <div>
+                <dt>TOOLS</dt>
+                <dd>Figma<br>Photoshop<br>HTML / CSS / JS</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+        <div class="hero-scroll">
+          <span>SCROLL TO VIEW</span>
+          <i></i>
+        </div>
+      </section>
+
+      <div aria-hidden="true" class="marquee">
+        <div class="marquee-track">
+          <span data-bind="marquee">HANS CAKE — UX/UI REDESIGN — HANS CAKE — UX/UI REDESIGN —</span>
+          <span data-bind="marquee">HANS CAKE — UX/UI REDESIGN — HANS CAKE — UX/UI REDESIGN —</span>
+        </div>
+      </div>
+
+      <section class="section overview" data-section="01" id="overview">
+        <div class="section-number">01</div>
+        <div class="section-heading reveal">
+          <span>OVERVIEW</span>
+          <h2>SOUND IN DETAIL.<br/> <em>TECHNOLOGY IN MOTION.</em></h2>
+        </div>
+        <div class="overview-grid">
+          <div class="overview-lead reveal">
+            <p>정교한 음향 기술과 제품의 구조를 가까이 보여주고, 소니캐스트만의 사운드 철학을 경험하도록 구성했습니다.</p>
+          </div>
+          <div class="overview-copy reveal" data-delay="80">
+            <p>기존 사이트의 제품과 기술 정보를 분석하고, 원천기술과 연구개발, 측정 장비가 단계적으로 이어지도록 콘텐츠 체계를 재정비했습니다. 사용자가 제품 성능의 근거와 브랜드의 전문성을 쉽게 이해할 수 있도록 정보의 우선순위를 조정했습니다..</p>
+            <p>블랙과 딥블루를 중심으로 이어폰의 정교한 구조와 사운드의 깊이를 표현했습니다. 영상과 3D 오브제, 스크롤 연출을 활용해 기술 중심 브랜드의 몰입감 있고 선명한 인상을 완성했습니다.</p>
+          </div>
+        </div>
+        <div class="overview-cards">
+          <article class="feature-card reveal tilt">
+            <span>01</span>
+            <h3>PRODUCT<br/>FOCUS</h3>
+            <p>이어폰 비주얼을 중심으로 제품의 구조와 특징을 강조</p>
+            <i></i>
+          </article>
+          <article class="feature-card feature-accent reveal tilt" data-delay="80">
+            <span>02</span>
+            <h3>SOUND<br/>ENGINEERING</h3>
+            <p>원천기술과 연구 장비로 음향 성능의 근거를 제시</p>
+            <i></i>
+          </article>
+          <article class="feature-card reveal tilt" data-delay="160">
+            <span>03</span>
+            <h3>MOTION<br/>EXPERIENCE</h3>
+            <p>영상과 스크롤 연출로 사운드의 몰입감을 구현</p>
+            <i></i>
+          </article>
+        </div>
+      </section>
+
+      <section class="visual-break">
+        <div class="visual-label">
+          <span>VISUAL SYSTEM</span>
+          <span>BLACK / WHITE / PROJECT ACCENT</span>
+        </div>
+        <div class="visual-title reveal parallax-type">
+          <span>PURE</span>
+          <span class="outline">SOUND</span>
+          <span class="accent-word">DEFINED.</span>
+        </div>
+        <div aria-hidden="true" class="accent-line"></div>
+      </section>
+
+      <section class="section research" data-section="02" id="research">
+        <div class="section-number">02</div>
+        <div class="section-heading split reveal">
+          <div>
+            <span>RESEARCH</span>
+            <h2>READ.<br/>COMPARE.<br/>DEFINE.</h2>
+          </div>
+          <p>국내 오디오 브랜드의 웹사이트를 비교해 제품 분류, 기술 정보와 브랜드 표현 방식을 분석했습니다. 이를 바탕으로 소니캐스트의 음향 기술과 제품 경쟁력이 선명하게 드러나는 방향을 설정했습니다.</p>
+        </div>
+        <div class="analysis-table reveal">
+          <div class="analysis-head">
+            <div>TYPE</div>
+            <div>AZLA</div>
+            <div>Astell&Kern</div>
+          </div>
+          <div class="analysis-row">
+            <div>
+              <span>01</span>
+              <strong>STRENGTH</strong>
+            </div>
+            <div>
+              <p>이어폰·게이밍·무선 제품 구분이 명확함</p>
+              <p>제품별 특징과 용도를 빠르게 확인 가능</p>
+              <p>구매 페이지로 바로 연결되는 구조</p>
+            </div>
+            <div>
+              <p>제품과 세부 카테고리가 다소 많음</p>
+              <p>구매 과정에서 외부 스토어로 이동함</p>
+              <p>브랜드 기술력을 한눈에 파악하기 어려움</p>
+            </div>
+          </div>
+          <div class="analysis-row">
+            <div>
+              <span>02</span>
+              <strong>WEAKNESS</strong>
+            </div>
+            <div>
+              <p>제품과 세부 카테고리가 다소 많음</p>
+              <p>구매 과정에서 외부 스토어로 이동함</p>
+              <p>브랜드 기술력을 한눈에 파악하기 어려움</p>
+            </div>
+            <div>
+              <p>제품 범위가 넓어 메뉴 단계가 많음</p>
+              <p>이어폰 정보의 비중이 상대적으로 낮음</p>
+              <p>핵심 사양 확인에 상세 탐색이 필요함</p>
+            </div>
+          </div>
+        </div>
+        <div class="insight-heading reveal parallax-type">
+          <span>RESEARCH INSIGHT</span>
+          <h3>LESS NOISE.<br/><em>MORE FOCUS.</em></h3>
+        </div>
+        <div class="insight-grid">
+          <article class="reveal">
+            <span>01</span>
+            <h4>PRODUCT FOCUS</h4>
+            <p>제품과 핵심 특징을 빠르게 파악하는 구성</p>
+          </article>
+          <article class="reveal" data-delay="70">
+            <span>02</span>
+            <h4>TECH PROOF</h4>
+            <p>R&D와 측정 장비로 음향 성능의 근거 제시</p>
+          </article>
+          <article class="reveal" data-delay="140">
+            <span>03</span>
+            <h4>SOUND DEPTH</h4>
+            <p>영상과 모션을 통해 사운드의 깊이를 표현</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="direction" data-section="03" id="direction">
+        <div class="direction-heading reveal">
+          <span>03 — SERVICE DIRECTION</span>
+          <h2>FROM SPECS.<br/>TO EXPERIENCE.</h2>
+        </div>
+        <div class="direction-list reveal">
+          <article>
+            <div class="from">
+              <span>AS IS</span>
+              <p>제품 사양과 설명이 나열되어 제품별 특징이 빠르게 드러나지 않음</p>
+            </div>
+            <i>→</i>
+            <div class="to">
+              <span>TO BE</span>
+              <p>이어폰 비주얼과 핵심 기능을 결합해 제품의 차별점을 선명하게 제시</p>
+            </div>
+          </article>
+          <article>
+            <div class="from">
+              <span>AS IS</span>
+              <p>원천기술과 연구 역량에 관한 정보가 여러 영역에 흩어져 있음</p>
+            </div>
+            <i>→</i>
+            <div class="to">
+              <span>TO BE</span>
+              <p>R&D와 측정 장비를 하나의 흐름으로 묶어 음향 성능의 기술적 근거를 강조</p>
+            </div>
+          </article>
+          <article>
+            <div class="from">
+              <span>AS IS</span>
+              <p>정적인 화면 위주로 구성되어 사운드 브랜드의 역동성이 부족함</p>
+            </div>
+            <i>→</i>
+            <div class="to">
+              <span>TO BE</span>
+              <p>영상과 스크롤 인터랙션을 활용해 소리의 깊이와 움직임을 시각화</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="concept" data-section="04">
+        <div class="concept-title reveal parallax-type">
+          <span>04 — DESIGN CONCEPT</span>
+          <h2>DARK.<br/>DEEP.<br/> <span class="outline">PRECISE.</span></h2>
+        </div>
+        <div class="concept-copy reveal" data-delay="100">
+          <p>블랙과 딥블루를 중심으로 이어폰의 정교한 구조와 음향 기술의 전문성을 표현했습니다. 제품 이미지와 그래픽 요소를 겹쳐 입체감을 더하고, 영상과 스크롤 모션을 활용해 사운드의 깊이와 몰입감을 시각적으로 전달했습니다.</p>
+        </div>
+        <div class="concept-grid">
+          <article class="reveal">
+            <span>01</span>
+            <h3>DARK</h3>
+            <p>블랙과 딥블루로 몰입감 있는 무드 구성</p>
+          </article>
+          <article class="reveal" data-delay="60">
+            <span>02</span>
+            <h3>PRECISE</h3>
+            <p>제품 구조와 기술력을 정교한 비주얼로 표현</p>
+          </article>
+          <article class="reveal" data-delay="120">
+            <span>03</span>
+            <h3>DEPTH</h3>
+            <p>레이어와 입체 이미지로 사운드의 깊이 강조</p>
+          </article>
+          <article class="reveal" data-delay="180">
+            <span>04</span>
+            <h3>MOTION</h3>
+            <p>영상과 스크롤 연출로 역동적인 경험 구현</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section system" data-section="05" id="system">
+        <div class="section-number">05</div>
+        <div class="section-heading reveal">
+          <span>DESIGN SYSTEM</span>
+          <h2>CHANGE ONE VALUE.<br/><em>UPDATE EVERYTHING.</em></h2>
+        </div>
+        <div class="system-grid">
+          <article class="system-card color-card reveal">
+            <div class="system-label">
+              <span>01</span>
+              <h3>COLOR TOKENS</h3>
+            </div>
+            <p>공통 무채색 토큰은 그대로 두고 프로젝트별로<code>--accent</code>,<code>--accent-soft</code>,<code>--accent-dark</code>만 교체합니다.</p>
+            <div class="color-tokens">
+              <div class="token-black">
+                <b>#000000</b>
+                <span>BASE BLACK</span>
+              </div>
+              <div class="token-white">
+                <b>#FFFFFF</b>
+                <span>BASE WHITE</span>
+              </div>
+              <div class="token-accent">
+                <b data-bind="accentHex">#D92818</b>
+                <span>PROJECT ACCENT</span>
+              </div>
+              <div class="token-soft">
+                <b>SOFT</b>
+                <span>ACCENT BACKGROUND</span>
+              </div>
+            </div>
+          </article>
+          <article class="system-card type-card reveal" data-delay="80">
+            <div class="system-label">
+              <span>02</span>
+              <h3>TYPOGRAPHY</h3>
+            </div>
+            <div class="type-sample">
+              <small>DISPLAY / SPACE GROTESK</small>
+              <strong>Aa</strong>
+              <p>ABCDEFGHIJKLMNOPQRSTUVWXYZ<br/>0123456789</p>
+            </div>
+            <div class="type-sample korean">
+              <small>KOREAN / NOTO SANS KR</small>
+              <strong>프로젝트</strong>
+              <p>가나다라마바사아자차카타파하</p>
+            </div>
+          </article>
+          <article class="system-card component-card reveal" data-delay="140">
+            <div class="system-label">
+              <span>03</span>
+              <h3>ACCENT POINTS</h3>
+            </div>
+            <div class="component-preview">
+              <div class="preview-buttons">
+                <button class="accent-button magnetic" type="button">VIEW PROJECT<span>↗</span></button>
+                <button class="line-button magnetic" type="button">CASE STUDY<span>→</span></button>
+              </div>
+              <div class="preview-tabs">
+                <button class="active" type="button">OVERVIEW</button>
+                <button type="button">PROCESS</button>
+                <button type="button">RESULT</button>
+              </div>
+              <div class="preview-index">
+                <button type="button">←</button>
+                <span><b>01</b>/ 04</span>
+                <button type="button">→</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="responsive" data-section="06">
+        <div class="responsive-copy reveal">
+          <span>06 — RESPONSIVE</span>
+          <h2>ONE TEMPLATE.<br/><em>EVERY PROJECT.</em></h2>
+          <p>데스크톱의 비대칭 레이아웃은 태블릿과 모바일에서 콘텐츠 우선순위에 맞춰 단순한 세로 구조로 변환됩니다.</p>
+          <ul>
+            <li>
+              <span>DESKTOP</span>
+              <b>1920 — 1280</b>
+            </li>
+            <li>
+              <span>TABLET</span>
+              <b>1279 — 768</b>
+            </li>
+            <li>
+              <span>MOBILE</span>
+              <b>767 — 360</b>
+            </li>
+          </ul>
+        </div>
+        <div class="device-stage reveal" data-delay="100">
+          <div class="responsive-mockup">
+            <img src="./images/sonicast_mokup.png" alt="한스케익 반응형 웹사이트 목업">
+          </div>
+        </div>
+      </section>
+
+      <section class="section result mainpage-result" data-section="07" id="result">
+        <div class="section-number">07</div>
+        <div class="result-heading reveal">
+          <span>FINAL OUTPUT</span>
+          <h2>MAIN PAGE<br/>SHOWCASE.</h2>
+        </div>
+        <div class="mainpage-showcase">
+
+          <!-- 왼쪽: 스크롤 위치에 따라 활성화되는 설명 -->
+
+          <aside class="mainpage-notes reveal">
+            <div class="mainpage-notes-inner">
+              <article class="mainpage-note active" data-target="main-visual">
+                <span>01</span>
+                <h3 data-bind="note1Title">브랜드 첫인상</h3>
+                <p data-bind="note1Desc">큰 비주얼과 감성적인 카피로 한스케익의 산뜻하고 달콤한 이미지를 직관적으로 전달합니다.</p>
+              </article>
+              <article class="mainpage-note" data-target="main-content">
+                <span>02</span>
+                <h3 data-bind="note2Title">쉬운 제품 탐색</h3>
+                <p data-bind="note2Desc">케이크·스위트·음료 메뉴를 탭과 카드로 구성해 원하는 제품을 쉽게 비교합니다.</p>
+              </article>
+              <article class="mainpage-note" data-target="main-story">
+                <span>03</span>
+                <h3 data-bind="note3Title">브랜드 스토리</h3>
+                <p data-bind="note3Desc">신선한 재료와 정성스러운 제작 과정을 이미지 중심으로 보여줍니다.</p>
+              </article>
+              <article class="mainpage-note" data-target="main-action">
+                <span>04</span>
+                <h3 data-bind="note4Title">행동으로 연결</h3>
+                <p data-bind="note4Desc">제품 확인 이후 주문, 매장 찾기, 공지 확인까지 자연스럽게 이어지도록 CTA를 배치합니다.</p>
+              </article>
+            </div>
+          </aside>
+
+          <!-- 가운데: PC 틀 -->
+          <div class="mainpage-desktop reveal" data-delay="80">
+            <div class="mainpage-browser">
+
+              <!-- 브라우저 상단 틀 -->
+              <div class="browser-bar">
+                <div>
+                  <i></i>
+                  <i></i>
+                  <i></i>
+                </div>
+                <span>hanscake.co.kr</span>
+                <b>OFFICIAL WEBSITE</b>
+              </div>
+
+              <!-- 브라우저 틀 안의 이미지 -->
+              <div class="mainpage-long">
+                <img
+        class="mainpage-long-img"
+        src="./images/sonicast_website.png"
+        alt="한스케익 PC 웹사이트"
+      >
+                <span id="main-visual" class="image-marker marker-01"></span>
+                <span id="main-content" class="image-marker marker-02"></span>
+                <span id="main-story" class="image-marker marker-03"></span>
+                <span id="main-action" class="image-marker marker-04"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 오른쪽: 모바일 틀 -->
+
+          <aside class="mainpage-mobile reveal" data-delay="150">
+            <div class="phone-frame">
+              <div class="phone-speaker"></div>
+              <div class="phone-viewport">
+                <div class="phone-page">
+                  <img
+          class="phone-page-img"
+          src="./images/sonicast_mobile.png"
+          alt="한스케익 모바일 웹사이트"
+        >
+                </div>
+              </div>
+            </div>
+            <div class="phone-caption">
+              <span>MOBILE</span>
+              <b>360 — 767PX</b>
+            </div>
+          </aside>
+
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="footer">
+      <div class="footer-meta">
+        <span>UNIVERSAL CASE STUDY TEMPLATE</span>
+        <span>LEE JIA — UX/UI DESIGNER &amp; WEB PUBLISHER</span>
+      </div>
+      <a class="magnetic" href="#top">BACK TO TOP<span>↑</span></a>
+      <div class="footer-bottom">
+        <span>PORTFOLIO 2026</span>
+        <span data-bind="projectName">HANS CAKE</span>
+        <span>© LIA. ALL RIGHTS RESERVED.</span>
+      </div>
+    </footer>
+
+    <script src="./js/hans_script.js"></script>
+  </body>
+</html>
