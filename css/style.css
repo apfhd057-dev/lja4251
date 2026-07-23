@@ -431,7 +431,7 @@ body.loaded .page-wrap {
   color: var(--ink);
 }
 
-#hero::before {
+/* #hero::before {
   content: "00";
   position: absolute;
   right: 4vw;
@@ -441,7 +441,7 @@ body.loaded .page-wrap {
   font-size: clamp(110px, 15vw, 260px);
   line-height: .7;
   -webkit-text-stroke: 1px rgba(var(--accent-rgb),.48);
-}
+} */
 
 #hero::after {
   content: "";
@@ -580,7 +580,7 @@ body.loaded .page-wrap {
   background: var(--paper);
 }
 
-#about::after {
+/* #about::after {
   content: "01";
   position: absolute;
   top: calc(var(--top-ui) + 100px);
@@ -590,7 +590,7 @@ body.loaded .page-wrap {
   font-size: clamp(110px, 14vw, 240px);
   line-height: .7;
   -webkit-text-stroke: 1px rgba(var(--accent-rgb),.4);
-}
+} */
 
 #about .sub_title {
   margin-bottom: 34px;
@@ -651,8 +651,7 @@ body.loaded .page-wrap {
   position: relative;
   height: 155px;
   overflow: hidden;
-  background:
-    linear-gradient(135deg, #ecebe7 0 68%, var(--accent-soft) 68%);
+  border: 1px solid #ccc;
 }
 
 .profile_img::after {
@@ -1174,7 +1173,11 @@ body.loaded .page-wrap {
   letter-spacing: 0.18em;
   white-space: nowrap;
 }
-
+.project-guide {
+  left: 50%;
+  translate: -50% 0;
+  transform: none;
+}
 .stage3d {
   position: absolute;
   inset: var(--top-ui) 0 0;
@@ -1514,7 +1517,7 @@ body.loaded .page-wrap {
   align-items: flex-end;
 }
 
-#contact::before {
+/* #contact::before {
   content: "06";
   position: absolute;
   top: calc(var(--top-ui) + 7vh);
@@ -1524,7 +1527,7 @@ body.loaded .page-wrap {
   font-size: clamp(110px, 15vw, 260px);
   line-height: .7;
   -webkit-text-stroke: 1px rgba(var(--accent-rgb),.45);
-}
+} */
 
 #contact::after {
   content: "";
@@ -1729,7 +1732,7 @@ body.loaded .page-wrap {
   margin-top: 7px;
   font-family: var(--impact);
   font-size: clamp(42px, 6vw, 80px);
-  font-weight: 400;
+  font-weight: 700;
   line-height: .86;
 }
 
@@ -1761,30 +1764,18 @@ body.loaded .page-wrap {
 
 .project-modal-visual {
   position: relative;
-  height: 300px;
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-  background:
-    linear-gradient(135deg, #111 0 68%, var(--accent) 68%) !important;
+  width: 100%;
+  height: auto;
+  margin-top: 24px;
+  overflow: visible;
+  background: none !important;
 }
 
-.project-modal-visual::before {
-  content: "";
-  position: absolute;
-  width: 210px;
-  height: 210px;
-  border: 1px solid rgba(255,255,255,.35);
-  border-radius: 50%;
-}
-
-.project-modal-visual strong {
-  position: relative;
-  z-index: 2;
-  color: #fff;
-  font-family: var(--impact);
-  font-size: clamp(58px, 9vw, 120px);
-  font-weight: 400;
+.project-modal-visual img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
 }
 
 .project-modal-desc {
@@ -1838,15 +1829,35 @@ body.loaded .page-wrap {
 
 .box-modal-box {
   position: relative;
+  padding: 0;
+  overflow: hidden;
+}
+
+.box-modal-scroll {
+  max-height: 88vh;
   padding: 40px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.box-modal-image {
+  width: 100%;
+  margin-top: 30px;
+}
+
+.box-modal-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
 }
 
 .box-modal-close {
   position: absolute;
+  z-index: 10;
   top: 18px;
   right: 18px;
 }
-
 #boxModalDesc {
   max-width: 650px;
   margin-top: 25px;
@@ -2271,6 +2282,22 @@ body.loaded .page-wrap {
   .project-modal-scroll,
   .box-modal-box {
     padding: 18px;
+  }
+  .box-modal-scroll {
+    padding: 24px 18px;
+  }
+
+  #boxModalTitle {
+    padding-right: 45px;
+    font-size: 52px;
+  }
+
+  #boxModalDesc {
+    margin-top: 18px;
+  }
+
+  .box-modal-image {
+    margin-top: 22px;
   }
 }
 
