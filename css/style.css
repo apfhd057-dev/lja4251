@@ -922,7 +922,7 @@ body.loaded .page-wrap {
   letter-spacing: .14em;
 }
 
-.dots {
+#works .dots {
   position: absolute;
   z-index: 8;
   left: 50%;
@@ -932,7 +932,7 @@ body.loaded .page-wrap {
   transform: translateX(-50%);
 }
 
-.dot {
+#works .dot {
   width: 8px;
   height: 8px;
   border: 1px solid rgba(255,255,255,.28);
@@ -942,10 +942,67 @@ body.loaded .page-wrap {
   transition: width .3s ease, background .3s ease;
 }
 
-.dot.on {
+#works .dot.on {
   width: 38px;
   border-color: var(--accent);
   background: var(--accent);
+}
+#works .works-controls {
+  position: absolute;
+  z-index: 20;
+  left: 50%;
+  bottom: 22px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  transform: translateX(-50%);
+}
+
+#works .works-controls .dots {
+  position: static;
+  left: auto;
+  bottom: auto;
+  z-index: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transform: none;
+}
+
+#works .works-prev,
+#works .works-next {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(3, 3, 3, .25);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .72);
+  color: var(--ink);
+  font-size: 19px;
+  line-height: 1;
+  cursor: pointer;
+  transition: color .2s ease, border-color .2s ease, transform .2s ease, opacity .2s ease;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+#works .works-prev:hover:not(:disabled) {
+  color: var(--accent);
+  border-color: var(--accent);
+  transform: translateX(-3px);
+}
+
+#works .works-next:hover:not(:disabled) {
+  color: var(--accent);
+  border-color: var(--accent);
+  transform: translateX(3px);
+}
+
+#works .works-prev:disabled,
+#works .works-next:disabled {
+  opacity: .28;
+  cursor: default;
 }
 
 /* -------------------- GALLERY -------------------- */
@@ -1160,17 +1217,12 @@ body.loaded .page-wrap {
 .project-guide {
   position: absolute;
   z-index: 20;
-
-  top: calc(var(--top-ui) + 23vh);
+  top: calc(var(--top-ui) + 20vh);
   left: 50%;
-
   transform: translateX(-50%);
-
-  color: rgba(255, 255, 255, 0.42);
-  font-family: var(--display);
-  font-size: 8px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.9);
+  /* font-family: var(--display); */
+  font-size: 16px;
   white-space: nowrap;
 }
 .project-guide {
@@ -1388,6 +1440,39 @@ body.loaded .page-wrap {
   font-style: normal;
 }
 
+.box-drag-guide {
+  position: absolute;
+  z-index: 12;
+  top: calc(var(--top-ui) + 24vh);
+  right: 9vw;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: var(--ink);
+  font-family: var(--display);
+  pointer-events: none;
+}
+
+.box-drag-guide strong {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .18em;
+  white-space: nowrap;
+}
+
+.box-drag-arrow {
+  display: inline-block;
+  color: var(--accent);
+  font-size: 23px;
+  font-weight: 400;
+  line-height: 1;
+  animation: boxDragHint 1.8s ease-in-out infinite;
+}
+
+.box-drag-arrow:last-child {
+  animation-direction: reverse;
+}
+
 .box-marquee {
   position: relative;
   padding: 7vh 0 7vh;
@@ -1411,7 +1496,7 @@ body.loaded .page-wrap {
   gap: 14px;
   padding-left: 14px;
   will-change: transform;
-  
+
 }
 
 .box {
@@ -2327,7 +2412,6 @@ body.loaded .page-wrap {
 }
 
 
-
 /* =========================================================
    WORKS SECTION — Reference Style Override
 ========================================================= */
@@ -2612,9 +2696,9 @@ body.loaded .page-wrap {
 }
 
 
-
 /* =========================================================
-   WORKS SECTION — Shape Variations by Slide
+   WORKS SECTION — DECOR BASE
+   최종 원형 오브제 스타일에서 공통으로 사용하는 기본값
 ========================================================= */
 
 #works .device-stage::before,
@@ -2636,177 +2720,6 @@ body.loaded .page-wrap {
 #works .device-stage > img {
   z-index: 2;
 }
-
-/* 01 HANS CAKE
-   깔끔한 원형 중심 */
-#works .case-panel:nth-child(1) .decor-a {
-  right: -7vw;
-  bottom: -12vh;
-  width: min(50vw, 820px);
-  aspect-ratio: 1 / 1;
-  border-radius: 50%;
-  background: var(--accent);
-}
-
-#works .case-panel:nth-child(1) .decor-b {
-  right: -2vw;
-  top: 12vh;
-  width: min(22vw, 340px);
-  aspect-ratio: 1 / 1;
-  border-radius: 50%;
-  background: var(--ink);
-}
-
-/* 02 SAMSUNG BIOLOGICS
-   미래지향적인 캡슐/패널 느낌 */
-#works .case-panel:nth-child(2) .decor-a {
-  right: -4vw;
-  bottom: -8vh;
-  width: min(46vw, 720px);
-  height: min(26vw, 380px);
-  border-radius: 44px;
-  background: var(--accent);
-  transform: rotate(-10deg);
-}
-
-#works .case-panel:nth-child(2) .decor-b {
-  right: 3vw;
-  top: 8vh;
-  width: min(18vw, 260px);
-  height: min(34vw, 430px);
-  border-radius: 999px;
-  background: var(--ink);
-}
-
-/* 03 SONICAST
-   좀 더 역동적인 반원/타원 조합 */
-#works .case-panel:nth-child(3) .decor-a {
-  left: 6vw;
-  bottom: -7vh;
-  width: min(36vw, 520px);
-  height: min(18vw, 260px);
-  border-radius: 999px 999px 0 0;
-  background: var(--ink);
-  transform: rotate(-12deg);
-  transform-origin: center;
-}
-
-#works .case-panel:nth-child(3) .decor-b {
-  right: -5vw;
-  top: 18vh;
-  width: min(34vw, 460px);
-  height: min(34vw, 460px);
-  border-radius: 50%;
-  border: 42px solid var(--accent);
-  box-sizing: border-box;
-  background: transparent;
-}
-
-/* 04 NEUNGYULE
-   부드러운 라운드 블롭 + 둥근 사각형 */
-#works .case-panel:nth-child(4) .decor-a {
-  right: -4vw;
-  bottom: -11vh;
-  width: min(44vw, 640px);
-  height: min(30vw, 430px);
-  border-radius: 42% 58% 48% 52% / 58% 44% 56% 42%;
-  background: var(--accent);
-  transform: rotate(-8deg);
-}
-
-#works .case-panel:nth-child(4) .decor-b {
-  right: 6vw;
-  top: 12vh;
-  width: min(20vw, 290px);
-  height: min(20vw, 290px);
-  border-radius: 34px;
-  background: var(--ink);
-}
-
-/* mobile/tablet */
-@media (max-width: 900px) {
-  #works .case-panel:nth-child(1) .decor-a {
-    right: -18vw;
-    bottom: -7vh;
-    width: min(72vw, 520px);
-  }
-
-  #works .case-panel:nth-child(1) .decor-b {
-    right: -3vw;
-    top: 2vh;
-    width: min(30vw, 190px);
-  }
-
-  #works .case-panel:nth-child(2) .decor-a {
-    right: -10vw;
-    bottom: -3vh;
-    width: 68vw;
-    height: 28vh;
-    border-radius: 28px;
-  }
-
-  #works .case-panel:nth-child(2) .decor-b {
-    right: 4vw;
-    top: 3vh;
-    width: 22vw;
-    height: 28vh;
-  }
-
-  #works .case-panel:nth-child(3) .decor-a {
-    left: -4vw;
-    bottom: -1vh;
-    width: 48vw;
-    height: 16vh;
-  }
-
-  #works .case-panel:nth-child(3) .decor-b {
-    right: -9vw;
-    top: 7vh;
-    width: 42vw;
-    height: 42vw;
-    border-width: 22px;
-  }
-
-  #works .case-panel:nth-child(4) .decor-a {
-    right: -12vw;
-    bottom: -5vh;
-    width: 66vw;
-    height: 28vh;
-  }
-
-  #works .case-panel:nth-child(4) .decor-b {
-    right: 4vw;
-    top: 5vh;
-    width: 24vw;
-    height: 24vw;
-    border-radius: 24px;
-  }
-}
-
-@media (max-width: 600px) {
-  #works .case-panel:nth-child(2) .decor-a {
-    width: 74vw;
-    height: 24vh;
-  }
-
-  #works .case-panel:nth-child(2) .decor-b {
-    width: 24vw;
-    height: 22vh;
-  }
-
-  #works .case-panel:nth-child(3) .decor-b {
-    width: 48vw;
-    height: 48vw;
-    border-width: 18px;
-  }
-
-  #works .case-panel:nth-child(4) .decor-b {
-    width: 28vw;
-    height: 28vw;
-  }
-}
-
-
 
 /* =========================================================
    WORKS SECTION — Circles Only Override
@@ -2980,7 +2893,6 @@ body.loaded .page-wrap {
     height: 24vw;
   }
 }
-
 
 
 /* =========================================================
@@ -4396,10 +4308,27 @@ body.motion-ready .case-text.fx-in::before {
   }
 }
 
+
+@keyframes boxDragHint {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-4px); }
+}
+
+@media (max-width: 900px) {
+  #works .works-controls,
+  #works .wheel-guide,
+  .box-drag-guide {
+    display: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .mobile-menu,
   #header .mobile-menu-btn span {
     transition: none !important;
   }
-}
 
+  .box-drag-arrow {
+    animation: none !important;
+  }
+}

@@ -5,6 +5,8 @@
   const works = document.querySelector('#works');
   const worksTrack = document.querySelector('#works .horizontal-track');
   const worksDots = Array.from(document.querySelectorAll('#works .dot'));
+  const worksPrev = document.querySelector('#works .works-prev');
+  const worksNext = document.querySelector('#works .works-next');
   const worksMax = Math.max(0, worksDots.length - 1);
   let worksIndex = 0;
   let lock = false;
@@ -12,8 +14,19 @@
 
   function setWorksPanel(i){
     worksIndex = Math.max(0, Math.min(worksMax, i));
-    if(worksTrack) worksTrack.style.transform = `translateX(${-worksIndex * 100}vw)`;
-    worksDots.forEach((dot, idx) => dot.classList.toggle('on', idx === worksIndex));
+
+    if(worksTrack){
+      worksTrack.style.transform = `translateX(${-worksIndex * 100}vw)`;
+    }
+
+    worksDots.forEach((dot, idx) => {
+      const isActive = idx === worksIndex;
+      dot.classList.toggle('on', isActive);
+      dot.setAttribute('aria-current', isActive ? 'true' : 'false');
+    });
+
+    if(worksPrev) worksPrev.disabled = worksIndex === 0;
+    if(worksNext) worksNext.disabled = worksIndex === worksMax;
   }
 
   function nearestSectionIndex(){
@@ -90,29 +103,91 @@
 
   window.addEventListener('resize', () => goToSection(nearestSectionIndex(), true));
   window.addEventListener('load', () => setTimeout(() => goToSection(nearestSectionIndex(), true), 120));
-  worksDots.forEach((dot, i) => dot.addEventListener('click', () => setWorksPanel(i)));
+  worksDots.forEach((dot, i) => {
+    dot.addEventListener('click', () => setWorksPanel(i));
+  });
+
+  worksPrev?.addEventListener('click', () => setWorksPanel(worksIndex - 1));
+  worksNext?.addEventListener('click', () => setWorksPanel(worksIndex + 1));
+
   setWorksPanel(0);
 })();
 
-const cursor=document.querySelector('.cursor');if(cursor){document.addEventListener('mousemove',e=>{cursor.style.left=e.clientX+'px';cursor.style.top=e.clientY+'px'});document.querySelectorAll('a,.case-tag,.box,.p-card,.dot').forEach(el=>{el.addEventListener('mouseenter',()=>cursor.classList.add('big'));el.addEventListener('mouseleave',()=>cursor.classList.remove('big'))});}
-const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')})},{threshold:.16});document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-const gallery=document.querySelector('.gallery-showcase');
-const galleryRows=document.querySelectorAll('.gallery-row');
+const cursor = document.querySelector('.cursor');
+
+if(cursor){
+  document.addEventListener('mousemove', e => {
+    cursor.style.left = `${e.clientX}px`;
+    cursor.style.top = `${e.clientY}px`;
+  });
+
+  document
+    .querySelectorAll('a, .case-tag, .box, .p-card, .dot, .works-prev, .works-next')
+    .forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('big'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('big'));
+    });
+}
+
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) entry.target.classList.add('on');
+  });
+}, { threshold: .16 });
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+const gallery = document.querySelector('.gallery-showcase');
+const galleryRows = document.querySelectorAll('.gallery-row');
+
 function moveGallery(){
   if(!gallery) return;
-  const r=gallery.getBoundingClientRect();
-  const progress=Math.min(1,Math.max(0,(innerHeight-r.top)/(innerHeight+r.height)));
-  galleryRows.forEach((row,idx)=>{
-    const dir=row.classList.contains('row-left')?-1:1;
-    const base=idx%2===0?-180:180;
-    const scrollMove=(progress-.5)*420*dir;
-    row.style.setProperty('--move',`${base+scrollMove}px`);
+
+  const rect = gallery.getBoundingClientRect();
+  const progress = Math.min(1, Math.max(0, (innerHeight - rect.top) / (innerHeight + rect.height)));
+
+  galleryRows.forEach((row, index) => {
+    const direction = row.classList.contains('row-left') ? -1 : 1;
+    const base = index % 2 === 0 ? -180 : 180;
+    const scrollMove = (progress - .5) * 420 * direction;
+    row.style.setProperty('--move', `${base + scrollMove}px`);
   });
 }
-window.addEventListener('scroll',moveGallery,{passive:true});
-window.addEventListener('resize',moveGallery);moveGallery();
-if(gallery){gallery.addEventListener('mousemove',e=>{const x=(e.clientX/innerWidth-.5)*80;galleryRows.forEach((row,idx)=>{const dir=row.classList.contains('row-left')?-1:1;row.style.translate=`${x*dir}px 0`;});});gallery.addEventListener('mouseleave',()=>galleryRows.forEach(row=>row.style.translate='0 0'));}
-document.querySelectorAll('.browser').forEach(card=>{card.addEventListener('mousemove',e=>{const r=card.getBoundingClientRect();const x=e.clientX-r.left,y=e.clientY-r.top;card.style.transform=`rotateY(${(x/r.width-.5)*-20}deg) rotateX(${(.5-y/r.height)*14}deg) translateY(-8px)`});card.addEventListener('mouseleave',()=>card.style.transform='rotateY(-13deg) rotateX(7deg)')});
+
+window.addEventListener('scroll', moveGallery, { passive: true });
+window.addEventListener('resize', moveGallery);
+moveGallery();
+
+if(gallery){
+  gallery.addEventListener('mousemove', e => {
+    const x = (e.clientX / innerWidth - .5) * 80;
+
+    galleryRows.forEach(row => {
+      const direction = row.classList.contains('row-left') ? -1 : 1;
+      row.style.translate = `${x * direction}px 0`;
+    });
+  });
+
+  gallery.addEventListener('mouseleave', () => {
+    galleryRows.forEach(row => {
+      row.style.translate = '0 0';
+    });
+  });
+}
+
+document.querySelectorAll('.browser').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    card.style.transform = `rotateY(${(x / rect.width - .5) * -20}deg) rotateX(${(.5 - y / rect.height) * 14}deg) translateY(-8px)`;
+  });
+
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = 'rotateY(-13deg) rotateX(7deg)';
+  });
+});
 
 (function(){
   const loader = document.getElementById('introLoader');
@@ -294,7 +369,6 @@ document.querySelectorAll('.browser').forEach(card=>{card.addEventListener('mous
   const title = document.getElementById('projectModalTitle');
   const visual = document.getElementById('projectModalVisual');
   const modalImage = document.getElementById("projectModalImage");
-  const modalScroll = modal.querySelector(".project-modal-scroll");
   const desc = document.getElementById('projectModalDesc');
   const overview = document.getElementById('projectModalOverview');
   const role = document.getElementById('projectModalRole');
@@ -440,28 +514,6 @@ document.querySelectorAll('.browser').forEach(card=>{card.addEventListener('mous
   }
 ];
 
-  let downX = 0;
-  let downY = 0;
-  let didMove = false;
-
-  section.querySelectorAll('.p-card').forEach((card, i) => {
-    card.style.cursor = 'pointer';
-    card.addEventListener('pointerdown', e => {
-      downX = e.clientX;
-      downY = e.clientY;
-      didMove = false;
-    });
-    card.addEventListener('pointermove', e => {
-      if(Math.abs(e.clientX - downX) > 8 || Math.abs(e.clientY - downY) > 8) didMove = true;
-    });
-    card.addEventListener('click', e => {
-      if(didMove) return;
-      e.preventDefault();
-      e.stopPropagation();
-      openModal(i);
-    });
-  });
-
   function openModal(i){
     const item = data[i] || data[0];
     kicker.textContent = item.num;
@@ -470,7 +522,7 @@ document.querySelectorAll('.browser').forEach(card=>{card.addEventListener('mous
     modalImage.alt = `${item.title} 프로젝트 상세페이지`;
     desc.textContent = item.desc;
     overview.textContent = item.overview;
-    role.textContent = item.role;
+    role.textContent = item.tools;
     visual.style.setProperty('--modal-c1', item.c1);
     visual.style.setProperty('--modal-c2', item.c2);
     tags.innerHTML = item.tags.map(tag => `<span>${tag}</span>`).join('');
@@ -509,8 +561,7 @@ document.querySelectorAll('.browser').forEach(card=>{card.addEventListener('mous
   const image = document.getElementById('boxModalImage');
   const closeBtn = modal?.querySelector('.box-modal-close');
 
-  if(!section || !marquee || !track || !modal || !title || !desc) return;
-  if (!section || !marquee || !track || !modal || !title || !desc || !image) return;
+  if(!section || !marquee || !track || !modal || !title || !desc || !image) return;
   if(track.dataset.boxReady === 'true') return;
 
   const data = {
@@ -687,9 +738,6 @@ document.querySelectorAll('.browser').forEach(card=>{card.addEventListener('mous
   render();
 })();
 
-window.addEventListener("scroll",()=>{
-
-});
 
 const hero = document.querySelector('#hero');
 const pngFloaters = document.querySelectorAll('#hero .float-png');
@@ -756,8 +804,6 @@ heroDrops.forEach((item) => {
     });
   }
 })();
-
-
 
 
 /* =========================================================
@@ -876,6 +922,7 @@ heroDrops.forEach((item) => {
     /* OTHER DESIGN WORKS */
     addMotion(document.querySelector("#box_project .box-head span"), "left", 0);
     addMotion(document.querySelector("#box_project .box-head h2"), "mask", 70);
+    addMotion(document.querySelector("#box_project .box-drag-guide"), "right", 120);
     addMotion(document.querySelector("#box_project .box-marquee"), "up", 170);
 
     /* CONTACT */
@@ -1042,4 +1089,3 @@ heroDrops.forEach((item) => {
 
   menu.dataset.menuReady = "true";
 })();
-
