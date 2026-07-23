@@ -156,13 +156,24 @@
       <p>2023.05 웹디자인기능사<br>2023.05 컴퓨터그래픽스운용기능사<br>2020.11 컴퓨터활용능력<br>2019.08 운전면허증</p><br>
       <h3>Used Tools</h3>
       <ul class="toolbox">
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
+        <li>
+          <img src="./images/ps_icon.png" alt="">
+        </li>
+        <li>
+          <img src="./images/ai_icon.png" alt="">
+        </li>
+        <li>
+          <img src="./images/figma_icon.png" alt="">
+        </li>
+        <li>
+          <img src="./images/html_icon.png" alt="">
+        </li>
+        <li>
+          <img src="./images/css_icon.png" alt="">
+        </li>
+        <li>
+          <img src="./images/js_icon.png" alt="">
+        </li>
       </ul>
     </div>
   </div>
@@ -498,19 +509,33 @@
       <button class="project-modal-close" type="button" aria-label="팝업 닫기">×</button>
     </div>
     <div class="project-modal-scroll">
-      <div class="project-modal-visual" id="projectModalVisual"><strong id="projectModalVisualText">SONICAST</strong></div>
+
+      <!-- 설명 -->
       <p class="project-modal-desc" id="projectModalDesc"></p>
+
+      <!-- Overview / Role -->
       <div class="project-modal-grid">
         <div class="project-modal-card">
           <h4>Overview</h4>
           <p id="projectModalOverview"></p>
         </div>
+
         <div class="project-modal-card">
           <h4>Role & Tools</h4>
           <p id="projectModalRole"></p>
           <div class="project-modal-tags" id="projectModalTags"></div>
         </div>
       </div>
+
+      <!-- 세로로 긴 상세페이지 이미지 -->
+      <div class="project-modal-visual" id="projectModalVisual">
+        <img
+          id="projectModalImage"
+          src="./images/p1.png"
+          alt="소니캐스트 상세페이지"
+        >
+      </div>
+
     </div>
   </div>
 </div>
@@ -572,7 +597,7 @@
         <article class="box">
 
             <div class="box-title">
-                <h3>BUSINESSCARD</h3>
+                <h3>BIZ_CARD</h3>
                 <span>DESIGN</span>
             </div>
 
@@ -602,10 +627,32 @@
 
 <div class="box-modal" id="boxModal" aria-hidden="true">
   <div class="box-modal-box">
-    <button class="box-modal-close" type="button">×</button>
-    <span id="boxModalKicker">DESIGN WORK</span>
-    <h3 id="boxModalTitle">Landing Page</h3>
-    <p id="boxModalDesc"></p>
+
+    <button
+      class="box-modal-close"
+      type="button"
+      aria-label="팝업 닫기"
+    >
+      ×
+    </button>
+
+    <div class="box-modal-scroll">
+      <span id="boxModalKicker">DESIGN WORK</span>
+
+      <h3 id="boxModalTitle">POSTER</h3>
+
+      <p id="boxModalDesc"></p>
+
+      <!-- 작업 이미지 -->
+      <div class="box-modal-image">
+        <img
+          id="boxModalImage"
+          src="./images/poster_work.jpg"
+          alt=""
+        >
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -619,7 +666,7 @@
 
       <!-- 카카오톡 -->
       <a
-          href="https://open.kakao.com/o/여기에주소"
+          href="https://open.kakao.com/o/ssXunlFi"
           class="contact-link kakao"
           target="_blank"
           rel="noopener"
