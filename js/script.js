@@ -293,56 +293,152 @@ document.querySelectorAll('.browser').forEach(card=>{card.addEventListener('mous
   const kicker = document.getElementById('projectModalKicker');
   const title = document.getElementById('projectModalTitle');
   const visual = document.getElementById('projectModalVisual');
-  const visualText = document.getElementById('projectModalVisualText');
+  const modalImage = document.getElementById("projectModalImage");
+  const modalScroll = modal.querySelector(".project-modal-scroll");
   const desc = document.getElementById('projectModalDesc');
   const overview = document.getElementById('projectModalOverview');
   const role = document.getElementById('projectModalRole');
   const tags = document.getElementById('projectModalTags');
 
   const data = [
-    {
-      num:'PROJECT 01', title:'SONICAST', c1:'#111111', c2:'#bbbbbb',
-      desc:'음향 기술 브랜드의 고급스러운 이미지를 살리기 위해 어두운 무드, 3D 오브제, 스크롤 인터랙션을 중심으로 구성한 인터랙티브 웹 프로젝트입니다.',
-      overview:'히어로 영상, 기술 소개, 제품 영역, 브랜드 비전까지 하나의 흐름으로 연결해 사용자가 브랜드의 기술력과 감성을 동시에 느낄 수 있도록 설계했습니다.',
-      role:'UX/UI Design · Web Publishing · Motion Direction',
-      tags:['HTML','CSS','JavaScript','Interaction','Responsive']
-    },
-    {
-      num:'PROJECT 02', title:'BIOLOGICS', c1:'#2f63ff', c2:'#9ee8ff',
-      desc:'글로벌 바이오 기업의 신뢰감과 미래지향성을 표현한 기업형 웹사이트 리뉴얼 프로젝트입니다.',
-      overview:'대형 비주얼, 수평 스크롤, 카운트업, ESG 카드 모션 등 기업 사이트에 필요한 정보 구조와 시각적 임팩트를 함께 정리했습니다.',
-      role:'UX/UI Design · Publishing · Responsive Layout',
-      tags:['Corporate','GSAP','Scroll','UI Design','Publishing']
-    },
-    {
-      num:'PROJECT 03', title:'FOOD UI', c1:'#4e944f', c2:'#d3ffc5',
-      desc:'식품/외식 브랜드의 따뜻하고 친근한 이미지를 강조한 브랜드 리뉴얼 UI 프로젝트입니다.',
-      overview:'메뉴, 상세 정보, 브랜드 스토리 영역을 직관적으로 구성하고 컬러와 카드 레이아웃으로 부드러운 사용 경험을 만들었습니다.',
-      role:'Brand UI · Mobile/Web Layout · Visual Design',
-      tags:['Branding','UIUX','Card UI','Mobile','Design']
-    },
-    {
-      num:'PROJECT 04', title:'EVENT', c1:'#ff90b8', c2:'#ffe2ec',
-      desc:'프로모션 목적에 맞게 밝고 주목도 높은 톤으로 제작한 이벤트 페이지 디자인입니다.',
-      overview:'이벤트 참여 흐름을 짧고 명확하게 정리하고, CTA와 혜택 정보가 자연스럽게 눈에 들어오도록 화면을 구성했습니다.',
-      role:'Promotion Design · Landing Page · Publishing',
-      tags:['Event','Landing','CTA','Banner','Responsive']
-    },
-    {
-      num:'PROJECT 05', title:'BRAND UI', c1:'#222222', c2:'#b78aff',
-      desc:'브랜드의 핵심 무드를 일관된 컴포넌트와 비주얼 시스템으로 정리한 디자인 시스템형 프로젝트입니다.',
-      overview:'컬러, 타이포, 버튼, 카드, 섹션 구조를 정리해 여러 페이지에 확장 가능한 UI 규칙을 만들었습니다.',
-      role:'Design System · Component UI · Style Guide',
-      tags:['Design System','Component','Guide','Figma','UI']
-    },
-    {
-      num:'PROJECT 06', title:'UIUX', c1:'#111111', c2:'#ffffff',
-      desc:'사용자 흐름을 분석하고 정보 구조를 재정리한 UX 케이스 스터디 프로젝트입니다.',
-      overview:'문제 정의, 사용자 여정, 와이어프레임, 프로토타입 과정을 통해 사용성이 개선되는 흐름을 보여주는 포트폴리오 섹션입니다.',
-      role:'UX Research · Wireframe · Prototype · UI Design',
-      tags:['UX','Research','Wireframe','Prototype','Case Study']
-    }
-  ];
+  {
+    num: "PROJECT 01",
+    title: "감귤",
+    image: "./images/p1.png",
+
+    c1: "#ff8b32",
+    c2: "#fff1c9",
+
+    desc: "신선한 감귤의 색감과 풍성한 이미지를 활용해 제품의 산뜻하고 먹음직스러운 분위기를 표현한 식품 상세페이지입니다.",
+
+    overview: "감귤의 특징과 신선도, 보관 방법 등의 정보를 한눈에 확인할 수 있도록 구성했습니다. 따뜻한 오렌지 컬러와 제품 중심의 이미지 배치를 활용해 자연스럽게 구매로 이어질 수 있도록 디자인했습니다.",
+
+    tools: "Adobe Photoshop · Adobe Illustrator",
+
+    tags: [
+      "Detail Page",
+      "Food",
+      "Photoshop",
+      "Illustrator",
+      "Visual Design"
+    ]
+  },
+
+  {
+    num: "PROJECT 02",
+    title: "프라이팬",
+    image: "./images/p2.png",
+
+    c1: "#242424",
+    c2: "#d7d7d7",
+
+    desc: "프라이팬의 내구성과 실용적인 기능을 효과적으로 전달하기 위해 제품 이미지와 핵심 정보를 명확하게 구성한 주방용품 상세페이지입니다.",
+
+    overview: "코팅력, 열전도율, 손잡이 구조 등 구매자가 중요하게 생각하는 기능을 중심으로 정보의 우선순위를 정리했습니다. 금속 소재의 느낌을 살린 차분한 색상과 깔끔한 레이아웃으로 제품의 전문성과 신뢰감을 표현했습니다.",
+
+    tools: "Adobe Photoshop · Adobe Illustrator",
+
+    tags: [
+      "Detail Page",
+      "Cookware",
+      "Photoshop",
+      "Illustrator",
+      "Product Design"
+    ]
+  },
+
+  {
+    num: "PROJECT 03",
+    title: "샤인머스켓",
+    image: "./images/p3.png",
+
+    c1: "#8ebf45",
+    c2: "#eff8cd",
+
+    desc: "샤인머스켓의 싱그러운 색감과 높은 당도를 시각적으로 강조해 신선하고 고급스러운 이미지를 전달한 과일 상세페이지입니다.",
+
+    overview: "제품의 당도와 식감, 선별 과정, 포장 방식 등의 정보를 순차적으로 배치했습니다. 밝은 그린 컬러와 생동감 있는 과일 이미지를 활용해 신선함을 강조하고, 선물용 상품으로서의 고급스러운 분위기도 함께 표현했습니다.",
+
+    tools: "Adobe Photoshop · Adobe Illustrator",
+
+    tags: [
+      "Detail Page",
+      "Fresh Food",
+      "Photoshop",
+      "Illustrator",
+      "E-commerce"
+    ]
+  },
+
+  {
+    num: "PROJECT 04",
+    title: "사각 스텐 트레이",
+    image: "./images/p4.png",
+
+    c1: "#8b9298",
+    c2: "#eef1f3",
+
+    desc: "스테인리스 소재의 위생성과 다양한 활용 방법을 간결하게 전달한 주방용 사각 트레이 상세페이지입니다.",
+
+    overview: "제품의 크기와 소재, 내구성, 세척 방법 등 실사용에 필요한 정보를 중심으로 구성했습니다. 스테인리스 특유의 깨끗하고 견고한 이미지를 살리기 위해 실버와 그레이 컬러를 사용하고, 군더더기 없는 정돈된 레이아웃으로 제작했습니다.",
+
+    tools: "Adobe Photoshop · Adobe Illustrator",
+
+    tags: [
+      "Detail Page",
+      "Kitchenware",
+      "Photoshop",
+      "Illustrator",
+      "Product Layout"
+    ]
+  },
+
+  {
+    num: "PROJECT 05",
+    title: "멍게젓갈",
+    image: "./images/p5.png",
+
+    c1: "#e65f39",
+    c2: "#ffe3c8",
+
+    desc: "멍게젓갈의 신선한 원재료와 깊은 감칠맛을 강조해 제품의 풍미가 효과적으로 전달되도록 구성한 식품 상세페이지입니다.",
+
+    overview: "원재료의 특징과 제조 과정, 맛있게 즐기는 방법, 보관 정보를 자연스러운 흐름으로 정리했습니다. 따뜻한 주황색과 식탁 이미지를 활용해 친근하고 먹음직스러운 분위기를 표현하고 제품에 대한 신뢰감을 높였습니다.",
+
+    tools: "Adobe Photoshop · Adobe Illustrator",
+
+    tags: [
+      "Detail Page",
+      "Food",
+      "Photoshop",
+      "Illustrator",
+      "Content Design"
+    ]
+  },
+
+  {
+    num: "PROJECT 06",
+    title: "쿡웨어",
+    image: "./images/p6.png",
+
+    c1: "#343434",
+    c2: "#c9c3bb",
+
+    desc: "다양한 주방용품의 기능과 구성품을 효과적으로 보여주기 위해 제품 중심으로 설계한 쿡웨어 상세페이지입니다.",
+
+    overview: "제품별 특징과 사용 방법, 사이즈, 소재 정보를 비교하기 쉽게 구성했습니다. 차분한 뉴트럴 컬러와 넓은 여백을 활용해 여러 제품이 복잡해 보이지 않도록 정리하고, 실용적이면서도 세련된 주방용품의 이미지를 표현했습니다.",
+
+    tools: "Adobe Photoshop · Adobe Illustrator",
+
+    tags: [
+      "Detail Page",
+      "Cookware",
+      "Photoshop",
+      "Illustrator",
+      "E-commerce"
+    ]
+  }
+];
 
   let downX = 0;
   let downY = 0;
@@ -370,7 +466,8 @@ document.querySelectorAll('.browser').forEach(card=>{card.addEventListener('mous
     const item = data[i] || data[0];
     kicker.textContent = item.num;
     title.textContent = item.title;
-    visualText.textContent = item.title;
+    modalImage.src = item.image;
+    modalImage.alt = `${item.title} 프로젝트 상세페이지`;
     desc.textContent = item.desc;
     overview.textContent = item.overview;
     role.textContent = item.role;
@@ -409,17 +506,39 @@ document.querySelectorAll('.browser').forEach(card=>{card.addEventListener('mous
   const modal = document.getElementById('boxModal');
   const title = document.getElementById('boxModalTitle');
   const desc = document.getElementById('boxModalDesc');
+  const image = document.getElementById('boxModalImage');
   const closeBtn = modal?.querySelector('.box-modal-close');
 
   if(!section || !marquee || !track || !modal || !title || !desc) return;
+  if (!section || !marquee || !track || !modal || !title || !desc || !image) return;
   if(track.dataset.boxReady === 'true') return;
 
   const data = {
-    'Landing Page': '프로모션, 이벤트, 서비스 소개처럼 사용자의 행동을 유도하는 랜딩페이지 디자인 작업입니다.',
-    'Banner': 'SNS, 광고, 이벤트 영역에 활용되는 배너 그래픽 디자인 작업입니다.',
-    'Detail Page': '상품의 장점과 정보를 보기 쉽게 정리한 상세페이지 디자인 작업입니다.',
-    'Brand UI': '브랜드 분위기에 맞춘 UI 컴포넌트와 화면 디자인 작업입니다.'
-  };
+  POSTER: {
+    desc: '브랜드 메시지와 정보를 시각적으로 전달한 포스터 디자인 작업입니다.',
+    image: './images/poster_work.png'
+  },
+
+  BLOG: {
+    desc: '브랜드의 콘텐츠와 제품 정보를 효과적으로 전달한 블로그 디자인 작업입니다.',
+    image: './images/blog_work.png'
+  },
+
+  BROCHURE: {
+    desc: '기업과 제품 정보를 명확한 흐름으로 정리한 브로슈어 디자인 작업입니다.',
+    image: './images/brochure_work.png'
+  },
+
+  BIZ_CARD: {
+    desc: '브랜드의 인상을 간결하게 담아낸 명함 디자인 작업입니다.',
+    image: './images/businesscard_work.png'
+  },
+
+  BANNER: {
+    desc: '프로모션과 이벤트 내용을 직관적으로 전달한 배너 디자인 작업입니다.',
+    image: './images/banner_work.png'
+  }
+};
 
   // 원본 카드만 먼저 저장한 뒤 1번만 복제
   const originalCards = Array.from(track.children);
@@ -459,16 +578,30 @@ document.querySelectorAll('.browser').forEach(card=>{card.addEventListener('mous
     requestAnimationFrame(render);
   }
 
-  function openBoxModal(card){
-    const name = card.querySelector('h3')?.textContent.trim() || 'Design Work';
+  function openBoxModal(card) {
+  const name =
+    card.querySelector('h3')?.textContent.trim() || 'DESIGN WORK';
 
-    title.textContent = name;
-    desc.textContent = data[name] || '디자인 작업 상세 내용을 보여주는 팝업입니다.';
+  const item = data[name] || {
+    desc: '디자인 작업 상세 내용을 보여주는 팝업입니다.',
+    image: './images/poster_work.jpg'
+  };
 
-    modal.classList.add('on');
-    modal.setAttribute('aria-hidden','false');
-    document.body.classList.add('project-modal-open');
+  title.textContent = name;
+  desc.textContent = item.desc;
+
+  image.src = item.image;
+  image.alt = `${name} 디자인 작업 이미지`;
+
+  modal.classList.add('on');
+  modal.setAttribute('aria-hidden', 'false');
+  document.body.classList.add('project-modal-open');
+
+  const scrollArea = modal.querySelector('.box-modal-scroll');
+  if (scrollArea) {
+    scrollArea.scrollTop = 0;
   }
+}
 
   function closeBoxModal(){
     modal.classList.remove('on');
