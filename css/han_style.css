@@ -1506,22 +1506,22 @@ li {
 }
 
 .token-black {
-  background: var(--black);
+  background: #35150E;
   color: var(--white);
 }
 
 .token-white {
-  background: var(--white);
+  background: #FFFCF7;
 }
 
 .token-accent {
-  background: var(--accent);
+  background: #E63B24;
   color: var(--accent-contrast);
 }
 
 .token-soft {
-  background: var(--accent-soft);
-  color: var(--accent-dark);
+  background: #3D8A2A;
+  color: var(--white);
 }
 
 .type-sample {
@@ -5409,8 +5409,7 @@ li {
    메뉴 때문에 콘텐츠 폭이 줄어드는 현상 방지.
   */
   .hero::after {
-    right: 0;
-  }
+    display: none;
 }
 
 @supports not (overflow: clip) {
