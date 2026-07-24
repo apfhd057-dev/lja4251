@@ -4102,9 +4102,9 @@ body.motion-ready .case-text.fx-in::before {
   }
    #contact {
     height: auto;
-    min-height: 760px;
-    padding: 120px 20px 28px;
+    padding: 30 20px;
     justify-content: flex-start;
+    border-top: 1px solid rgba(0, 0, 0, .12);
   }
 
   #contact .contact_group {
