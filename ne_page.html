@@ -361,26 +361,83 @@
               <p>가나다라마바사아자차카타파하</p>
             </div>
           </article>
-          <article class="system-card component-card reveal" data-delay="140">
+          <article class="system-card component-card ne-component-card reveal" data-delay="140">
             <div class="system-label">
               <span>03</span>
-              <h3>ACCENT POINTS</h3>
+              <h3>NE UI COMPONENTS</h3>
             </div>
-            <div class="component-preview">
-              <div class="preview-buttons">
-                <button class="accent-button magnetic" type="button">VIEW PROJECT<span>↗</span></button>
-                <button class="line-button magnetic" type="button">CASE STUDY<span>→</span></button>
-              </div>
-              <div class="preview-tabs">
-                <button class="active" type="button">OVERVIEW</button>
-                <button type="button">PROCESS</button>
-                <button type="button">RESULT</button>
-              </div>
-              <div class="preview-index">
-                <button type="button">←</button>
-                <span><b>01</b>/ 04</span>
-                <button type="button">→</button>
-              </div>
+
+            <div class="ne-component-preview">
+              <section class="ne-ui-group" aria-label="NE능률 버튼 컴포넌트">
+                <span class="ne-ui-caption">BUTTONS</span>
+
+                <div class="ne-button-list">
+                  <button class="ne-pill-button is-active" type="button">전체</button>
+                  <button class="ne-pill-button" type="button">초등학생</button>
+
+                  <a class="ne-line-button" href="#" onclick="return false;">
+                    <span>바로가기</span>
+                    <i aria-hidden="true">→</i>
+                  </a>
+                </div>
+              </section>
+
+              <section class="ne-ui-group" aria-label="NE능률 내비게이션 컴포넌트">
+                <span class="ne-ui-caption">NAVIGATION</span>
+
+                <nav class="ne-navigation-preview" aria-label="NE능률 메뉴 미리보기">
+                  <a class="is-active" href="#" onclick="return false;">기업소개</a>
+                  <a href="#" onclick="return false;">출판 교재</a>
+                  <a href="#" onclick="return false;">교육서비스</a>
+                  <a href="#" onclick="return false;">선생님지원</a>
+                </nav>
+              </section>
+
+              <section class="ne-ui-group" aria-label="NE능률 카테고리 탭 컴포넌트">
+                <span class="ne-ui-caption">CATEGORY TAB</span>
+
+                <div class="ne-category-tabs">
+                  <button class="is-active" type="button">전체</button>
+                  <button type="button">초등학생</button>
+                  <button type="button">중학생</button>
+                  <button type="button">고등학생</button>
+                  <button type="button">기타</button>
+                </div>
+              </section>
+
+              <section class="ne-ui-group" aria-label="NE능률 슬라이드 및 폼 컨트롤">
+                <span class="ne-ui-caption">CONTROLS</span>
+
+                <div class="ne-slider-controls">
+                  <button class="ne-circle-arrow" type="button" aria-label="이전">‹</button>
+
+                  <div class="ne-pagination">
+                    <span class="is-active"></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+
+                  <button class="ne-circle-arrow is-active" type="button" aria-label="다음">›</button>
+                </div>
+
+                <div class="ne-page-count">
+                  <button type="button" aria-label="이전 페이지">‹</button>
+                  <strong>01</strong>
+                  <span>/ 04</span>
+                  <button type="button" aria-label="다음 페이지">›</button>
+                </div>
+
+                <label class="ne-family-select">
+                  <span>FAMILY SITE</span>
+                  <select aria-label="패밀리 사이트">
+                    <option>NE Books</option>
+                    <option>NE Times</option>
+                    <option>NE Tutor</option>
+                    <option>NELT</option>
+                  </select>
+                </label>
+              </section>
             </div>
           </article>
         </div>

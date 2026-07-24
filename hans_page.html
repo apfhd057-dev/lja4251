@@ -11,20 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&amp;family=Noto+Sans+KR:wght@400;500;600;700;900&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
     <link href="./css/han_style.css" rel="stylesheet"/>
   </head>
-  <body class="is-loading" data-project="hans">
-    <div aria-hidden="true" class="page-loader">
-      <div class="loader-head">
-        <span data-bind="projectName">HANS CAKE</span>
-        <span>CASE STUDY / 2026</span>
-      </div>
-      <div class="loader-number">
-        <b>00</b>
-        <i>%</i>
-      </div>
-      <div class="loader-track">
-        <i></i>
-      </div>
-    </div>
+  <body data-project="hans">
     <div aria-hidden="true" class="scroll-progress">
       <i></i>
     </div>
@@ -402,26 +389,66 @@
               <p>가나다라마바사아자차카타파하</p>
             </div>
           </article>
-          <article class="system-card component-card reveal" data-delay="140">
+          <article class="system-card component-card hans-component-card reveal" data-delay="140">
             <div class="system-label">
               <span>03</span>
-              <h3>ACCENT POINTS</h3>
+              <h3>HANS UI COMPONENTS</h3>
             </div>
-            <div class="component-preview">
-              <div class="preview-buttons">
-                <button class="accent-button magnetic" type="button">VIEW PROJECT<span>↗</span></button>
-                <button class="line-button magnetic" type="button">CASE STUDY<span>→</span></button>
-              </div>
-              <div class="preview-tabs">
-                <button class="active" type="button">OVERVIEW</button>
-                <button type="button">PROCESS</button>
-                <button type="button">RESULT</button>
-              </div>
-              <div class="preview-index">
-                <button type="button">←</button>
-                <span><b>01</b>/ 04</span>
-                <button type="button">→</button>
-              </div>
+
+            <p class="hans-component-intro">
+              한스케익 메인 페이지에 실제 적용한 버튼, 카테고리 탭,
+              슬라이드 컨트롤과 매장 검색 UI를 한눈에 볼 수 있도록 정리했습니다.
+            </p>
+
+            <div class="hans-component-preview">
+              <section class="hans-ui-group hans-ui-buttons" aria-label="한스케익 버튼 컴포넌트">
+                <span class="hans-ui-caption">BUTTONS</span>
+                <div class="hans-button-stack">
+                  <button class="hans-btn hans-btn-fill" type="button">VIEW</button>
+                  <button class="hans-btn hans-btn-line" type="button">MORE</button>
+                  <button class="hans-btn hans-btn-pill" type="button">INSTAGRAM</button>
+                </div>
+              </section>
+
+              <section class="hans-ui-group hans-ui-categories" aria-label="한스케익 메뉴 카테고리 컴포넌트">
+                <span class="hans-ui-caption">CATEGORY TAB</span>
+                <ul class="hans-category-list">
+                  <li class="is-active"><button type="button">cake</button></li>
+                  <li><button type="button">sweet</button></li>
+                  <li><button type="button">drink</button></li>
+                </ul>
+              </section>
+
+              <section class="hans-ui-group hans-ui-slider" aria-label="한스케익 슬라이드 컨트롤 컴포넌트">
+                <span class="hans-ui-caption">SLIDER CONTROL</span>
+                <div class="hans-slider-row">
+                  <button class="hans-arrow hans-arrow-prev" type="button" aria-label="이전 슬라이드"></button>
+                  <div class="hans-pagination" aria-label="슬라이드 페이지">
+                    <span class="is-current"></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                  <button class="hans-arrow hans-arrow-next" type="button" aria-label="다음 슬라이드"></button>
+                </div>
+              </section>
+
+              <section class="hans-ui-group hans-ui-store" aria-label="한스케익 매장 검색 컴포넌트">
+                <span class="hans-ui-caption">STORE SEARCH</span>
+                <div class="hans-search-field" role="search">
+                  <span>지역을 입력해주세요</span>
+                  <button type="button" aria-label="매장 검색">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <circle cx="10.5" cy="10.5" r="6.5"></circle>
+                      <path d="M15.5 15.5L21 21"></path>
+                    </svg>
+                  </button>
+                </div>
+                <div class="hans-chip-row">
+                  <span class="hans-chip hans-chip-red">#기념일케이크</span>
+                  <span class="hans-chip hans-chip-green">#웨딩케이크</span>
+                </div>
+              </section>
             </div>
           </article>
         </div>

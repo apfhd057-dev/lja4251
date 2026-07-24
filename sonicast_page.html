@@ -402,26 +402,63 @@
               <p>가나다라마바사아자차카타파하</p>
             </div>
           </article>
-          <article class="system-card component-card reveal" data-delay="140">
+          <article class="system-card component-card sonicast-component-card reveal" data-delay="140">
             <div class="system-label">
               <span>03</span>
-              <h3>ACCENT POINTS</h3>
+              <h3>SONICAST UI COMPONENTS</h3>
             </div>
-            <div class="component-preview">
-              <div class="preview-buttons">
-                <button class="accent-button magnetic" type="button">VIEW PROJECT<span>↗</span></button>
-                <button class="line-button magnetic" type="button">CASE STUDY<span>→</span></button>
-              </div>
-              <div class="preview-tabs">
-                <button class="active" type="button">OVERVIEW</button>
-                <button type="button">PROCESS</button>
-                <button type="button">RESULT</button>
-              </div>
-              <div class="preview-index">
-                <button type="button">←</button>
-                <span><b>01</b>/ 04</span>
-                <button type="button">→</button>
-              </div>
+
+            <div class="sonicast-component-preview">
+              <section class="sonicast-ui-group sonicast-ui-navigation" aria-label="소니캐스트 내비게이션 컴포넌트">
+                <span class="sonicast-ui-caption">NAVIGATION</span>
+
+                <div class="sonicast-nav-row">
+                  <nav class="sonicast-nav-preview" aria-label="소니캐스트 메뉴 미리보기">
+                    <a class="is-active" href="#" onclick="return false;">ABOUT</a>
+                    <a href="#" onclick="return false;">TECH</a>
+                    <a href="#" onclick="return false;">PRODUCTS</a>
+                    <a href="#" onclick="return false;">CHANNEL</a>
+                  </nav>
+
+                  <div class="sonicast-header-actions">
+                    <a class="sonicast-contact-pill" href="#" onclick="return false;">CONTACT</a>
+
+                    <button class="sonicast-menu-button" type="button" aria-label="메뉴 열기">
+                      <span></span>
+                      <span></span>
+                    </button>
+                  </div>
+                </div>
+              </section>
+
+              <section class="sonicast-ui-group sonicast-ui-controls" aria-label="소니캐스트 조작 컴포넌트">
+                <span class="sonicast-ui-caption">CONTROLS</span>
+
+                <div class="sonicast-control-layout">
+                  <div class="sonicast-product-controls" aria-label="제품 슬라이드 이동">
+                    <button type="button" aria-label="이전 제품 보기">
+                      <span>PREV</span>
+                      <i aria-hidden="true">←</i>
+                    </button>
+
+                    <button type="button" aria-label="다음 제품 보기">
+                      <span>NEXT</span>
+                      <i aria-hidden="true">→</i>
+                    </button>
+                  </div>
+
+                  <div class="sonicast-page-controls">
+                    <div class="sonicast-scroll-indicator" aria-hidden="true">
+                      <span>SCROLL</span>
+                      <i></i>
+                    </div>
+
+                    <a class="sonicast-top-circle" href="#" onclick="return false;" aria-label="페이지 맨 위로 이동">
+                      TOP
+                    </a>
+                  </div>
+                </div>
+              </section>
             </div>
           </article>
         </div>
