@@ -1403,7 +1403,7 @@ body.loaded .page-wrap {
 
 .project-prev { left: 5vw; }
 .project-next { right: 5vw; }
-
+.project-guide {font-size: 14px;}
 /* -------------------- DESIGN WORKS -------------------- */
 #box_project {
   padding: calc(var(--top-ui) + 8vh) 0 6vh;
@@ -1634,6 +1634,7 @@ body.loaded .page-wrap {
   line-height: .69;
   letter-spacing: -.025em;
 }
+
 
 #contact h2 em {
   color: var(--accent);
@@ -2951,6 +2952,7 @@ body.loaded .page-wrap {
   transform: translateX(-50%);
   width: max-content;
   text-align: center;
+  font-size: 16px;
 }
 
 .stage3d {
@@ -3165,6 +3167,9 @@ body.motion-ready .case-text.fx-in::before {
 
   body.motion-ready .fx-mask {
     transform: translate3d(0, 14px, 0);
+  }
+  .project-guide{
+    line-height: 1.8;
   }
 }
 
@@ -3398,7 +3403,6 @@ body.motion-ready .case-text.fx-in::before {
   .gallery-copy p {
     max-width: 560px;
     margin-top: 22px;
-    font-size: 14px;
     line-height: 1.8;
   }
 
@@ -3521,9 +3525,8 @@ body.motion-ready .case-text.fx-in::before {
 
   /* CONTACT */
   #contact {
-    min-height: 720px;
-    padding: 100px 24px 34px;
     justify-content: flex-end;
+    border-top: 1px solid var(--line);
   }
 
   #contact::before {
@@ -3612,7 +3615,6 @@ body.motion-ready .case-text.fx-in::before {
 
   #about > p {
     font-size: 14px;
-    line-height: 2.2;
   }
 
   .profile-card {
@@ -4102,8 +4104,6 @@ body.motion-ready .case-text.fx-in::before {
   }
    #contact {
     height: auto;
-    min-height: 760px;
-    padding: 120px 20px 28px;
     justify-content: flex-start;
   }
 
@@ -4673,7 +4673,7 @@ body.motion-ready .case-text.fx-in::before {
   }
 
   .project-guide {
-    top: calc(var(--top-ui) + 150px);
+    top: calc(var(--top-ui) + 140px);
   }
 
   .stage3d {
@@ -4776,6 +4776,139 @@ body.motion-ready .case-text.fx-in::before {
 
   #projects .stage3d {
     padding-bottom: 60px;
+  }
+}
+
+/* =========================================================
+   MOBILE — PROJECT HIGHLIGHTS / DETAIL PAGES GAP FIX
+   설명과 다음 콘텐츠 사이 간격을 24px로 통일
+========================================================= */
+@media (max-width: 600px) {
+  /* ---------------- PROJECT HIGHLIGHTS ---------------- */
+  #galleryshowcase {
+    height: auto;
+    min-height: 0;
+    padding:
+      calc(var(--top-ui) + 42px)
+      0
+      40px;
+  }
+
+  #galleryshowcase .gallery-copy {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: calc(100% - 40px);
+    margin: 0 auto;
+    text-align: center;
+    transform: none;
+  }
+
+  #galleryshowcase .gallery-copy p {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  #galleryshowcase .gallery-perspective {
+    position: relative;
+    top: auto;
+    bottom: auto;
+    left: 50%;
+    width: 205vw;
+    height: 350px;
+    min-height: 0;
+    margin-top: 24px;
+    transform:
+      translateX(-50%)
+      perspective(900px)
+      rotateX(21deg);
+    transform-origin: center top;
+  }
+
+  /* ---------------- DETAIL PAGES ---------------- */
+  #projects {
+    height: auto;
+    min-height: 0;
+    padding:
+      calc(var(--top-ui) + 42px)
+      0
+      48px;
+  }
+
+  #projects h2 {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: calc(100% - 40px);
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    transform: none;
+  }
+
+  #projects .project-guide {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: calc(100% - 40px);
+    margin: 28px auto 0;
+    white-space: normal;
+    text-align: center;
+    transform: none;
+    translate: none;
+    font-size: 13px;
+  }
+
+  #projects .stage3d {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: 350px;
+    margin-top: 24px;
+    padding: 0;
+    display: grid;
+    place-items: start center;
+    overflow: visible;
+  }
+
+  #projects .project-btn {
+    top: 145px;
+  }
+}
+
+/* =========================================================
+   MOBILE — GAP 60PX + PROJECT ARROW POSITION FIX
+   기존 24px 여백을 60px로 조정하고
+   좌우 버튼을 제목이 아닌 3D 카드 중앙에 정렬
+========================================================= */
+@media (max-width: 600px) {
+  /* PROJECT HIGHLIGHTS: 설명과 갤러리 사이 */
+  #galleryshowcase .gallery-perspective {
+    margin-top: 60px;
+  }
+
+  /* DETAIL PAGES: 설명과 카드 사이 */
+  #projects .stage3d {
+    margin-top: 60px;
+  }
+
+  /*
+    버튼은 #projects 기준 absolute 요소임.
+    모바일 카드 높이 315px의 중앙에 맞도록
+    섹션 하단에서 위치를 역산해 배치한다.
+  */
+  #projects .project-btn {
+    top: calc(100% - 241px);
+    bottom: auto;
+    transform: translateY(-50%);
+  }
+
+  #projects .project-prev {
+    left: 18px;
+  }
+
+  #projects .project-next {
+    right: 18px;
   }
 }
 
