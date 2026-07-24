@@ -2101,7 +2101,7 @@ body.loaded .page-wrap {
   }
 
   .profile-card li {
-    font-size: 12px;
+    font-size: 14px;
     line-height: 1.85;
   }
 
@@ -4061,12 +4061,12 @@ body.motion-ready .case-text.fx-in::before {
 
   #works .case_list h4 {
     flex-basis: 56px;
-    font-size: 11px;
+    font-size: 13px;
   }
 
   #works .case_list p,
   #works .case-text p {
-    font-size: 12px;
+    font-size: 14px;
     line-height: 1.65;
   }
 
@@ -4332,3 +4332,366 @@ body.motion-ready .case-text.fx-in::before {
     animation: none !important;
   }
 }
+
+/* =========================================================
+   BALANCED LAPTOP HEIGHT FIX
+   제목과 핵심 콘텐츠 크기는 유지하고,
+   짧은 노트북 화면에서 위·아래 간격만 균형 있게 조정
+========================================================= */
+
+@media (min-width: 901px) and (max-width: 1700px) and (max-height: 900px) {
+  :root {
+    --works-rail-height: 96px;
+  }
+
+  .snap-section,
+  #works,
+  #box_project {
+    height: 100vh;
+    height: 100dvh;
+  }
+
+  /* 공통: 헤더 아래에 최소한의 숨 쉴 공간 확보 */
+  #hero,
+  #about,
+  #galleryshowcase,
+  #projects,
+  #box_project,
+  #contact {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  /* HERO — 기존 크기를 크게 줄이지 않고 간격만 보정 */
+  #hero {
+    padding:
+      calc(var(--top-ui) + clamp(34px, 5vh, 58px))
+      4vw
+      clamp(30px, 4vh, 48px);
+  }
+
+  #hero h1 {
+    margin-top: clamp(54px, 8vh, 88px);
+    font-size: clamp(76px, 9.2vw, 150px);
+  }
+
+  .hero-bottom-meta {
+    margin-top: clamp(46px, 7vh, 76px);
+  }
+
+  /* ABOUT — 화면 위쪽에 몰리지 않도록 세로 여백 분배 */
+  #about {
+    padding:
+      calc(var(--top-ui) + clamp(42px, 6vh, 68px))
+      var(--side)
+      clamp(34px, 5vh, 58px);
+  }
+
+  #about .sub_title {
+    margin-bottom: 20px;
+  }
+
+  #about h2 {
+    font-size: clamp(64px, 7vw, 112px);
+  }
+
+  #about > p {
+    margin-top: 20px;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .profile-grid {
+    margin-top: clamp(24px, 4vh, 42px);
+    padding-top: clamp(24px, 4vh, 40px);
+    grid-template-columns: minmax(200px, 245px) 1fr 1fr;
+    gap: clamp(36px, 5vw, 84px);
+  }
+
+  .profile_img {
+    height: clamp(115px, 17vh, 145px);
+  }
+
+  .profile-grid .info p {
+    font-size: 13px;
+    line-height: 1.65;
+  }
+
+  /* WORKS — 티커와 본문 사이에 여유를 유지 */
+  .works-impact-rail {
+    height: var(--works-rail-height);
+  }
+
+  .works-impact-rail-track span {
+    font-size: clamp(64px, 6.6vw, 108px);
+  }
+
+  #works .case-panel {
+    grid-template-columns: 43% 57%;
+    padding:
+      calc(var(--top-ui) + var(--works-rail-height) + clamp(26px, 4vh, 44px))
+      0
+      clamp(34px, 5vh, 54px)
+      6vw;
+  }
+
+  #works .case-text h2 {
+    font-size: clamp(48px, 4.5vw, 76px);
+    line-height: .94;
+  }
+
+  #works .case_list {
+    margin-top: clamp(28px, 4vh, 42px);
+  }
+
+  #works .case-tag {
+    margin-top: clamp(20px, 3vh, 30px);
+  }
+
+  #works .device-stage > img {
+    right: 3vw;
+    bottom: clamp(26px, 4vh, 48px);
+    width: min(1050px, 59vw);
+  }
+
+  #works .works-controls {
+    bottom: 18px;
+  }
+
+  /* =====================================================
+     PROJECT HIGHLIGHTS
+     제목과 설명을 화면 중앙에 배치
+  ===================================================== */
+  #galleryshowcase {
+    padding-top: var(--top-ui);
+  }
+
+  .gallery-copy {
+    top: calc(var(--top-ui) + clamp(48px, 7vh, 78px));
+    left: 50%;
+    width: min(920px, 84vw);
+    text-align: center;
+    transform: translateX(-50%);
+  }
+
+  .gallery-copy .mini {
+    margin-bottom: 14px;
+    font-size: 12px;
+  }
+
+  .gallery-copy h2 {
+    font-size: clamp(76px, 7.8vw, 126px);
+    line-height: .8;
+  }
+
+  .gallery-copy p {
+    max-width: 620px;
+    margin: 18px auto 0;
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .gallery-perspective {
+    bottom: clamp(12px, 2.5vh, 28px);
+    width: 124vw;
+    height: clamp(390px, 54vh, 520px);
+    transform:
+      translateX(-50%)
+      perspective(1200px)
+      rotateX(34deg);
+    transform-origin: center 86%;
+  }
+
+  .gallery-wrapper,
+  .gallery-row {
+    gap: 13px;
+  }
+
+  .gallery-thumb {
+    width: clamp(270px, 19vw, 315px);
+    height: clamp(164px, 11.6vw, 192px);
+  }
+
+  /* =====================================================
+     DETAIL PAGES
+     left와 기존 transform 충돌 제거 + 완전 중앙 정렬
+  ===================================================== */
+  #projects h2 {
+    top: calc(var(--top-ui) + clamp(48px, 7vh, 78px));
+    left: 50%;
+    width: 100%;
+    padding: 0 24px;
+    text-align: center;
+    transform: translateX(-50%);
+    font-size: clamp(76px, 7.8vw, 126px);
+  }
+
+  .project-guide {
+    top: calc(var(--top-ui) + clamp(165px, 22vh, 205px));
+    left: 50%;
+    width: min(720px, 76vw);
+    text-align: center;
+    transform: translateX(-50%);
+    font-size: 14px;
+  }
+
+  .stage3d {
+    inset: var(--top-ui) 0 0;
+    padding:
+      clamp(205px, 27vh, 245px)
+      0
+      clamp(36px, 5vh, 60px);
+    place-items: center;
+  }
+
+  .ring {
+    width: min(270px, 20vw);
+    height: min(370px, 48vh);
+  }
+
+  .p-card {
+    transform:
+      rotateY(calc(var(--i) * 60deg))
+      translateZ(clamp(315px, 25vw, 430px));
+  }
+
+  .card_img {
+    width: 180px;
+    height: 170px;
+    margin-top: 20px;
+  }
+
+  .p-card strong {
+    font-size: clamp(34px, 3.1vw, 53px);
+  }
+
+  .project-btn {
+    top: 62%;
+    width: 48px;
+    height: 48px;
+  }
+
+  /* OTHER DESIGN WORKS — 지나친 축소 대신 위아래 간격 정리 */
+  #box_project {
+    padding:
+      calc(var(--top-ui) + clamp(42px, 6vh, 68px))
+      0
+      clamp(28px, 4vh, 48px);
+  }
+
+  .box-head {
+    margin-bottom: clamp(24px, 4vh, 40px);
+  }
+
+  .box-head h2 {
+    font-size: clamp(68px, 7vw, 112px);
+  }
+
+  .box-marquee {
+    padding: clamp(40px, 6vh, 70px) 0;
+  }
+
+  .box {
+    width: clamp(250px, 18vw, 300px);
+    height: clamp(250px, 18vw, 300px);
+  }
+
+  /* CONTACT */
+  #contact {
+    padding:
+      calc(var(--top-ui) + clamp(42px, 6vh, 70px))
+      5vw
+      clamp(32px, 5vh, 56px);
+  }
+
+  #contact h2 {
+    font-size: clamp(112px, 13vw, 205px);
+  }
+}
+
+/* 실제 브라우저 높이가 매우 짧은 노트북만 소폭 조정 */
+@media (min-width: 901px) and (max-width: 1700px) and (max-height: 720px) {
+  :root {
+    --works-rail-height: 86px;
+  }
+
+  #hero h1 {
+    margin-top: 42px;
+    font-size: clamp(70px, 8.5vw, 132px);
+  }
+
+  .hero-bottom-meta {
+    margin-top: 38px;
+  }
+
+  #about {
+    padding-top: calc(var(--top-ui) + 34px);
+    padding-bottom: 28px;
+  }
+
+  #about h2 {
+    font-size: clamp(60px, 6.4vw, 96px);
+  }
+
+  .profile-grid {
+    margin-top: 20px;
+    padding-top: 22px;
+  }
+
+  .profile_img {
+    height: 108px;
+  }
+
+  #works .case-panel {
+    padding-top:
+      calc(var(--top-ui) + var(--works-rail-height) + 22px);
+    padding-bottom: 32px;
+  }
+
+  #works .case-text h2 {
+    font-size: clamp(44px, 4.1vw, 66px);
+  }
+
+  #works .device-stage > img {
+    bottom: 28px;
+    width: min(960px, 56vw);
+  }
+
+  .gallery-copy {
+    top: calc(var(--top-ui) + 38px);
+  }
+
+  .gallery-copy h2,
+  #projects h2 {
+    font-size: clamp(70px, 7vw, 108px);
+  }
+
+  .gallery-perspective {
+    height: 49vh;
+  }
+
+  #projects h2 {
+    top: calc(var(--top-ui) + 38px);
+  }
+
+  .project-guide {
+    top: calc(var(--top-ui) + 150px);
+  }
+
+  .stage3d {
+    padding-top: 190px;
+    padding-bottom: 30px;
+  }
+
+  .ring {
+    width: 245px;
+    height: 335px;
+  }
+
+  .p-card {
+    transform:
+      rotateY(calc(var(--i) * 60deg))
+      translateZ(clamp(295px, 23vw, 390px));
+  }
+}
+
