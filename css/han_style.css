@@ -397,6 +397,7 @@ li {
   overflow: hidden;
   background: var(--black);
   color: var(--white);
+  animation: casePageIn 0.7s ease both;
 }
 
 .hero::after {
@@ -512,6 +513,17 @@ li {
   font-size: 16px;
 }
 
+@keyframes casePageIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 .browser,
 .showcase-browser {
   overflow: hidden;
@@ -5160,12 +5172,14 @@ li {
     border-radius: 0;
     box-shadow: 0 22px 45px rgba(0, 0, 0, .32);
     transform: none !important;
+    border: none;
   }
 
   .hero-mockup .browser > img {
     width: 100% !important;
     max-width: 100% !important;
     transform: none !important;
+    padding: 0 10px;
   }
 
   /* 모바일에서는 네 설명을 모두 같은 명도로 표시 */
