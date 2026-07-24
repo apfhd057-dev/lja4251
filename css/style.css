@@ -4397,13 +4397,11 @@ body.motion-ready .case-text.fx-in::before {
 
   #about > p {
     margin-top: 20px;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.7;
   }
 
   .profile-grid {
-    margin-top: clamp(24px, 4vh, 42px);
-    padding-top: clamp(24px, 4vh, 40px);
     grid-template-columns: minmax(200px, 245px) 1fr 1fr;
     gap: clamp(36px, 5vw, 84px);
   }
@@ -4413,7 +4411,7 @@ body.motion-ready .case-text.fx-in::before {
   }
 
   .profile-grid .info p {
-    font-size: 13px;
+    font-size: 16px;
     line-height: 1.65;
   }
 
@@ -4487,7 +4485,7 @@ body.motion-ready .case-text.fx-in::before {
   .gallery-copy p {
     max-width: 620px;
     margin: 18px auto 0;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.65;
   }
 
@@ -4532,7 +4530,7 @@ body.motion-ready .case-text.fx-in::before {
     width: min(720px, 76vw);
     text-align: center;
     transform: translateX(-50%);
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .stage3d {
@@ -4692,6 +4690,92 @@ body.motion-ready .case-text.fx-in::before {
     transform:
       rotateY(calc(var(--i) * 60deg))
       translateZ(clamp(295px, 23vw, 390px));
+  }
+}
+
+/* =========================================================
+   DETAIL PAGES — GRAM LAPTOP CARD SIZE FIX
+   새 CSS 기준 / 제목과 전체 배치는 유지 / 카드만 축소
+========================================================= */
+
+/* 일반 노트북·그램: 실제 브라우저 높이 900px 이하 */
+@media (min-width: 901px) and (max-width: 1700px) and (max-height: 900px) {
+  #projects .ring {
+    width: min(240px, 18vw);
+    height: min(330px, 42vh);
+  }
+
+  #projects .p-card {
+    transform:
+      rotateY(calc(var(--i) * 60deg))
+      translateZ(clamp(280px, 22vw, 380px));
+  }
+
+  #projects .p-card > div {
+    padding: 22px;
+  }
+
+  #projects .card_img {
+    width: 158px;
+    height: 148px;
+    margin-top: 17px;
+  }
+
+  #projects .p-card strong {
+    left: 22px;
+    right: 20px;
+    bottom: 56px;
+    font-size: clamp(30px, 2.8vw, 47px);
+  }
+
+  #projects .p-card em {
+    left: 22px;
+    bottom: 27px;
+  }
+
+  /* 카드 아래쪽에 약간의 여백 확보 */
+  #projects .stage3d {
+    padding-bottom: clamp(48px, 6vh, 72px);
+  }
+}
+
+/* 그램처럼 브라우저 실제 높이가 특히 짧은 화면 */
+@media (min-width: 901px) and (max-width: 1700px) and (max-height: 720px) {
+  #projects .ring {
+    width: 220px;
+    height: 300px;
+  }
+
+  #projects .p-card {
+    transform:
+      rotateY(calc(var(--i) * 60deg))
+      translateZ(clamp(255px, 20vw, 345px));
+  }
+
+  #projects .p-card > div {
+    padding: 20px;
+  }
+
+  #projects .card_img {
+    width: 142px;
+    height: 132px;
+    margin-top: 14px;
+  }
+
+  #projects .p-card strong {
+    left: 20px;
+    right: 18px;
+    bottom: 50px;
+    font-size: clamp(28px, 2.5vw, 42px);
+  }
+
+  #projects .p-card em {
+    left: 20px;
+    bottom: 24px;
+  }
+
+  #projects .stage3d {
+    padding-bottom: 60px;
   }
 }
 
