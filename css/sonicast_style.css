@@ -5435,3 +5435,37 @@ li {
   }
 }
 
+}
+
+.analysis-head,
+  .analysis-row {
+    width: 760px;
+    min-width: 760px;
+
+    /* 헤더와 모든 행이 정확히 같은 열 너비 사용 */
+    grid-template-columns: 200px 280px 280px;
+  }
+
+  .analysis-head > div,
+  .analysis-row > div {
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  .analysis-head > div {
+    padding: 17px 20px;
+  }
+
+  .analysis-row > div {
+    padding: 34px 20px;
+  }
+
+  .analysis-row > div:first-child {
+    gap: 12px;
+  }
+
+  /* 모바일에서는 밀리는 hover 효과 제거 */
+  .analysis-row:hover {
+    transform: none;
+  }
+}
