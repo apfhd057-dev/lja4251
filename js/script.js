@@ -365,6 +365,7 @@ document.querySelectorAll('.browser').forEach(card => {
   if(!modal || !section) return;
 
   const closeBtn = modal.querySelector('.project-modal-close');
+  const scrollArea = modal.querySelector('.project-modal-scroll');
   const kicker = document.getElementById('projectModalKicker');
   const title = document.getElementById('projectModalTitle');
   const visual = document.getElementById('projectModalVisual');
@@ -514,8 +515,19 @@ document.querySelectorAll('.browser').forEach(card => {
   }
 ];
 
+  function resetProjectModalScroll(){
+    if(!scrollArea) return;
+
+    scrollArea.scrollTop = 0;
+    scrollArea.scrollLeft = 0;
+  }
+
   function openModal(i){
     const item = data[i] || data[0];
+
+    /* 이전 프로젝트에서 읽던 위치를 먼저 제거 */
+    resetProjectModalScroll();
+
     kicker.textContent = item.num;
     title.textContent = item.title;
     modalImage.src = item.image;
@@ -526,9 +538,23 @@ document.querySelectorAll('.browser').forEach(card => {
     visual.style.setProperty('--modal-c1', item.c1);
     visual.style.setProperty('--modal-c2', item.c2);
     tags.innerHTML = item.tags.map(tag => `<span>${tag}</span>`).join('');
+
     modal.classList.add('on');
     modal.setAttribute('aria-hidden','false');
     document.body.classList.add('project-modal-open');
+
+    /*
+      팝업 표시와 레이아웃 계산이 끝난 뒤에도 초기화해
+      모든 프로젝트가 항상 첫 화면부터 열리도록 합니다.
+    */
+    requestAnimationFrame(() => {
+      resetProjectModalScroll();
+
+      requestAnimationFrame(() => {
+        resetProjectModalScroll();
+      });
+    });
+
     window.dispatchEvent(new CustomEvent('projectModalOpen'));
   }
 
@@ -538,6 +564,9 @@ document.querySelectorAll('.browser').forEach(card => {
     modal.classList.remove('on');
     modal.setAttribute('aria-hidden','true');
     document.body.classList.remove('project-modal-open');
+
+    resetProjectModalScroll();
+
     window.dispatchEvent(new CustomEvent('projectModalClose'));
   }
 
@@ -658,6 +687,12 @@ document.querySelectorAll('.browser').forEach(card => {
     modal.classList.remove('on');
     modal.setAttribute('aria-hidden','true');
     document.body.classList.remove('project-modal-open');
+
+    const scrollArea = modal.querySelector('.box-modal-scroll');
+    if(scrollArea){
+      scrollArea.scrollTop = 0;
+      scrollArea.scrollLeft = 0;
+    }
   }
 
   marquee.addEventListener('mouseenter', () => {

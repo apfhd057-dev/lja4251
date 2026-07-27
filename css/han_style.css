@@ -7,6 +7,40 @@
 /* =========================================================
    01. COMMON TOKENS
 ========================================================= */
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&display=swap');
+@font-face {
+    font-family: 'Jalnan';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.0/JalnanOTF.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'PayboocFont';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/paybooc-Light.woff') format('woff');
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PayboocFont';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/paybooc-Medium.woff') format('woff');
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PayboocFont';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/paybooc-Bold.woff') format('woff');
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PayboocFont';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/paybooc-ExtraBold.woff') format('woff');
+    font-weight: 800;
+    font-display: swap;
+}
 :root {
   --black: #000;
   --near-black: #111;
@@ -1555,6 +1589,13 @@ li {
   font-family: var(--sans);
   font-size: 58px;
   letter-spacing: -.08em;
+}
+.type-sample:not(.korean) strong {
+    font-family: "EB Garamond", serif;
+}
+
+.type-sample.korean strong {
+    font-family: "PayboocFont", sans-serif;
 }
 
 
@@ -3764,8 +3805,9 @@ li {
   }
 
   .hero h1 {
-    font-size: clamp(76px, 23vw, 118px);
-    line-height: .74;
+    font-size: clamp(62px, 19vw, 88px);
+    line-height: 0.78;
+    letter-spacing: -0.075em;
   }
 
   .hero h1 .outline {

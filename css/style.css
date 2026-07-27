@@ -29,6 +29,7 @@
 }
 
 /* -------------------- RESET -------------------- */
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -115,6 +116,7 @@ body.loaded .page-wrap {
 }
 
 /* -------------------- FIXED UI -------------------- */
+
 .scroll-progress {
   position: fixed;
   z-index: 21000;
@@ -301,8 +303,8 @@ body.loaded .page-wrap {
   background: var(--accent);
 }
 
-
 /* -------------------- LOADER -------------------- */
+
 .intro-loader {
   position: fixed;
   z-index: 30000;
@@ -422,6 +424,7 @@ body.loaded .page-wrap {
 }
 
 /* -------------------- HERO -------------------- */
+
 #hero {
   min-height: 100vh;
   padding: calc(var(--top-ui) + 55px) 4vw 65px;
@@ -575,6 +578,7 @@ body.loaded .page-wrap {
 }
 
 /* -------------------- ABOUT -------------------- */
+
 #about {
   padding: calc(var(--top-ui) + 90px) var(--side) 7vh;
   background: var(--paper);
@@ -717,18 +721,23 @@ body.loaded .page-wrap {
   font-size: 16px;
   line-height: 1.9;
 }
+
 .profile-grid .toolbox{
   display: flex;
   gap: 20px;
 }
+
 .profile-grid .toolbox li{
   width: 30px;
   height: 30px;
   border: 1px solid #030303;
 }
+
 /* -------------------- WORKS -------------------- */
+
 #works {
-  background: var(--black);
+background: var(--black);
+background: var(--paper);
 }
 
 .horizontal-sticky {
@@ -782,8 +791,11 @@ body.loaded .page-wrap {
 }
 
 .case-panel:nth-child(1)::after { content: "01"; }
+
 .case-panel:nth-child(2)::after { content: "02"; }
+
 .case-panel:nth-child(3)::after { content: "03"; }
+
 .case-panel:nth-child(4)::after { content: "04"; }
 
 .case-text {
@@ -923,30 +935,36 @@ body.loaded .page-wrap {
 }
 
 #works .dots {
-  position: absolute;
+position: absolute;
   z-index: 8;
   left: 50%;
   bottom: 29px;
   display: flex;
   gap: 9px;
   transform: translateX(-50%);
+bottom: 30px;
 }
 
 #works .dot {
-  width: 8px;
+width: 8px;
   height: 8px;
   border: 1px solid rgba(255,255,255,.28);
   border-radius: 99px;
   background: transparent;
   cursor: pointer;
   transition: width .3s ease, background .3s ease;
+border-color: rgba(0, 0, 0, .22);
+  background: transparent;
 }
 
 #works .dot.on {
-  width: 38px;
+width: 38px;
   border-color: var(--accent);
   background: var(--accent);
+border-color: var(--accent);
+  background: var(--accent);
 }
+
 #works .works-controls {
   position: absolute;
   z-index: 20;
@@ -1006,6 +1024,7 @@ body.loaded .page-wrap {
 }
 
 /* -------------------- GALLERY -------------------- */
+
 #galleryshowcase {
   padding-top: var(--top-ui);
   isolation: isolate;
@@ -1025,44 +1044,57 @@ body.loaded .page-wrap {
 }
 
 .gallery-copy {
-  position: absolute;
+position: absolute;
   z-index: 8;
   top: calc(var(--top-ui) + 7vh);
   left: 6vw;
   width: min(1000px, 80vw);
   text-align: left;
   pointer-events: none;
+left: 50%;
+  transform: translateX(-50%);
+  width: min(1100px, 84vw);
+  text-align: center;
 }
 
 .gallery-copy .mini {
-  margin-bottom: 19px;
+margin-bottom: 19px;
   color: var(--accent);
   font-family: var(--display);
   font-size: 14px;
   font-weight: 700;
   letter-spacing: .18em;
   text-transform: uppercase;
+text-align: center;
 }
 
 .gallery-copy h2 {
-  font-family: var(--impact);
+font-family: var(--impact);
   font-size: clamp(72px, 8.5vw, 150px);
   font-weight: 400;
   line-height: .8;
   letter-spacing: -.02em;
+display: block;
+  text-align: center;
+  font-size: clamp(74px, 7vw, 120px);
+  line-height: .82;
 }
 
 .gallery-copy h2 em {
-  color: var(--accent);
+color: var(--accent);
   font-style: normal;
+display: inline;
 }
 
 .gallery-copy p {
-  max-width: 550px;
+max-width: 550px;
   margin-top: 23px;
   color: rgba(255,255,255,.9);
   font-size: 16px;
   line-height: 1.7;
+margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 .gallery-perspective {
@@ -1184,6 +1216,7 @@ body.loaded .page-wrap {
 }
 
 /* -------------------- 3D PROJECTS -------------------- */
+
 #projects {
   padding-top: var(--top-ui);
   perspective: 1600px;
@@ -1197,7 +1230,7 @@ body.loaded .page-wrap {
 }
 
 #projects h2 {
-  position: absolute;
+position: absolute;
   z-index: 20;
   top: calc(var(--top-ui) + 7vh);
   left: 5vw;
@@ -1207,31 +1240,37 @@ body.loaded .page-wrap {
   line-height: .8;
   letter-spacing: -.02em;
   text-transform: uppercase;
+left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 90vw;
+  text-align: center;
+  font-size: clamp(74px, 7vw, 120px);
+  line-height: .84;
+  white-space: nowrap;
 }
 
 #projects h2 em {
-  color: var(--accent);
+color: var(--accent);
   font-style: normal;
+display: inline;
 }
 
 .project-guide {
-  position: absolute;
+position: absolute;
   z-index: 20;
   top: calc(var(--top-ui) + 20vh);
   left: 50%;
-  transform: translateX(-50%);
+  width: max-content;
   color: rgba(255, 255, 255, 0.9);
-  /* font-family: var(--display); */
   font-size: 16px;
+  text-align: center;
   white-space: nowrap;
+  transform: translateX(-50%);
 }
-.project-guide {
-  left: 50%;
-  translate: -50% 0;
-  transform: none;
-}
+
 .stage3d {
-  position: absolute;
+position: absolute;
   inset: var(--top-ui) 0 0;
   padding-top: 120px;
   display: grid;
@@ -1240,6 +1279,7 @@ body.loaded .page-wrap {
   perspective: 1600px;
   cursor: grab;
   touch-action: pan-y;
+padding-top: 160px;
 }
 
 .stage3d:active {
@@ -1272,6 +1312,7 @@ body.loaded .page-wrap {
 }
 
 /* 카드 안쪽 배경이 좌우 끝까지 꽉 차도록 */
+
 .p-card > div {
   position: relative;
   width: 100%;
@@ -1322,6 +1363,7 @@ body.loaded .page-wrap {
   display: grid;
   place-items: center;
 }
+
 .card_img::after {
   content: "PROJECT IMAGE";
   position: absolute;
@@ -1402,9 +1444,11 @@ body.loaded .page-wrap {
 }
 
 .project-prev { left: 5vw; }
+
 .project-next { right: 5vw; }
-.project-guide {font-size: 14px;}
+
 /* -------------------- DESIGN WORKS -------------------- */
+
 #box_project {
   padding: calc(var(--top-ui) + 8vh) 0 6vh;
   background: var(--paper);
@@ -1579,6 +1623,7 @@ body.loaded .page-wrap {
   object-fit: contain;
   filter: grayscale(1);
 }
+
 .box:nth-child(2n) {
   translate: 0 -18px;
 }
@@ -1588,6 +1633,7 @@ body.loaded .page-wrap {
 }
 
 /* -------------------- CONTACT -------------------- */
+
 #contact {
   padding: calc(var(--top-ui) + 5vh) 5vw 5vw;
   display: flex;
@@ -1596,6 +1642,7 @@ body.loaded .page-wrap {
   background: var(--paper);
   color: var(--ink);
 }
+
 #contact .contact_group{
   display: flex;
   justify-content: space-between;
@@ -1634,7 +1681,6 @@ body.loaded .page-wrap {
   line-height: .69;
   letter-spacing: -.025em;
 }
-
 
 #contact h2 em {
   color: var(--accent);
@@ -1711,6 +1757,7 @@ body.loaded .page-wrap {
 }
 
 /* 마우스 올렸을 때 */
+
 #contact .contact-link:hover {
     border-color: var(--accent);
     background: var(--accent);
@@ -1726,6 +1773,7 @@ body.loaded .page-wrap {
     opacity: 1;
     transform: translate(-50%, 0);
 }
+
 #contact hr {
   position: relative;
   z-index: 10;
@@ -1755,6 +1803,7 @@ body.loaded .page-wrap {
 }
 
 /* -------------------- MODALS -------------------- */
+
 .project-modal,
 .box-modal {
   position: fixed;
@@ -1944,6 +1993,7 @@ body.loaded .page-wrap {
   top: 18px;
   right: 18px;
 }
+
 #boxModalDesc {
   max-width: 650px;
   margin-top: 25px;
@@ -1953,6 +2003,7 @@ body.loaded .page-wrap {
 }
 
 /* -------------------- ANIMATIONS -------------------- */
+
 @keyframes worksTicker {
   to { transform: translate3d(-50%, 0, 0); }
 }
@@ -1978,448 +2029,10 @@ body.loaded .page-wrap {
 }
 
 /* -------------------- RESPONSIVE -------------------- */
-@media (max-width: 1100px) {
-  :root {
-    --top-ui: 52px;
-    --works-rail-height: 93px;
-  }
-
-  .works-impact-rail-track span {
-    font-size: 75px;
-  }
-
-  .profile-grid {
-    gap: 38px;
-  }
-
-  .case-panel {
-    padding-left: 5vw;
-  }
-
-  .gallery-thumb {
-    width: 290px;
-    height: 176px;
-  }
-}
-
-@media (max-width: 900px) {
-  :root {
-    --top-ui: 48px;
-    --works-rail-height: 68px;
-  }
-
-  body {
-    overflow-y: auto;
-  }
-
-  #header {
-    height: 48px;
-    padding: 0 20px;
-  }
-
-  #header .nav,
-  .cursor,
-  .edge-index {
-    display: none;
-  }
-
-  .works-impact-rail {
-    top: var(--top-ui);
-    height: var(--works-rail-height);
-  }
-
-  .works-impact-rail-track span {
-    font-size: 54px;
-  }
-
-  .snap-section,
-  #works,
-  #box_project {
-    height: auto;
-    min-height: 100svh;
-  }
-
-  #hero {
-    min-height: 100svh;
-    padding: calc(var(--top-ui) + 45px) 22px 70px;
-  }
-
-  .hero-top-meta {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .hero-top-meta span:nth-child(2) {
-    text-align: right;
-  }
-
-  .hero-top-meta span:last-child {
-    display: none;
-  }
-
-  #hero h1 {
-    font-size: clamp(72px, 18vw, 126px);
-    line-height: .84;
-  }
-
-  .hero-bottom-meta {
-    margin-top: 70px;
-  }
-
-  #about {
-    padding: calc(var(--top-ui) + 75px) 24px 75px;
-  }
-
-  #about::after {
-    top: calc(var(--top-ui) + 80px);
-    right: 20px;
-    font-size: 100px;
-  }
-
-  #about h2 {
-    font-size: 72px;
-  }
-
-  .profile-grid {
-    grid-template-columns: 1fr;
-    gap: 34px;
-  }
-
-  .profile-card {
-    max-width: 390px;
-  }
-
-  .profile_img {
-    height: 210px;
-  }
-
-  .profile-card h5 {
-    padding-top: 14px;
-    font-size: 17px;
-  }
-
-  .profile-card ul {
-    margin-top: 12px;
-  }
-
-  .profile-card li {
-    font-size: 14px;
-    line-height: 1.85;
-  }
-
-  #works {
-    height: auto;
-  }
-
-  .horizontal-sticky {
-    height: auto;
-    overflow: visible;
-  }
-
-  .horizontal-track {
-    width: 100%;
-    height: auto;
-    display: block;
-    transform: none !important;
-  }
-
-  .case-panel {
-    width: 100%;
-    height: auto;
-    min-height: 100svh;
-    padding: calc(var(--top-ui) + var(--works-rail-height) + 68px) 24px 55px;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-
-  .case-panel::before {
-    top: auto;
-    bottom: 0;
-    width: 100%;
-    height: 43%;
-  }
-
-  .case-panel::after {
-    top: auto;
-    right: 15px;
-    bottom: 27%;
-    font-size: 110px;
-  }
-
-  .case-text h2 {
-    font-size: 58px;
-  }
-
-  .device-stage {
-    min-height: 43vh;
-  }
-
-  .device-stage::before,
-  .device-stage::after {
-    right: 0;
-    bottom: 4vh;
-    width: 100%;
-    height: 34vh;
-  }
-
-  .device-stage > img {
-    right: 0;
-    width: 100%;
-  }
-
-  .wheel-guide,
-  .dots {
-    display: none;
-  }
-
-  #galleryshowcase {
-    min-height: 900px;
-  }
-
-  .gallery-copy {
-    top: calc(var(--top-ui) + 75px);
-    left: 24px;
-  }
-
-  .gallery-copy h2 {
-    font-size: 72px;
-  }
-
-  .gallery-perspective {
-    bottom: 100px;
-    width: 180vw;
-    transform: translateX(-50%) perspective(1000px) rotateX(34deg);
-  }
-
-  #projects {
-    min-height: 850px;
-  }
-
-  #projects h2 {
-    top: calc(var(--top-ui) + 62px);
-    left: 24px;
-    font-size: 72px;
-  }
-
-  .project-guide {
-    top: calc(var(--top-ui) + 210px);
-    left: 26px;
-  }
-
-  .ring {
-    width: 250px;
-    height: 360px;
-  }
-
-  .p-card {
-    transform:
-      rotateY(calc(var(--i) * 60deg))
-      translateZ(330px);
-  }
-
-  .project-btn {
-    width: 48px;
-    height: 48px;
-  }
-
-  .project-prev { left: 18px; }
-  .project-next { right: 18px; }
-
-  #box_project {
-    min-height: 780px;
-    padding-top: calc(var(--top-ui) + 72px);
-  }
-
-  .box-head {
-    width: calc(100% - 48px);
-  }
-
-  .box-head h2 {
-    font-size: 72px;
-  }
-
-  .box {
-    width: 275px;
-    height: 275px;
-  }
-
-  #contact {
-    min-height: 100svh;
-    padding: calc(var(--top-ui) + 70px) 22px 45px;
-  }
-
-  #contact::after {
-    width: 11vw;
-    height: calc(100% - var(--top-ui));
-  }
-
-  #contact h2 {
-    font-size: clamp(90px, 20vw, 145px);
-  }
-
-  .project-modal-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 600px) {
-  :root {
-    --top-ui: 48px;
-    --works-rail-height: 56px;
-  }
-
-  .intro-loader::after {
-    width: 9px;
-  }
-
-  .intro-logo {
-    font-size: 78px;
-  }
-
-  .intro-logo em {
-    margin-left: 0;
-  }
-
-  .works-impact-rail {
-    height: var(--works-rail-height);
-  }
-
-  .works-impact-rail-track span {
-    font-size: 43px;
-  }
-
-  #hero h1 {
-    font-size: clamp(58px, 17vw, 88px);
-  }
-
-  .hero-bottom-meta {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-
-  .hero-bottom-meta > span {
-    text-align: left;
-  }
-
-  #about h2 {
-    font-size: 59px;
-  }
-
-  .case-text h2 {
-    font-size: 49px;
-  }
-
-  .gallery-copy h2 {
-    font-size: 58px;
-  }
-
-  .gallery-thumb {
-    width: 245px;
-    height: 150px;
-  }
-
-  #projects h2 {
-    font-size: 58px;
-  }
-
-  .ring {
-    width: 215px;
-    height: 315px;
-  }
-
-  .p-card {
-    transform:
-      rotateY(calc(var(--i) * 60deg))
-      translateZ(275px);
-  }
-
-  .card_img {
-    width: 155px;
-    height: 145px;
-  }
-
-  .p-card strong {
-    font-size: 42px;
-  }
-
-  .box-head h2 {
-    font-size: 58px;
-  }
-
-  .box {
-    width: 245px;
-    height: 245px;
-  }
-
-  .box-track-img {
-    width: 110px;
-    height: 110px;
-  }
-
-  #contact h2 {
-    font-size: 74px;
-  }
-
-  .project-modal,
-  .box-modal {
-    padding: 14px;
-  }
-
-  .project-modal-scroll,
-  .box-modal-box {
-    padding: 18px;
-  }
-  .box-modal-scroll {
-    padding: 24px 18px;
-  }
-
-  #boxModalTitle {
-    padding-right: 45px;
-    font-size: 52px;
-  }
-
-  #boxModalDesc {
-    margin-top: 18px;
-  }
-
-  .box-modal-image {
-    margin-top: 22px;
-  }
-}
-
-@media (hover:none), (pointer:coarse) {
-  .cursor {
-    display: none;
-  }
-}
-
-@media (prefers-reduced-motion:reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  *,
-  *::before,
-  *::after {
-    animation-duration: .01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: .01ms !important;
-  }
-
-  .reveal {
-    opacity: 1;
-    transform: none;
-  }
-}
-
 
 /* =========================================================
    WORKS SECTION — Reference Style Override
 ========================================================= */
-
-#works {
-  background: var(--paper);
-}
 
 #works .works-impact-rail {
   background: var(--paper);
@@ -2488,9 +2101,11 @@ body.loaded .page-wrap {
   line-height: 1.03;
   letter-spacing: -.08em;
 }
+
 #works .case_list{
   margin-top: 80px;
 }
+
 #works .case_list li {
     display: flex;
     align-items: flex-start;
@@ -2507,6 +2122,7 @@ body.loaded .page-wrap {
     flex: 1;
     margin: 0;
 }
+
 #works .case-text p {
   max-width: 430px;
   color: #4f4f4a;
@@ -2555,24 +2171,12 @@ body.loaded .page-wrap {
   letter-spacing: .14em;
 }
 
-#works .dots {
-  bottom: 30px;
-}
-
-#works .dot {
-  border-color: rgba(0, 0, 0, .22);
-  background: transparent;
-}
-
-#works .dot.on {
-  border-color: var(--accent);
-  background: var(--accent);
-}
-
 #works .device-stage {
-  position: relative;
+position: relative;
   height: 100%;
   background: transparent;
+position: relative;
+  isolation: isolate;
 }
 
 #works .device-stage::before {
@@ -2600,7 +2204,7 @@ body.loaded .page-wrap {
 }
 
 #works .device-stage > img {
-  position: absolute;
+position: absolute;
   right: 6vw;
   bottom: 6vh;
   width: min(1250px, 65vw);
@@ -2608,94 +2212,8 @@ body.loaded .page-wrap {
   object-fit: contain;
   z-index: 2;
   filter: drop-shadow(0 26px 36px rgba(0, 0, 0, .18));
+z-index: 2;
 }
-
-@media (max-width: 1100px) {
-  #works .case-panel {
-    grid-template-columns: 42% 58%;
-    padding-left: 5vw;
-  }
-
-  #works .case-text h2 {
-    font-size: 62px;
-  }
-
-  #works .device-stage > img {
-    width: min(880px, 59vw);
-  }
-}
-
-@media (max-width: 900px) {
-  #works .case-panel {
-    grid-template-columns: 1fr;
-    gap: 14px;
-    padding: calc(var(--top-ui) + var(--works-rail-height) + 68px) 24px 50px;
-    min-height: 100svh;
-  }
-
-  #works .case-panel::after {
-    right: 20px;
-    top: calc(var(--top-ui) + var(--works-rail-height) + 25px);
-    font-size: 110px;
-  }
-
-  #works .case-text {
-    max-width: none;
-    padding-right: 0;
-  }
-
-  #works .case-text h2 {
-    font-size: 54px;
-  }
-
-  #works .device-stage {
-    min-height: 44vh;
-    overflow: hidden;
-  }
-
-  #works .device-stage::before {
-    right: -18vw;
-    bottom: -7vh;
-    width: min(72vw, 520px);
-  }
-
-  #works .device-stage::after {
-    right: -3vw;
-    top: 2vh;
-    width: min(30vw, 190px);
-  }
-
-  #works .device-stage > img {
-    right: 0;
-    bottom: 2vh;
-    width: 100%;
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 600px) {
-  #works .case-text h2 {
-    font-size: 44px;
-  }
-
-  #works .case-tag a {
-    min-width: 190px;
-    height: 52px;
-  }
-
-  #works .device-stage::before {
-    right: -28vw;
-    bottom: -2vh;
-    width: 78vw;
-  }
-
-  #works .device-stage::after {
-    right: -7vw;
-    top: 4vh;
-    width: 32vw;
-  }
-}
-
 
 /* =========================================================
    WORKS SECTION — DECOR BASE
@@ -2707,19 +2225,10 @@ body.loaded .page-wrap {
   display: none;
 }
 
-#works .device-stage {
-  position: relative;
-  isolation: isolate;
-}
-
 #works .device-stage .decor {
   position: absolute;
   z-index: 0;
   pointer-events: none;
-}
-
-#works .device-stage > img {
-  z-index: 2;
 }
 
 /* =========================================================
@@ -2736,6 +2245,7 @@ body.loaded .page-wrap {
 
 /* 01 HANS CAKE
    기존처럼 클래식한 큰 원 + 작은 검정 원 */
+
 #works .case-panel:nth-child(1) .decor-a {
   right: -7vw;
   bottom: -50vh;
@@ -2756,6 +2266,7 @@ body.loaded .page-wrap {
 
 /* 02 SAMSUNG BIOLOGICS
    더 정제된 비율의 중대형 원 + 세로감 있는 위치감 */
+
 #works .case-panel:nth-child(2) .decor-a {
   right: -6vw;
   bottom: -10vh;
@@ -2776,6 +2287,7 @@ body.loaded .page-wrap {
 
 /* 03 SONICAST
    더 역동적인 대형 블랙 원 + 작은 레드 원 */
+
 #works .case-panel:nth-child(3) .decor-a {
   left: 3vw;
   bottom: -12vh;
@@ -2796,6 +2308,7 @@ body.loaded .page-wrap {
 
 /* 04 NEUNGYULE
    부드럽고 귀여운 작은 원 여러 개 느낌 */
+
 #works .case-panel:nth-child(4) .decor-a {
   right: -5vw;
   bottom: -12vh;
@@ -2815,86 +2328,6 @@ body.loaded .page-wrap {
 }
 
 /* mobile / tablet */
-@media (max-width: 900px) {
-  #works .case-panel:nth-child(1) .decor-a {
-    right: -18vw;
-    bottom: -7vh;
-    width: min(72vw, 520px);
-    height: min(72vw, 520px);
-  }
-
-  #works .case-panel:nth-child(1) .decor-b {
-    right: -3vw;
-    top: 2vh;
-    width: min(30vw, 190px);
-    height: min(30vw, 190px);
-  }
-
-  #works .case-panel:nth-child(2) .decor-a {
-    right: -14vw;
-    bottom: -4vh;
-    width: 58vw;
-    height: 58vw;
-  }
-
-  #works .case-panel:nth-child(2) .decor-b {
-    right: 6vw;
-    top: 4vh;
-    width: 21vw;
-    height: 21vw;
-  }
-
-  #works .case-panel:nth-child(3) .decor-a {
-    left: -8vw;
-    bottom: -4vh;
-    width: 48vw;
-    height: 48vw;
-  }
-
-  #works .case-panel:nth-child(3) .decor-b {
-    right: -8vw;
-    top: 8vh;
-    width: 34vw;
-    height: 34vw;
-  }
-
-  #works .case-panel:nth-child(4) .decor-a {
-    right: -14vw;
-    bottom: -6vh;
-    width: 55vw;
-    height: 55vw;
-  }
-
-  #works .case-panel:nth-child(4) .decor-b {
-    right: 5vw;
-    top: 6vh;
-    width: 20vw;
-    height: 20vw;
-  }
-}
-
-@media (max-width: 600px) {
-  #works .case-panel:nth-child(2) .decor-a {
-    width: 62vw;
-    height: 62vw;
-  }
-
-  #works .case-panel:nth-child(2) .decor-b {
-    width: 24vw;
-    height: 24vw;
-  }
-
-  #works .case-panel:nth-child(3) .decor-b {
-    width: 38vw;
-    height: 38vw;
-  }
-
-  #works .case-panel:nth-child(4) .decor-b {
-    width: 24vw;
-    height: 24vw;
-  }
-}
-
 
 /* =========================================================
    TITLE ALIGNMENT UPDATE
@@ -2903,131 +2336,12 @@ body.loaded .page-wrap {
 ========================================================= */
 
 /* PROJECT HIGHLIGHTS */
-.gallery-copy {
-  left: 50%;
-  transform: translateX(-50%);
-  width: min(1100px, 84vw);
-  text-align: center;
-}
-
-.gallery-copy .mini {
-  text-align: center;
-}
-
-.gallery-copy h2 {
-  display: block;
-  text-align: center;
-  font-size: clamp(74px, 7vw, 120px);
-  line-height: .82;
-}
-
-.gallery-copy h2 em {
-  display: inline;
-}
-
-.gallery-copy p {
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-}
 
 /* DETAIL PAGES */
-#projects h2 {
-  left: 50%;
-  transform: translateX(-50%);
-  width: max-content;
-  max-width: 90vw;
-  text-align: center;
-  font-size: clamp(74px, 7vw, 120px);
-  line-height: .84;
-  white-space: nowrap;
-}
-
-#projects h2 em {
-  display: inline;
-}
-
-.project-guide {
-  left: 50%;
-  transform: translateX(-50%);
-  width: max-content;
-  text-align: center;
-  font-size: 16px;
-}
-
-.stage3d {
-  padding-top: 160px;
-}
 
 /* tablet */
-@media (max-width: 900px) {
-  .gallery-copy {
-    left: 50%;
-    top: calc(var(--top-ui) + 68px);
-    width: calc(100% - 48px);
-    transform: translateX(-50%);
-  }
-
-  .gallery-copy h2 {
-    font-size: 72px;
-    line-height: .86;
-  }
-
-  #projects h2 {
-    top: calc(var(--top-ui) + 56px);
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 64px;
-    white-space: nowrap;
-  }
-
-  .project-guide {
-    top: calc(var(--top-ui) + 155px);
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .stage3d {
-    padding-top: 155px;
-  }
-}
 
 /* mobile */
-@media (max-width: 600px) {
-  .gallery-copy h2 {
-    font-size: 58px;
-  }
-
-  #projects h2 {
-    font-size: 46px;
-    max-width: calc(100vw - 28px);
-    white-space: normal;
-    line-height: .9;
-  }
-
-  .project-guide {
-    top: calc(var(--top-ui) + 128px);
-    max-width: calc(100vw - 40px);
-    white-space: normal;
-  }
-
-  .stage3d {
-    padding-top: 145px;
-  }
-  #contact .contact-links {
-        gap: 24px;
-    }
-
-    #contact .contact-link {
-        width: 52px;
-        height: 52px;
-    }
-
-    #contact .contact-link img {
-        width: 34px;
-        height: 34px;
-    }
-}
 
 /* =========================================================
    SCROLL MOTION PACK
@@ -3035,6 +2349,7 @@ body.loaded .page-wrap {
 ========================================================= */
 
 /* JS가 준비된 뒤에만 감춤 — JS 오류 시 콘텐츠가 사라지지 않음 */
+
 body.motion-ready .fx-item {
   --fx-delay: 0ms;
   opacity: 0;
@@ -3052,6 +2367,7 @@ body.motion-ready .fx-item.fx-in {
 }
 
 /* 제목 등장 효과 — 제목 자체를 완전히 자르지 않도록 수정 */
+
 body.motion-ready .fx-mask {
   clip-path: none;
   transform: translate3d(0, 48px, 0) skewY(2deg);
@@ -3063,7 +2379,9 @@ body.motion-ready .fx-mask.fx-in {
   transform: translate3d(0, 0, 0) skewY(0);
   filter: blur(0);
 }
+
 /* 기본 아래 → 위 */
+
 body.motion-ready .fx-up {
   transform: translate3d(0, 54px, 0);
   filter: blur(8px);
@@ -3074,6 +2392,7 @@ body.motion-ready .fx-up.fx-in {
 }
 
 /* 좌우에서 빠르게 진입 */
+
 body.motion-ready .fx-left {
   transform: translate3d(-72px, 0, 0);
   filter: blur(9px);
@@ -3093,6 +2412,7 @@ body.motion-ready .fx-right.fx-in {
 }
 
 /* 프로필/정보 카드용 팝업 */
+
 body.motion-ready .fx-pop {
   transform: translate3d(0, 46px, 0) scale(.92) rotate(-1.5deg);
   filter: blur(8px);
@@ -3102,8 +2422,8 @@ body.motion-ready .fx-pop.fx-in {
   transform: translate3d(0, 0, 0) scale(1) rotate(0);
 }
 
-
 /* 위치값을 가진 버튼처럼 transform을 건드리면 안 되는 요소용 */
+
 body.motion-ready .fx-fade {
   filter: blur(9px);
 }
@@ -3113,6 +2433,7 @@ body.motion-ready .fx-fade.fx-in {
 }
 
 /* 갤러리와 3D 영역은 내부 transform을 보호하기 위해 부모만 마스킹 */
+
 body.motion-ready .fx-stage {
   clip-path: inset(12% 8% 12% 8% round 28px);
   filter: blur(12px);
@@ -3123,6 +2444,7 @@ body.motion-ready .fx-stage.fx-in {
 }
 
 /* 프로젝트 설명의 포인트 선도 함께 펼쳐짐 */
+
 body.motion-ready .case-text.fx-item::before {
   transform: scaleX(0);
   transform-origin: left center;
@@ -3134,16 +2456,6 @@ body.motion-ready .case-text.fx-in::before {
 }
 
 /* 이미지가 등장한 뒤 아주 약하게 살아 움직이는 느낌 */
-@media (min-width: 901px) {
-  .device-stage > img.fx-in {
-    animation: portfolioDeviceFloat 5.8s ease-in-out 1.15s infinite;
-  }
-
-  .profile-grid > .fx-in:hover {
-    transform: translateY(-8px);
-    transition-duration: .32s;
-  }
-}
 
 @keyframes portfolioDeviceFloat {
   0%, 100% { translate: 0 0; }
@@ -3151,701 +2463,12 @@ body.motion-ready .case-text.fx-in::before {
 }
 
 /* 모바일은 이동 거리를 줄여 부담 없이 보이게 */
-@media (max-width: 900px) {
-  body.motion-ready .fx-left {
-    transform: translate3d(-32px, 0, 0);
-  }
-
-  body.motion-ready .fx-right {
-    transform: translate3d(36px, 14px, 0) scale(.96);
-  }
-
-  body.motion-ready .fx-up,
-  body.motion-ready .fx-pop {
-    transform: translate3d(0, 30px, 0) scale(.97);
-  }
-
-  body.motion-ready .fx-mask {
-    transform: translate3d(0, 14px, 0);
-  }
-  .project-guide{
-    line-height: 1.8;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  body.motion-ready .fx-item,
-  body.motion-ready .fx-item.fx-in,
-  .device-stage > img.fx-in {
-    opacity: 1 !important;
-    transform: none !important;
-    translate: none !important;
-    filter: none !important;
-    clip-path: none !important;
-    animation: none !important;
-    transition: none !important;
-  }
-}
-
 
 /* =========================================================
    FINAL RESPONSIVE OVERRIDE
    모바일/태블릿 레이아웃 안정화
    기존 인터랙션과 JS 동작은 유지하고 배치만 수정
 ========================================================= */
-
-@media (max-width: 900px) {
-  html,
-  body {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-  }
-
-  .page-wrap,
-  section,
-  footer {
-    max-width: 100%;
-  }
-
-  .snap-section,
-  #works,
-  #box_project {
-    height: auto;
-    min-height: 0;
-    overflow: hidden;
-  }
-
-  /* HEADER */
-  #header {
-    height: 48px;
-    padding: 0 20px;
-  }
-
-  #header .logo {
-    font-size: 21px;
-  }
-
-  #header .nav,
-  .edge-index,
-  .cursor {
-    display: none;
-  }
-
-  /* HERO */
-  #hero {
-    min-height: 100svh;
-    padding: 92px 24px 58px;
-    align-items: center;
-  }
-
-  #hero::before {
-    top: 94px;
-    right: 18px;
-    font-size: clamp(86px, 25vw, 150px);
-  }
-
-  #hero::after {
-    top: 48px;
-    width: 7px;
-    height: calc(100% - 48px);
-  }
-
-  .hero-top-meta {
-    grid-template-columns: 1fr auto;
-    gap: 18px;
-    font-size: 9px;
-  }
-
-  #hero h1 {
-    margin-top: clamp(72px, 12vh, 110px);
-    font-size: clamp(66px, 18vw, 116px);
-    line-height: .82;
-  }
-
-  .hero-bottom-meta {
-    margin-top: 70px;
-    grid-template-columns: 1fr;
-    gap: 28px;
-  }
-
-  .hero-bottom-meta > span {
-    text-align: left;
-  }
-
-  .hero-scroll {
-    display: none;
-  }
-
-  /* ABOUT */
-  #about {
-    min-height: auto;
-    padding: 105px 24px 80px;
-  }
-
-  #about::after {
-    top: 92px;
-    right: 18px;
-    font-size: clamp(88px, 27vw, 140px);
-  }
-
-  #about .sub_title {
-    margin-bottom: 32px;
-    font-size: 12px;
-  }
-
-  #about h2 {
-    max-width: 100%;
-    font-size: clamp(58px, 15vw, 92px);
-    line-height: .82;
-  }
-
-  #about > p {
-    max-width: 680px;
-    margin-top: 34px;
-    font-size: 15px;
-    line-height: 2;
-  }
-
-  .profile-grid {
-    margin-top: 46px;
-    padding-top: 42px;
-    grid-template-columns: 1fr;
-    gap: 36px;
-  }
-
-  .profile-card {
-    width: 100%;
-    max-width: 430px;
-    margin: 0 auto;
-  }
-
-  .profile_img {
-    height: auto;
-    aspect-ratio: 1 / .92;
-  }
-
-  .profile-grid .info {
-    width: 100%;
-    padding-top: 0;
-  }
-
-  .profile-grid .toolbox {
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-
-  /* WORKS */
-  #works {
-    height: auto;
-  }
-
-  #works .case-panel {
-    min-height: 760px;
-    padding: calc(var(--top-ui) + var(--works-rail-height) + 58px) 24px 44px;
-    grid-template-columns: 1fr;
-    align-content: start;
-    gap: 30px;
-  }
-
-  #works .case-text {
-    width: 100%;
-  }
-
-  #works .case-text h2 {
-    font-size: clamp(46px, 12vw, 64px);
-  }
-
-  #works .case_list li {
-    align-items: flex-start;
-  }
-
-  #works .case_list h4 {
-    flex: 0 0 64px;
-  }
-
-  #works .device-stage {
-    width: 100%;
-    min-height: 360px;
-  }
-
-  #works .device-stage > img {
-    right: 50%;
-    bottom: 0;
-    width: min(680px, 118%);
-    max-width: none;
-    transform: translateX(50%);
-  }
-
-  /* PROJECT HIGHLIGHTS */
-  #galleryshowcase {
-    min-height: 820px;
-    padding-top: 48px;
-  }
-
-  .gallery-copy {
-    top: 90px;
-    left: 50%;
-    width: calc(100% - 48px);
-    transform: translateX(-50%);
-  }
-
-  .gallery-copy .mini {
-    margin-bottom: 18px;
-    font-size: 12px;
-  }
-
-  .gallery-copy h2 {
-    font-size: clamp(58px, 14vw, 82px);
-    line-height: .82;
-  }
-
-  .gallery-copy p {
-    max-width: 560px;
-    margin-top: 22px;
-    line-height: 1.8;
-  }
-
-  .gallery-perspective {
-    left: 50%;
-    bottom: 32px;
-    width: 165vw;
-    height: 52vh;
-    min-height: 390px;
-    transform: translateX(-50%) perspective(1000px) rotateX(24deg);
-    transform-origin: center bottom;
-  }
-
-  .gallery-wrapper {
-    gap: 10px;
-  }
-
-  .gallery-row {
-    gap: 10px;
-  }
-
-  .gallery-thumb {
-    width: 230px;
-    height: 140px;
-  }
-
-  .gallery-scroll-note {
-    display: none;
-  }
-
-  /* DETAIL PAGES */
-  #projects {
-    min-height: 780px;
-  }
-
-  #projects h2 {
-    top: 92px;
-    left: 50%;
-    width: calc(100% - 48px);
-    max-width: none;
-    transform: translateX(-50%);
-    font-size: clamp(54px, 13vw, 76px);
-    line-height: .84;
-    white-space: normal;
-  }
-
-  .project-guide {
-    top: 202px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .stage3d {
-    inset: 48px 0 0;
-    padding-top: 190px;
-    overflow: hidden;
-  }
-
-  .ring {
-    width: 230px;
-    height: 340px;
-  }
-
-  .p-card {
-    transform:
-      rotateY(calc(var(--i) * 60deg))
-      translateZ(300px);
-  }
-
-  .project-btn {
-    top: 60%;
-    width: 46px;
-    height: 46px;
-  }
-
-  /* OTHER DESIGN WORKS */
-  #box_project {
-    min-height: 690px;
-    padding: 100px 0 66px;
-  }
-
-  .box-head {
-    width: 100%;
-    margin: 0 0 52px;
-    padding: 0 24px;
-  }
-
-  .box-head h2 {
-    max-width: 100%;
-    font-size: clamp(58px, 15vw, 82px);
-    line-height: .82;
-  }
-
-  .box-marquee {
-    width: 108%;
-    margin-left: -4%;
-    padding: 35px 0;
-    rotate: -2deg;
-  }
-
-  .box-track {
-    gap: 12px;
-    padding-left: 12px;
-  }
-
-  .box {
-    width: 250px;
-    height: 280px;
-    padding: 22px;
-  }
-
-  .box-title h3 {
-    font-size: 48px;
-  }
-
-  .box-track-img {
-    width: 112px;
-    height: 112px;
-  }
-
-  /* CONTACT */
-  #contact {
-    justify-content: flex-end;
-    border-top: 1px solid var(--line);
-  }
-
-  #contact::before {
-    top: 86px;
-    right: 24px;
-    font-size: clamp(90px, 27vw, 150px);
-  }
-
-  #contact::after {
-    width: 12px;
-    height: calc(100% - 48px);
-  }
-
-  #contact .contact_group {
-    position: relative;
-    z-index: 4;
-    width: calc(100% - 18px);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-end;
-    gap: 52px;
-  }
-
-  #contact h2 {
-    width: 100%;
-    max-width: none;
-    font-size: clamp(78px, 21vw, 126px);
-    line-height: .72;
-  }
-
-  #contact p {
-    margin-top: 34px;
-  }
-
-  #contact .contact-links {
-    width: 100%;
-    justify-content: flex-start;
-    gap: 24px;
-  }
-
-  #contact hr {
-    width: calc(100% - 18px);
-    height: 2px;
-    margin-top: 42px;
-    border: 0;
-  }
-}
-
-@media (max-width: 600px) {
-  /* HERO */
-  #hero {
-    padding: 82px 20px 48px;
-  }
-
-  .hero-top-meta {
-    grid-template-columns: 1fr;
-    font-size: 8px;
-  }
-
-  .hero-top-meta span:nth-child(2),
-  .hero-top-meta span:last-child {
-    display: none;
-  }
-
-  #hero h1 {
-    font-size: clamp(56px, 18.5vw, 78px);
-  }
-
-  .hero-bottom-meta p {
-    font-size: 14px;
-  }
-
-  .hero-bottom-meta > span {
-    font-size: 13px;
-  }
-
-  /* ABOUT */
-  #about {
-    padding: 95px 24px 68px;
-  }
-
-  #about h2 {
-    font-size: clamp(54px, 16vw, 72px);
-  }
-
-  #about > p {
-    font-size: 14px;
-  }
-
-  .profile-card {
-    max-width: 100%;
-  }
-
-  .profile_img {
-    aspect-ratio: 1 / .9;
-  }
-
-  .profile-grid .info h3 {
-    font-size: 18px;
-  }
-
-  .profile-grid .info p {
-    font-size: 14px;
-    line-height: 1.85;
-  }
-
-  /* WORKS */
-  #works .case-panel {
-    min-height: 720px;
-    padding-right: 20px;
-    padding-left: 20px;
-  }
-
-  #works .case-text h2 {
-    font-size: 44px;
-  }
-
-  #works .case_list li {
-    gap: 12px;
-  }
-
-  #works .case_list h4 {
-    flex-basis: 58px;
-    font-size: 12px;
-  }
-
-  #works .case_list p {
-    font-size: 12px;
-  }
-
-  #works .device-stage {
-    min-height: 310px;
-  }
-
-  #works .device-stage > img {
-    width: 125%;
-  }
-
-  /* PROJECT HIGHLIGHTS */
-  #galleryshowcase {
-    min-height: 760px;
-  }
-
-  .gallery-copy {
-    top: 90px;
-    width: calc(100% - 40px);
-  }
-
-  .gallery-copy h2 {
-    font-size: clamp(52px, 15.5vw, 66px);
-  }
-
-  .gallery-copy p {
-    font-size: 13px;
-  }
-
-  .gallery-perspective {
-    bottom: 8px;
-    width: 205vw;
-    height: 47vh;
-    min-height: 350px;
-    transform: translateX(-50%) perspective(900px) rotateX(21deg);
-  }
-
-  .gallery-thumb {
-    width: 190px;
-    height: 116px;
-  }
-
-  /* DETAIL PAGES */
-  #projects {
-    min-height: 720px;
-  }
-
-  #projects h2 {
-    top: 88px;
-    width: calc(100% - 40px);
-    font-size: 48px;
-  }
-
-  .project-guide {
-    top: 174px;
-  }
-
-  .stage3d {
-    padding-top: 160px;
-  }
-
-  .ring {
-    width: 195px;
-    height: 290px;
-  }
-
-  .p-card {
-    transform:
-      rotateY(calc(var(--i) * 60deg))
-      translateZ(245px);
-  }
-
-  .p-card > div {
-    padding: 20px;
-  }
-
-  .card_img {
-    width: 140px;
-    height: 130px;
-    margin-top: 20px;
-  }
-
-  .p-card strong {
-    left: 20px;
-    right: 18px;
-    bottom: 54px;
-    font-size: 37px;
-  }
-
-  .p-card em {
-    left: 20px;
-    bottom: 25px;
-  }
-
-  .project-btn {
-    top: 61%;
-    width: 42px;
-    height: 42px;
-  }
-
-  .project-prev { left: 12px; }
-  .project-next { right: 12px; }
-
-  /* OTHER DESIGN WORKS */
-  #box_project {
-    min-height: 620px;
-    padding-top: 92px;
-  }
-
-  .box-head {
-    margin-bottom: 42px;
-    padding: 0 24px;
-  }
-
-  .box-head h2 {
-    font-size: clamp(54px, 16vw, 68px);
-  }
-
-  .box-marquee {
-    width: 112%;
-    margin-left: -6%;
-    padding: 28px 0;
-    rotate: 0deg;
-  }
-
-  .box {
-    width: 225px;
-    height: 255px;
-    padding: 20px;
-  }
-
-  .box-title h3 {
-    font-size: 43px;
-  }
-
-  .box-track-img {
-    width: 100px;
-    height: 100px;
-  }
-
-  /* CONTACT */
-  #contact {
-    min-height: 100svh;
-    padding: 92px 20px 28px;
-  }
-
-  #contact::before {
-    top: 78px;
-    right: 18px;
-    font-size: 104px;
-  }
-
-  #contact::after {
-    width: 9px;
-  }
-
-  #contact .contact_group {
-    width: calc(100% - 12px);
-    gap: 48px;
-  }
-
-  #contact h2 {
-    font-size: clamp(72px, 22vw, 92px);
-  }
-
-  #contact .contact-links {
-    gap: 18px;
-  }
-
-  #contact .contact-link {
-    width: 48px;
-    height: 48px;
-  }
-
-  #contact .contact-link img {
-    width: 31px;
-    height: 31px;
-  }
-
-  #contact .contact-link span {
-    bottom: -18px;
-    opacity: 1;
-    transform: translate(-50%, 0);
-    font-size: 7px;
-  }
-
-  #contact hr {
-    width: calc(100% - 12px);
-    margin-top: 36px;
-  }
-}
 
 /* =========================================================
    MOBILE WORKS FINAL FIX
@@ -3854,267 +2477,6 @@ body.motion-ready .case-text.fx-in::before {
    - 이미지 영역의 강제 크롭 제거
    - 이미지 캔버스 경계가 보이지 않도록 자연스럽게 블렌딩
 ========================================================= */
-
-@media (max-width: 900px) {
-  #works {
-    --works-mobile-gutter: 24px;
-    --works-mobile-section-gap: 34px;
-  }
-
-  #works .horizontal-sticky,
-  #works .horizontal-track {
-    height: auto;
-    overflow: visible;
-  }
-
-  #works .horizontal-track {
-    display: block;
-    width: 100%;
-    transform: none !important;
-  }
-
-  #works .case-panel {
-    width: 100%;
-    height: auto;
-    min-height: 0;
-    padding: 82px var(--works-mobile-gutter) 54px;
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: auto auto;
-    align-content: start;
-    align-items: start;
-    row-gap: var(--works-mobile-section-gap);
-    background: var(--paper);
-    overflow: visible;
-  }
-
-  /* 상단 타이포 레일은 첫 번째 프로젝트 위에만 있으므로 첫 패널만 여백 추가 */
-  #works .case-panel:first-child {
-    padding-top: calc(var(--top-ui) + var(--works-rail-height) + 34px);
-  }
-
-  #works .case-panel:not(:first-child) {
-    border-top: 1px solid var(--line);
-  }
-
-  #works .case-panel::before {
-    display: none !important;
-  }
-
-  #works .case-panel::after {
-    top: 72px;
-    right: 18px;
-    bottom: auto;
-    font-size: clamp(90px, 27vw, 124px);
-  }
-
-  #works .case-panel:first-child::after {
-    top: calc(var(--top-ui) + var(--works-rail-height) + 18px);
-  }
-
-  #works .case-text {
-    position: relative;
-    top: 0;
-    width: 100%;
-    max-width: none;
-    padding: 0;
-  }
-
-  #works .case-text::before {
-    width: 42px;
-    height: 4px;
-    margin-bottom: 20px;
-  }
-
-  #works .case-text .num {
-    margin-bottom: 17px;
-    font-size: 11px;
-  }
-
-  #works .case-text h2 {
-    max-width: 100%;
-    margin: 0;
-    font-size: clamp(44px, 11.5vw, 62px);
-    line-height: 1.02;
-  }
-
-  #works .case_list {
-    margin-top: 34px;
-  }
-
-  #works .case_list li {
-    margin-bottom: 13px;
-    gap: 14px;
-  }
-
-  #works .case_list h4 {
-    flex: 0 0 64px;
-    font-size: 12px;
-    line-height: 1.55;
-  }
-
-  #works .case_list p,
-  #works .case-text p {
-    max-width: none;
-    font-size: 13px;
-    line-height: 1.65;
-  }
-
-  #works .case-tag {
-    margin-top: 28px;
-  }
-
-  #works .case-tag a {
-    min-width: 196px;
-    height: 54px;
-    padding: 0 20px;
-    font-size: 15px;
-  }
-
-  /* 이미지가 들어가는 두 번째 행 */
-  #works .device-stage {
-    position: relative;
-    width: 100%;
-    height: auto;
-    min-height: 0;
-    aspect-ratio: 1 / .82;
-    margin: 0;
-    display: grid;
-    place-items: center;
-    overflow: visible;
-    isolation: isolate;
-    background: transparent;
-  }
-
-  #works .device-stage > img {
-    position: relative;
-    right: auto;
-    bottom: auto;
-    width: min(112%, 650px);
-    max-width: none;
-    height: auto;
-    margin: 0 auto;
-    object-fit: contain;
-    transform: none;
-    translate: none;
-    mix-blend-mode: multiply;
-    filter: drop-shadow(0 18px 24px rgba(0, 0, 0, .14));
-  }
-
-  /* 모바일에서는 모든 프로젝트의 원형 오브제 위치도 같은 기준으로 통일 */
-  #works .case-panel .decor-a,
-  #works .case-panel .decor-b {
-    left: auto !important;
-    border-radius: 50% !important;
-    transform: none !important;
-  }
-
-  #works .case-panel .decor-a {
-    right: -13vw !important;
-    bottom: 0 !important;
-    width: min(62vw, 310px) !important;
-    height: min(62vw, 310px) !important;
-  }
-
-  #works .case-panel .decor-b {
-    right: 1vw !important;
-    top: 4% !important;
-    width: min(25vw, 125px) !important;
-    height: min(25vw, 125px) !important;
-  }
-}
-
-@media (max-width: 600px) {
-  #works {
-    --works-mobile-gutter: 18px;
-    --works-mobile-section-gap: 28px;
-  }
-
-  #works .case-panel {
-    padding-top: 72px;
-    padding-bottom: 42px;
-  }
-
-  #works .case-panel:first-child {
-    padding-top: calc(var(--top-ui) + var(--works-rail-height) + 28px);
-  }
-
-  #works .case-panel::after {
-    top: 64px;
-    right: 12px;
-    font-size: 96px;
-  }
-
-  #works .case-panel:first-child::after {
-    top: calc(var(--top-ui) + var(--works-rail-height) + 14px);
-  }
-
-  #works .case-text::before {
-    margin-bottom: 17px;
-  }
-
-  #works .case-text h2 {
-    font-size: clamp(40px, 13vw, 50px);
-  }
-
-  #works .case_list {
-    margin-top: 28px;
-  }
-
-  #works .case_list h4 {
-    flex-basis: 56px;
-    font-size: 13px;
-  }
-
-  #works .case_list p,
-  #works .case-text p {
-    font-size: 14px;
-    line-height: 1.65;
-  }
-
-  #works .case-tag {
-    margin-top: 25px;
-  }
-
-  #works .case-tag a {
-    min-width: 190px;
-    height: 52px;
-    font-size: 14px;
-  }
-
-  #works .device-stage {
-    aspect-ratio: 1 / .88;
-  }
-
-  #works .device-stage > img {
-    width: 108%;
-    filter: drop-shadow(0 14px 18px rgba(0, 0, 0, .12));
-  }
-
-  #works .case-panel .decor-a {
-    right: -16vw !important;
-    width: min(66vw, 260px) !important;
-    height: min(66vw, 260px) !important;
-  }
-
-  #works .case-panel .decor-b {
-    right: 0 !important;
-    width: min(27vw, 104px) !important;
-    height: min(27vw, 104px) !important;
-  }
-   #contact {
-    height: auto;
-    justify-content: flex-start;
-  }
-
-  #contact .contact_group {
-    margin-top: 210px; /* LET'S WORK 위치 */
-  }
-
-  #contact p {
-    margin-top: 36px;
-  }
-}
 
 /* =========================================================
    MOBILE HAMBURGER NAVIGATION
@@ -4135,24 +2497,1137 @@ body.motion-ready .case-text.fx-in::before {
   scroll-margin-top: var(--top-ui);
 }
 
+@keyframes boxDragHint {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-4px); }
+}
+
+/* =========================================================
+   BALANCED LAPTOP HEIGHT FIX
+   제목과 핵심 콘텐츠 크기는 유지하고,
+   짧은 노트북 화면에서 위·아래 간격만 균형 있게 조정
+========================================================= */
+
+/* 실제 브라우저 높이가 매우 짧은 노트북만 소폭 조정 */
+
+/* =========================================================
+   DETAIL PAGES — GRAM LAPTOP CARD SIZE FIX
+   새 CSS 기준 / 제목과 전체 배치는 유지 / 카드만 축소
+========================================================= */
+
+/* 일반 노트북·그램: 실제 브라우저 높이 900px 이하 */
+
+/* 그램처럼 브라우저 실제 높이가 특히 짧은 화면 */
+
+/* =========================================================
+   MOBILE — PROJECT HIGHLIGHTS / DETAIL PAGES GAP FIX
+   설명과 다음 콘텐츠 사이 간격을 24px로 통일
+========================================================= */
+
+/* =========================================================
+   MOBILE — GAP 60PX + PROJECT ARROW POSITION FIX
+   기존 24px 여백을 60px로 조정하고
+   좌우 버튼을 제목이 아닌 3D 카드 중앙에 정렬
+========================================================= */
+
+/* DETAIL PAGES — THIN CHEVRON BUTTON */
+
+#projects .project-btn {
+  width: 46px;
+  height: 46px;
+  padding: 0;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.03);
+
+  cursor: pointer;
+  transition:
+    border-color 0.25s ease,
+    background-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+/* 기존 SVG 화살표 숨김 */
+
+#projects .project-btn img {
+  display: none;
+}
+
+/* 공통 꺾쇠 */
+
+#projects .project-btn::before {
+  content: "";
+
+  width: 10px;
+  height: 10px;
+
+  border-left: 1.5px solid #fff;
+  border-bottom: 1.5px solid #fff;
+
+  transition:
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+/* < */
+
+#projects .project-prev::before {
+  transform: rotate(45deg);
+  margin-left: 4px;
+}
+
+/* > */
+
+#projects .project-next::before {
+  transform: rotate(-135deg);
+  margin-right: 4px;
+}
+
+#projects .project-btn:hover {
+  border-color: var(--accent);
+  background: var(--accent);
+}
+
+/* hover 시 화살표가 살짝 이동 */
+
+#projects .project-prev:hover::before {
+  transform: translateX(-2px) rotate(45deg);
+}
+
+#projects .project-next:hover::before {
+  transform: translateX(2px) rotate(-135deg);
+}
+
+#projects .project-btn:active {
+  scale: 0.93;
+}
+
+/* =========================================================
+   RESPONSIVE — ALL MEDIA QUERIES
+   미디어쿼리를 파일 하단에 한곳으로 정리
+========================================================= */
+
+@media (max-width: 1100px) {
+:root {
+    --top-ui: 52px;
+    --works-rail-height: 93px;
+  }
+
+.works-impact-rail-track span {
+    font-size: 75px;
+  }
+
+.profile-grid {
+    gap: 38px;
+  }
+
+.case-panel {
+    padding-left: 5vw;
+  }
+
+.gallery-thumb {
+    width: 290px;
+    height: 176px;
+  }
+
+#works .case-panel {
+    grid-template-columns: 42% 58%;
+    padding-left: 5vw;
+  }
+
+#works .case-text h2 {
+    font-size: 62px;
+  }
+
+#works .device-stage > img {
+    width: min(880px, 59vw);
+  }
+}
+
 @media (max-width: 900px) {
-  body.mobile-menu-open {
+:root {
+    --top-ui: 48px;
+    --works-rail-height: 68px;
+  }
+
+body {
+    overflow-y: auto;
+  }
+
+#header {
+    height: 48px;
+    padding: 0 20px;
+  }
+
+#header .nav,
+  .cursor,
+  .edge-index {
+    display: none;
+  }
+
+.works-impact-rail {
+    top: var(--top-ui);
+    height: var(--works-rail-height);
+  }
+
+.works-impact-rail-track span {
+    font-size: 54px;
+  }
+
+.snap-section,
+  #works,
+  #box_project {
+    height: auto;
+    min-height: 100svh;
+  }
+
+#hero {
+    min-height: 100svh;
+    padding: calc(var(--top-ui) + 45px) 22px 70px;
+  }
+
+.hero-top-meta {
+    grid-template-columns: 1fr 1fr;
+  }
+
+.hero-top-meta span:nth-child(2) {
+    text-align: right;
+  }
+
+.hero-top-meta span:last-child {
+    display: none;
+  }
+
+#hero h1 {
+    font-size: clamp(72px, 18vw, 126px);
+    line-height: .84;
+  }
+
+.hero-bottom-meta {
+    margin-top: 70px;
+  }
+
+#about {
+    padding: calc(var(--top-ui) + 75px) 24px 75px;
+  }
+
+#about::after {
+    top: calc(var(--top-ui) + 80px);
+    right: 20px;
+    font-size: 100px;
+  }
+
+#about h2 {
+    font-size: 72px;
+  }
+
+.profile-grid {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+.profile-card {
+    max-width: 390px;
+  }
+
+.profile_img {
+    height: 210px;
+  }
+
+.profile-card h5 {
+    padding-top: 14px;
+    font-size: 17px;
+  }
+
+.profile-card ul {
+    margin-top: 12px;
+  }
+
+.profile-card li {
+    font-size: 14px;
+    line-height: 1.85;
+  }
+
+#works {
+    height: auto;
+  }
+
+.horizontal-sticky {
+    height: auto;
+    overflow: visible;
+  }
+
+.horizontal-track {
+    width: 100%;
+    height: auto;
+    display: block;
+    transform: none !important;
+  }
+
+.case-panel {
+    width: 100%;
+    height: auto;
+    min-height: 100svh;
+    padding: calc(var(--top-ui) + var(--works-rail-height) + 68px) 24px 55px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+.case-panel::before {
+    top: auto;
+    bottom: 0;
+    width: 100%;
+    height: 43%;
+  }
+
+.case-panel::after {
+    top: auto;
+    right: 15px;
+    bottom: 27%;
+    font-size: 110px;
+  }
+
+.case-text h2 {
+    font-size: 58px;
+  }
+
+.device-stage {
+    min-height: 43vh;
+  }
+
+.device-stage::before,
+  .device-stage::after {
+    right: 0;
+    bottom: 4vh;
+    width: 100%;
+    height: 34vh;
+  }
+
+.device-stage > img {
+    right: 0;
+    width: 100%;
+  }
+
+.wheel-guide,
+  .dots {
+    display: none;
+  }
+
+#galleryshowcase {
+    min-height: 900px;
+  }
+
+.gallery-copy {
+    top: calc(var(--top-ui) + 75px);
+    left: 24px;
+  }
+
+.gallery-copy h2 {
+    font-size: 72px;
+  }
+
+.gallery-perspective {
+    bottom: 100px;
+    width: 180vw;
+    transform: translateX(-50%) perspective(1000px) rotateX(34deg);
+  }
+
+#projects {
+    min-height: 850px;
+  }
+
+#projects h2 {
+    top: calc(var(--top-ui) + 62px);
+    left: 24px;
+    font-size: 72px;
+  }
+
+.project-guide {
+    top: calc(var(--top-ui) + 210px);
+    left: 26px;
+  }
+
+.ring {
+    width: 250px;
+    height: 360px;
+  }
+
+.p-card {
+    transform:
+      rotateY(calc(var(--i) * 60deg))
+      translateZ(330px);
+  }
+
+.project-btn {
+    width: 48px;
+    height: 48px;
+  }
+
+.project-prev { left: 18px; }
+
+.project-next { right: 18px; }
+
+#box_project {
+    min-height: 780px;
+    padding-top: calc(var(--top-ui) + 72px);
+  }
+
+.box-head {
+    width: calc(100% - 48px);
+  }
+
+.box-head h2 {
+    font-size: 72px;
+  }
+
+.box {
+    width: 275px;
+    height: 275px;
+  }
+
+#contact {
+    min-height: 100svh;
+    padding: calc(var(--top-ui) + 70px) 22px 45px;
+  }
+
+#contact::after {
+    width: 11vw;
+    height: calc(100% - var(--top-ui));
+  }
+
+#contact h2 {
+    font-size: clamp(90px, 20vw, 145px);
+  }
+
+.project-modal-grid {
+    grid-template-columns: 1fr;
+  }
+
+#works .case-panel {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: calc(var(--top-ui) + var(--works-rail-height) + 68px) 24px 50px;
+    min-height: 100svh;
+  }
+
+#works .case-panel::after {
+    right: 20px;
+    top: calc(var(--top-ui) + var(--works-rail-height) + 25px);
+    font-size: 110px;
+  }
+
+#works .case-text {
+    max-width: none;
+    padding-right: 0;
+  }
+
+#works .case-text h2 {
+    font-size: 54px;
+  }
+
+#works .device-stage {
+    min-height: 44vh;
     overflow: hidden;
   }
 
-  #header {
+#works .device-stage::before {
+    right: -18vw;
+    bottom: -7vh;
+    width: min(72vw, 520px);
+  }
+
+#works .device-stage::after {
+    right: -3vw;
+    top: 2vh;
+    width: min(30vw, 190px);
+  }
+
+#works .device-stage > img {
+    right: 0;
+    bottom: 2vh;
+    width: 100%;
+    max-width: 100%;
+  }
+
+#works .case-panel:nth-child(1) .decor-a {
+    right: -18vw;
+    bottom: -7vh;
+    width: min(72vw, 520px);
+    height: min(72vw, 520px);
+  }
+
+#works .case-panel:nth-child(1) .decor-b {
+    right: -3vw;
+    top: 2vh;
+    width: min(30vw, 190px);
+    height: min(30vw, 190px);
+  }
+
+#works .case-panel:nth-child(2) .decor-a {
+    right: -14vw;
+    bottom: -4vh;
+    width: 58vw;
+    height: 58vw;
+  }
+
+#works .case-panel:nth-child(2) .decor-b {
+    right: 6vw;
+    top: 4vh;
+    width: 21vw;
+    height: 21vw;
+  }
+
+#works .case-panel:nth-child(3) .decor-a {
+    left: -8vw;
+    bottom: -4vh;
+    width: 48vw;
+    height: 48vw;
+  }
+
+#works .case-panel:nth-child(3) .decor-b {
+    right: -8vw;
+    top: 8vh;
+    width: 34vw;
+    height: 34vw;
+  }
+
+#works .case-panel:nth-child(4) .decor-a {
+    right: -14vw;
+    bottom: -6vh;
+    width: 55vw;
+    height: 55vw;
+  }
+
+#works .case-panel:nth-child(4) .decor-b {
+    right: 5vw;
+    top: 6vh;
+    width: 20vw;
+    height: 20vw;
+  }
+
+.gallery-copy {
+    left: 50%;
+    top: calc(var(--top-ui) + 68px);
+    width: calc(100% - 48px);
+    transform: translateX(-50%);
+  }
+
+.gallery-copy h2 {
+    font-size: 72px;
+    line-height: .86;
+  }
+
+#projects h2 {
+    top: calc(var(--top-ui) + 56px);
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 64px;
+    white-space: nowrap;
+  }
+
+.project-guide {
+    top: calc(var(--top-ui) + 155px);
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+.stage3d {
+    padding-top: 155px;
+  }
+
+body.motion-ready .fx-left {
+    transform: translate3d(-32px, 0, 0);
+  }
+
+body.motion-ready .fx-right {
+    transform: translate3d(36px, 14px, 0) scale(.96);
+  }
+
+body.motion-ready .fx-up,
+  body.motion-ready .fx-pop {
+    transform: translate3d(0, 30px, 0) scale(.97);
+  }
+
+body.motion-ready .fx-mask {
+    transform: translate3d(0, 14px, 0);
+  }
+
+.project-guide{
+    line-height: 1.8;
+  }
+
+html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+.page-wrap,
+  section,
+  footer {
+    max-width: 100%;
+  }
+
+.snap-section,
+  #works,
+  #box_project {
+    height: auto;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+/* HEADER */
+
+#header .logo {
+    font-size: 21px;
+  }
+
+#header .nav,
+  .edge-index,
+  .cursor {
+    display: none;
+  }
+
+/* HERO */
+
+#hero {
+    min-height: 100svh;
+    padding: 92px 24px 58px;
+    align-items: center;
+    border-bottom: 1px solid var(--line);
+  }
+
+#hero::before {
+    top: 94px;
+    right: 18px;
+    font-size: clamp(86px, 25vw, 150px);
+  }
+
+#hero::after {
+    top: 48px;
+    width: 7px;
+    height: calc(100% - 48px);
+  }
+
+.hero-top-meta {
+    grid-template-columns: 1fr auto;
+    gap: 18px;
+    font-size: 9px;
+  }
+
+#hero h1 {
+    margin-top: clamp(72px, 12vh, 110px);
+    font-size: clamp(66px, 18vw, 116px);
+    line-height: .82;
+  }
+
+.hero-bottom-meta {
+    margin-top: 70px;
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+.hero-bottom-meta > span {
+    text-align: left;
+  }
+
+.hero-scroll {
+    display: none;
+  }
+
+/* ABOUT */
+
+#about {
+    min-height: auto;
+    padding: 105px 24px 80px;
+  }
+
+#about::after {
+    top: 92px;
+    right: 18px;
+    font-size: clamp(88px, 27vw, 140px);
+  }
+
+#about .sub_title {
+    margin-bottom: 32px;
+    font-size: 12px;
+  }
+
+#about h2 {
+    max-width: 100%;
+    font-size: clamp(58px, 15vw, 92px);
+    line-height: .82;
+  }
+
+#about > p {
+    max-width: 680px;
+    margin-top: 34px;
+    font-size: 15px;
+    line-height: 2;
+  }
+
+.profile-grid {
+    margin-top: 46px;
+    padding-top: 42px;
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+.profile-card {
+    width: 100%;
+    max-width: 430px;
+    margin: 0 auto;
+  }
+
+.profile_img {
+    height: auto;
+    aspect-ratio: 1 / .92;
+  }
+
+.profile-grid .info {
+    width: 100%;
+    padding-top: 0;
+  }
+
+.profile-grid .toolbox {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+/* WORKS */
+
+#works .case-panel {
+    min-height: 760px;
+    padding: calc(var(--top-ui) + var(--works-rail-height) + 58px) 24px 44px;
+    grid-template-columns: 1fr;
+    align-content: start;
+    gap: 30px;
+  }
+
+#works .case-text {
+    width: 100%;
+  }
+
+#works .case-text h2 {
+    font-size: clamp(46px, 12vw, 64px);
+  }
+
+#works .case_list li {
+    align-items: flex-start;
+  }
+
+#works .case_list h4 {
+    flex: 0 0 64px;
+  }
+
+#works .device-stage {
+    width: 100%;
+    min-height: 360px;
+  }
+
+#works .device-stage > img {
+    right: 50%;
+    bottom: 0;
+    width: min(680px, 118%);
+    max-width: none;
+    transform: translateX(50%);
+  }
+
+/* PROJECT HIGHLIGHTS */
+
+#galleryshowcase {
+    min-height: 820px;
+    padding-top: 48px;
+  }
+
+.gallery-copy {
+    top: 90px;
+    left: 50%;
+    width: calc(100% - 48px);
+    transform: translateX(-50%);
+  }
+
+.gallery-copy .mini {
+    margin-bottom: 18px;
+    font-size: 12px;
+  }
+
+.gallery-copy h2 {
+    font-size: clamp(58px, 14vw, 82px);
+    line-height: .82;
+  }
+
+.gallery-copy p {
+    max-width: 560px;
+    margin-top: 22px;
+    line-height: 1.8;
+  }
+
+.gallery-perspective {
+    left: 50%;
+    bottom: 32px;
+    width: 165vw;
+    height: 52vh;
+    min-height: 390px;
+    transform: translateX(-50%) perspective(1000px) rotateX(24deg);
+    transform-origin: center bottom;
+  }
+
+.gallery-wrapper {
+    gap: 10px;
+  }
+
+.gallery-row {
+    gap: 10px;
+  }
+
+.gallery-thumb {
+    width: 230px;
+    height: 140px;
+  }
+
+.gallery-scroll-note {
+    display: none;
+  }
+
+/* DETAIL PAGES */
+
+#projects {
+    min-height: 780px;
+  }
+
+#projects h2 {
+    top: 92px;
+    left: 50%;
+    width: calc(100% - 48px);
+    max-width: none;
+    transform: translateX(-50%);
+    font-size: clamp(54px, 13vw, 76px);
+    line-height: .84;
+    white-space: normal;
+  }
+
+.project-guide {
+    top: 202px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+.stage3d {
+    inset: 48px 0 0;
+    padding-top: 190px;
+    overflow: hidden;
+  }
+
+.ring {
+    width: 230px;
+    height: 340px;
+  }
+
+.p-card {
+    transform:
+      rotateY(calc(var(--i) * 60deg))
+      translateZ(300px);
+  }
+
+.project-btn {
+    top: 60%;
+    width: 46px;
+    height: 46px;
+  }
+
+/* OTHER DESIGN WORKS */
+
+#box_project {
+    min-height: 690px;
+    padding: 100px 0 66px;
+  }
+
+.box-head {
+    width: 100%;
+    margin: 0 0 52px;
+    padding: 0 24px;
+  }
+
+.box-head h2 {
+    max-width: 100%;
+    font-size: clamp(58px, 15vw, 82px);
+    line-height: .82;
+  }
+
+.box-marquee {
+    width: 108%;
+    margin-left: -4%;
+    padding: 35px 0;
+    rotate: -2deg;
+  }
+
+.box-track {
+    gap: 12px;
+    padding-left: 12px;
+  }
+
+.box {
+    width: 250px;
+    height: 280px;
+    padding: 22px;
+  }
+
+.box-title h3 {
+    font-size: 48px;
+  }
+
+.box-track-img {
+    width: 112px;
+    height: 112px;
+  }
+
+/* CONTACT */
+
+#contact {
+    justify-content: flex-end;
+    border-top: 1px solid var(--line);
+  }
+
+#contact::before {
+    top: 86px;
+    right: 24px;
+    font-size: clamp(90px, 27vw, 150px);
+  }
+
+#contact::after {
+    width: 12px;
+    height: calc(100% - 48px);
+  }
+
+#contact .contact_group {
+    position: relative;
+    z-index: 4;
+    width: calc(100% - 18px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: 52px;
+  }
+
+#contact h2 {
+    width: 100%;
+    max-width: none;
+    font-size: clamp(78px, 21vw, 126px);
+    line-height: .72;
+  }
+
+#contact p {
+    margin-top: 34px;
+  }
+
+#contact .contact-links {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 24px;
+  }
+
+#contact hr {
+    width: calc(100% - 18px);
+    height: 2px;
+    margin-top: 42px;
+    border: 0;
+  }
+
+#works {
+    --works-mobile-gutter: 24px;
+    --works-mobile-section-gap: 34px;
+  }
+
+#works .horizontal-sticky,
+  #works .horizontal-track {
+    height: auto;
+    overflow: visible;
+  }
+
+#works .horizontal-track {
+    display: block;
+    width: 100%;
+    transform: none !important;
+  }
+
+#works .case-panel {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    padding: 82px var(--works-mobile-gutter) 54px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    align-content: start;
+    align-items: start;
+    row-gap: var(--works-mobile-section-gap);
+    background: var(--paper);
+    overflow: visible;
+  }
+
+/* 상단 타이포 레일은 첫 번째 프로젝트 위에만 있으므로 첫 패널만 여백 추가 */
+
+#works .case-panel:first-child {
+    padding-top: calc(var(--top-ui) + var(--works-rail-height) + 34px);
+  }
+
+#works .case-panel:not(:first-child) {
+    border-top: 1px solid var(--line);
+  }
+
+#works .case-panel::before {
+    display: none !important;
+  }
+
+#works .case-panel::after {
+    top: 72px;
+    right: 18px;
+    bottom: auto;
+    font-size: clamp(90px, 27vw, 124px);
+  }
+
+#works .case-panel:first-child::after {
+    top: calc(var(--top-ui) + var(--works-rail-height) + 18px);
+  }
+
+#works .case-text {
+    position: relative;
+    top: 0;
+    width: 100%;
+    max-width: none;
+    padding: 0;
+  }
+
+#works .case-text::before {
+    width: 42px;
+    height: 4px;
+    margin-bottom: 20px;
+  }
+
+#works .case-text .num {
+    margin-bottom: 17px;
+    font-size: 11px;
+  }
+
+#works .case-text h2 {
+    max-width: 100%;
+    margin: 0;
+    font-size: clamp(44px, 11.5vw, 62px);
+    line-height: 1.02;
+  }
+
+#works .case_list {
+    margin-top: 34px;
+  }
+
+#works .case_list li {
+    margin-bottom: 13px;
+    gap: 14px;
+  }
+
+#works .case_list h4 {
+    flex: 0 0 64px;
+    font-size: 12px;
+    line-height: 1.55;
+  }
+
+#works .case_list p,
+  #works .case-text p {
+    max-width: none;
+    font-size: 13px;
+    line-height: 1.65;
+  }
+
+#works .case-tag {
+    margin-top: 28px;
+  }
+
+#works .case-tag a {
+    min-width: 196px;
+    height: 54px;
+    padding: 0 20px;
+    font-size: 15px;
+  }
+
+/* 이미지가 들어가는 두 번째 행 */
+
+#works .device-stage {
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 1 / .82;
+    margin: 0;
+    display: grid;
+    place-items: center;
+    overflow: visible;
+    isolation: isolate;
+    background: transparent;
+  }
+
+#works .device-stage > img {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    width: min(112%, 650px);
+    max-width: none;
+    height: auto;
+    margin: 0 auto;
+    object-fit: contain;
+    transform: none;
+    translate: none;
+    mix-blend-mode: multiply;
+    filter: drop-shadow(0 18px 24px rgba(0, 0, 0, .14));
+  }
+
+/* 모바일에서는 모든 프로젝트의 원형 오브제 위치도 같은 기준으로 통일 */
+
+#works .case-panel .decor-a,
+  #works .case-panel .decor-b {
+    left: auto !important;
+    border-radius: 50% !important;
+    transform: none !important;
+  }
+
+#works .case-panel .decor-a {
+    right: -13vw !important;
+    bottom: 0 !important;
+    width: min(62vw, 310px) !important;
+    height: min(62vw, 310px) !important;
+  }
+
+#works .case-panel .decor-b {
+    right: 1vw !important;
+    top: 4% !important;
+    width: min(25vw, 125px) !important;
+    height: min(25vw, 125px) !important;
+  }
+
+body.mobile-menu-open {
+    overflow: hidden;
+  }
+
+#header {
     z-index: 12000;
     background: rgba(243, 243, 241, .97);
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
   }
 
-  #header .logo {
+#header .logo {
     position: relative;
     z-index: 2;
   }
 
-  #header .mobile-menu-btn {
+#header .mobile-menu-btn {
     position: relative;
     z-index: 3;
     width: 34px;
@@ -4170,7 +3645,7 @@ body.motion-ready .case-text.fx-in::before {
     cursor: pointer;
   }
 
-  #header .mobile-menu-btn span {
+#header .mobile-menu-btn span {
     width: 25px;
     height: 2px;
     display: block;
@@ -4182,19 +3657,19 @@ body.motion-ready .case-text.fx-in::before {
       opacity .2s ease;
   }
 
-  #header .mobile-menu-btn.is-open span:nth-child(1) {
+#header .mobile-menu-btn.is-open span:nth-child(1) {
     transform: translateY(7px) rotate(45deg);
   }
 
-  #header .mobile-menu-btn.is-open span:nth-child(2) {
+#header .mobile-menu-btn.is-open span:nth-child(2) {
     opacity: 0;
   }
 
-  #header .mobile-menu-btn.is-open span:nth-child(3) {
+#header .mobile-menu-btn.is-open span:nth-child(3) {
     transform: translateY(-7px) rotate(-45deg);
   }
 
-  .mobile-menu {
+.mobile-menu {
     position: fixed;
     z-index: 11800;
     top: var(--top-ui);
@@ -4221,21 +3696,21 @@ body.motion-ready .case-text.fx-in::before {
       visibility .48s;
   }
 
-  body.mobile-menu-open .mobile-menu {
+body.mobile-menu-open .mobile-menu {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
     transform: translateX(0);
   }
 
-  .mobile-menu-inner {
+.mobile-menu-inner {
     min-height: calc(100svh - var(--top-ui));
     padding: 34px 30px 28px 24px;
     display: flex;
     flex-direction: column;
   }
 
-  .mobile-menu-kicker {
+.mobile-menu-kicker {
     margin-bottom: 24px;
     color: var(--accent);
     font-family: var(--display);
@@ -4244,11 +3719,11 @@ body.motion-ready .case-text.fx-in::before {
     letter-spacing: .18em;
   }
 
-  .mobile-menu-links {
+.mobile-menu-links {
     border-top: 2px solid var(--ink);
   }
 
-  .mobile-menu-links a {
+.mobile-menu-links a {
     min-height: 63px;
     padding: 10px 2px;
     display: grid;
@@ -4258,14 +3733,14 @@ body.motion-ready .case-text.fx-in::before {
     color: var(--ink);
   }
 
-  .mobile-menu-links a span {
+.mobile-menu-links a span {
     color: var(--accent);
     font-family: var(--display);
     font-size: 10px;
     font-weight: 700;
   }
 
-  .mobile-menu-links a strong {
+.mobile-menu-links a strong {
     font-family: var(--impact);
     font-size: clamp(32px, 10vw, 47px);
     font-weight: 400;
@@ -4273,12 +3748,12 @@ body.motion-ready .case-text.fx-in::before {
     letter-spacing: -.015em;
   }
 
-  .mobile-menu-links a:active strong,
+.mobile-menu-links a:active strong,
   .mobile-menu-links a:focus-visible strong {
     color: var(--accent);
   }
 
-  .mobile-menu-foot {
+.mobile-menu-foot {
     margin-top: auto;
     padding-top: 34px;
     color: var(--gray);
@@ -4288,504 +3763,578 @@ body.motion-ready .case-text.fx-in::before {
     line-height: 1.7;
     letter-spacing: .13em;
   }
-}
 
-@media (max-width: 380px) {
-  .mobile-menu-inner {
-    padding-top: 24px;
-  }
-
-  .mobile-menu-kicker {
-    margin-bottom: 17px;
-  }
-
-  .mobile-menu-links a {
-    min-height: 54px;
-  }
-
-  .mobile-menu-links a strong {
-    font-size: 31px;
-  }
-}
-
-
-@keyframes boxDragHint {
-  0%, 100% { transform: translateX(0); }
-  50% { transform: translateX(-4px); }
-}
-
-@media (max-width: 900px) {
-  #works .works-controls,
+#works .works-controls,
   #works .wheel-guide,
   .box-drag-guide {
     display: none;
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .mobile-menu,
-  #header .mobile-menu-btn span {
-    transition: none !important;
+@media (max-width: 600px) {
+:root {
+    --top-ui: 48px;
+    --works-rail-height: 56px;
   }
 
-  .box-drag-arrow {
-    animation: none !important;
-  }
-}
-
-/* =========================================================
-   BALANCED LAPTOP HEIGHT FIX
-   제목과 핵심 콘텐츠 크기는 유지하고,
-   짧은 노트북 화면에서 위·아래 간격만 균형 있게 조정
-========================================================= */
-
-@media (min-width: 901px) and (max-width: 1700px) and (max-height: 900px) {
-  :root {
-    --works-rail-height: 96px;
+.intro-loader::after {
+    width: 9px;
   }
 
-  .snap-section,
-  #works,
-  #box_project {
-    height: 100vh;
-    height: 100dvh;
+.intro-logo {
+    font-size: 78px;
   }
 
-  /* 공통: 헤더 아래에 최소한의 숨 쉴 공간 확보 */
-  #hero,
-  #about,
-  #galleryshowcase,
-  #projects,
-  #box_project,
-  #contact {
-    min-height: 100vh;
-    min-height: 100dvh;
+.intro-logo em {
+    margin-left: 0;
   }
 
-  /* HERO — 기존 크기를 크게 줄이지 않고 간격만 보정 */
-  #hero {
-    padding:
-      calc(var(--top-ui) + clamp(34px, 5vh, 58px))
-      4vw
-      clamp(30px, 4vh, 48px);
-  }
-
-  #hero h1 {
-    margin-top: clamp(54px, 8vh, 88px);
-    font-size: clamp(76px, 9.2vw, 150px);
-  }
-
-  .hero-bottom-meta {
-    margin-top: clamp(46px, 7vh, 76px);
-  }
-
-  /* ABOUT — 화면 위쪽에 몰리지 않도록 세로 여백 분배 */
-  #about {
-    padding:
-      calc(var(--top-ui) + clamp(42px, 6vh, 68px))
-      var(--side)
-      clamp(34px, 5vh, 58px);
-  }
-
-  #about .sub_title {
-    margin-bottom: 20px;
-  }
-
-  #about h2 {
-    font-size: clamp(64px, 7vw, 112px);
-  }
-
-  #about > p {
-    margin-top: 20px;
-    font-size: 16px;
-    line-height: 1.7;
-  }
-
-  .profile-grid {
-    grid-template-columns: minmax(200px, 245px) 1fr 1fr;
-    gap: clamp(36px, 5vw, 84px);
-  }
-
-  .profile_img {
-    height: clamp(115px, 17vh, 145px);
-  }
-
-  .profile-grid .info p {
-    font-size: 16px;
-    line-height: 1.65;
-  }
-
-  /* WORKS — 티커와 본문 사이에 여유를 유지 */
-  .works-impact-rail {
+.works-impact-rail {
     height: var(--works-rail-height);
   }
 
-  .works-impact-rail-track span {
-    font-size: clamp(64px, 6.6vw, 108px);
+.works-impact-rail-track span {
+    font-size: 43px;
   }
 
-  #works .case-panel {
-    grid-template-columns: 43% 57%;
-    padding:
-      calc(var(--top-ui) + var(--works-rail-height) + clamp(26px, 4vh, 44px))
-      0
-      clamp(34px, 5vh, 54px)
-      6vw;
+#hero h1 {
+    font-size: clamp(58px, 17vw, 88px);
   }
 
-  #works .case-text h2 {
-    font-size: clamp(48px, 4.5vw, 76px);
-    line-height: .94;
+.hero-bottom-meta {
+    grid-template-columns: 1fr;
+    gap: 24px;
   }
 
-  #works .case_list {
-    margin-top: clamp(28px, 4vh, 42px);
+.hero-bottom-meta > span {
+    text-align: left;
   }
 
-  #works .case-tag {
-    margin-top: clamp(20px, 3vh, 30px);
+#about h2 {
+    font-size: 59px;
   }
 
-  #works .device-stage > img {
-    right: 3vw;
-    bottom: clamp(26px, 4vh, 48px);
-    width: min(1050px, 59vw);
+.case-text h2 {
+    font-size: 49px;
   }
 
-  #works .works-controls {
-    bottom: 18px;
+.gallery-copy h2 {
+    font-size: 58px;
   }
 
-  /* =====================================================
-     PROJECT HIGHLIGHTS
-     제목과 설명을 화면 중앙에 배치
-  ===================================================== */
-  #galleryshowcase {
-    padding-top: var(--top-ui);
+.gallery-thumb {
+    width: 245px;
+    height: 150px;
   }
 
-  .gallery-copy {
-    top: calc(var(--top-ui) + clamp(48px, 7vh, 78px));
-    left: 50%;
-    width: min(920px, 84vw);
-    text-align: center;
-    transform: translateX(-50%);
+#projects h2 {
+    font-size: 58px;
   }
 
-  .gallery-copy .mini {
-    margin-bottom: 14px;
+.ring {
+    width: 215px;
+    height: 315px;
+  }
+
+.p-card {
+    transform:
+      rotateY(calc(var(--i) * 60deg))
+      translateZ(275px);
+  }
+
+.card_img {
+    width: 155px;
+    height: 145px;
+  }
+
+.p-card strong {
+    font-size: 42px;
+  }
+
+.box-head h2 {
+    font-size: 58px;
+  }
+
+.box {
+    width: 245px;
+    height: 245px;
+  }
+
+.box-track-img {
+    width: 110px;
+    height: 110px;
+  }
+
+#contact h2 {
+    font-size: 74px;
+  }
+
+.project-modal,
+  .box-modal {
+    padding: 14px;
+  }
+
+.project-modal-scroll,
+  .box-modal-box {
+    padding: 18px;
+  }
+
+.box-modal-scroll {
+    padding: 24px 18px;
+  }
+
+#boxModalTitle {
+    padding-right: 45px;
+    font-size: 52px;
+  }
+
+#boxModalDesc {
+    margin-top: 18px;
+  }
+
+.box-modal-image {
+    margin-top: 22px;
+  }
+
+#works .case-text h2 {
+    font-size: 44px;
+  }
+
+#works .case-tag a {
+    min-width: 190px;
+    height: 52px;
+  }
+
+#works .device-stage::before {
+    right: -28vw;
+    bottom: -2vh;
+    width: 78vw;
+  }
+
+#works .device-stage::after {
+    right: -7vw;
+    top: 4vh;
+    width: 32vw;
+  }
+
+#works .case-panel:nth-child(2) .decor-a {
+    width: 62vw;
+    height: 62vw;
+  }
+
+#works .case-panel:nth-child(2) .decor-b {
+    width: 24vw;
+    height: 24vw;
+  }
+
+#works .case-panel:nth-child(3) .decor-b {
+    width: 38vw;
+    height: 38vw;
+  }
+
+#works .case-panel:nth-child(4) .decor-b {
+    width: 24vw;
+    height: 24vw;
+  }
+
+#projects h2 {
+    font-size: 46px;
+    max-width: calc(100vw - 28px);
+    white-space: normal;
+    line-height: .9;
+  }
+
+.project-guide {
+    top: calc(var(--top-ui) + 128px);
+    max-width: calc(100vw - 40px);
+    white-space: normal;
+  }
+
+.stage3d {
+    padding-top: 145px;
+  }
+
+#contact .contact-links {
+        gap: 24px;
+    }
+
+#contact .contact-link {
+        width: 52px;
+        height: 52px;
+    }
+
+#contact .contact-link img {
+        width: 34px;
+        height: 34px;
+    }
+
+/* HERO */
+
+#hero {
+    padding: 82px 20px 48px;
+  }
+
+.hero-top-meta {
+    grid-template-columns: 1fr;
+    font-size: 8px;
+  }
+
+.hero-top-meta span:nth-child(2),
+  .hero-top-meta span:last-child {
+    display: none;
+  }
+
+#hero h1 {
+    font-size: clamp(56px, 18.5vw, 78px);
+  }
+
+.hero-bottom-meta p {
+    font-size: 14px;
+  }
+
+.hero-bottom-meta > span {
+    font-size: 13px;
+  }
+
+/* ABOUT */
+
+#about {
+    padding: 95px 24px 68px;
+  }
+
+#about h2 {
+    font-size: clamp(54px, 16vw, 72px);
+  }
+
+#about > p {
+    font-size: 14px;
+  }
+
+.profile-card {
+    max-width: 100%;
+  }
+
+.profile_img {
+    aspect-ratio: 1 / .9;
+  }
+
+.profile-grid .info h3 {
+    font-size: 18px;
+  }
+
+.profile-grid .info p {
+    font-size: 14px;
+    line-height: 1.85;
+  }
+
+/* WORKS */
+
+#works .case-panel {
+    min-height: 720px;
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+#works .case_list li {
+    gap: 12px;
+  }
+
+#works .case_list h4 {
+    flex-basis: 58px;
     font-size: 12px;
   }
 
-  .gallery-copy h2 {
-    font-size: clamp(76px, 7.8vw, 126px);
-    line-height: .8;
+#works .case_list p {
+    font-size: 12px;
   }
 
-  .gallery-copy p {
-    max-width: 620px;
-    margin: 18px auto 0;
-    font-size: 16px;
-    line-height: 1.65;
+#works .device-stage {
+    min-height: 310px;
   }
 
-  .gallery-perspective {
-    bottom: clamp(12px, 2.5vh, 28px);
-    width: 124vw;
-    height: clamp(390px, 54vh, 520px);
-    transform:
-      translateX(-50%)
-      perspective(1200px)
-      rotateX(34deg);
-    transform-origin: center 86%;
+#works .device-stage > img {
+    width: 125%;
   }
 
-  .gallery-wrapper,
-  .gallery-row {
-    gap: 13px;
+/* PROJECT HIGHLIGHTS */
+
+#galleryshowcase {
+    min-height: 760px;
   }
 
-  .gallery-thumb {
-    width: clamp(270px, 19vw, 315px);
-    height: clamp(164px, 11.6vw, 192px);
+.gallery-copy {
+    top: 90px;
+    width: calc(100% - 40px);
   }
 
-  /* =====================================================
-     DETAIL PAGES
-     left와 기존 transform 충돌 제거 + 완전 중앙 정렬
-  ===================================================== */
-  #projects h2 {
-    top: calc(var(--top-ui) + clamp(48px, 7vh, 78px));
-    left: 50%;
-    width: 100%;
-    padding: 0 24px;
-    text-align: center;
-    transform: translateX(-50%);
-    font-size: clamp(76px, 7.8vw, 126px);
+.gallery-copy h2 {
+    font-size: clamp(52px, 15.5vw, 66px);
   }
 
-  .project-guide {
-    top: calc(var(--top-ui) + clamp(165px, 22vh, 205px));
-    left: 50%;
-    width: min(720px, 76vw);
-    text-align: center;
-    transform: translateX(-50%);
-    font-size: 16px;
+.gallery-copy p {
+    font-size: 13px;
   }
 
-  .stage3d {
-    inset: var(--top-ui) 0 0;
-    padding:
-      clamp(205px, 27vh, 245px)
-      0
-      clamp(36px, 5vh, 60px);
-    place-items: center;
+.gallery-perspective {
+    bottom: 8px;
+    width: 205vw;
+    height: 47vh;
+    min-height: 350px;
+    transform: translateX(-50%) perspective(900px) rotateX(21deg);
   }
 
-  .ring {
-    width: min(270px, 20vw);
-    height: min(370px, 48vh);
+.gallery-thumb {
+    width: 190px;
+    height: 116px;
   }
 
-  .p-card {
+/* DETAIL PAGES */
+
+#projects {
+    min-height: 720px;
+  }
+
+#projects h2 {
+    top: 88px;
+    width: calc(100% - 40px);
+    font-size: 48px;
+  }
+
+.project-guide {
+    top: 174px;
+  }
+
+.stage3d {
+    padding-top: 160px;
+  }
+
+.ring {
+    width: 195px;
+    height: 290px;
+  }
+
+.p-card {
     transform:
       rotateY(calc(var(--i) * 60deg))
-      translateZ(clamp(315px, 25vw, 430px));
+      translateZ(245px);
   }
 
-  .card_img {
-    width: 180px;
-    height: 170px;
+.p-card > div {
+    padding: 20px;
+  }
+
+.card_img {
+    width: 140px;
+    height: 130px;
     margin-top: 20px;
   }
 
-  .p-card strong {
-    font-size: clamp(34px, 3.1vw, 53px);
+.p-card strong {
+    left: 20px;
+    right: 18px;
+    bottom: 54px;
+    font-size: 37px;
   }
 
-  .project-btn {
-    top: 62%;
+.p-card em {
+    left: 20px;
+    bottom: 25px;
+  }
+
+.project-btn {
+    top: 61%;
+    width: 42px;
+    height: 42px;
+  }
+
+.project-prev { left: 12px; }
+
+.project-next { right: 12px; }
+
+/* OTHER DESIGN WORKS */
+
+#box_project {
+    min-height: 620px;
+    padding-top: 92px;
+  }
+
+.box-head {
+    margin-bottom: 42px;
+    padding: 0 24px;
+  }
+
+.box-head h2 {
+    font-size: clamp(54px, 16vw, 68px);
+  }
+
+.box-marquee {
+    width: 112%;
+    margin-left: -6%;
+    padding: 28px 0;
+    rotate: 0deg;
+  }
+
+.box {
+    width: 225px;
+    height: 255px;
+    padding: 20px;
+  }
+
+.box-title h3 {
+    font-size: 43px;
+  }
+
+.box-track-img {
+    width: 100px;
+    height: 100px;
+  }
+
+/* CONTACT */
+
+#contact {
+    min-height: 100svh;
+    padding: 92px 20px 28px;
+  }
+
+#contact::before {
+    top: 78px;
+    right: 18px;
+    font-size: 104px;
+  }
+
+#contact::after {
+    width: 9px;
+  }
+
+#contact .contact_group {
+    width: calc(100% - 12px);
+    gap: 48px;
+  }
+
+#contact h2 {
+    font-size: clamp(72px, 22vw, 92px);
+  }
+
+#contact .contact-links {
+    gap: 18px;
+  }
+
+#contact .contact-link {
     width: 48px;
     height: 48px;
   }
 
-  /* OTHER DESIGN WORKS — 지나친 축소 대신 위아래 간격 정리 */
-  #box_project {
-    padding:
-      calc(var(--top-ui) + clamp(42px, 6vh, 68px))
-      0
-      clamp(28px, 4vh, 48px);
+#contact .contact-link img {
+    width: 31px;
+    height: 31px;
   }
 
-  .box-head {
-    margin-bottom: clamp(24px, 4vh, 40px);
+#contact .contact-link span {
+    bottom: -18px;
+    opacity: 1;
+    transform: translate(-50%, 0);
+    font-size: 7px;
   }
 
-  .box-head h2 {
-    font-size: clamp(68px, 7vw, 112px);
+#contact hr {
+    width: calc(100% - 12px);
+    margin-top: 36px;
   }
 
-  .box-marquee {
-    padding: clamp(40px, 6vh, 70px) 0;
+#works {
+    --works-mobile-gutter: 18px;
+    --works-mobile-section-gap: 28px;
   }
 
-  .box {
-    width: clamp(250px, 18vw, 300px);
-    height: clamp(250px, 18vw, 300px);
+#works .case-panel {
+    padding-top: 72px;
+    padding-bottom: 42px;
   }
 
-  /* CONTACT */
-  #contact {
-    padding:
-      calc(var(--top-ui) + clamp(42px, 6vh, 70px))
-      5vw
-      clamp(32px, 5vh, 56px);
+#works .case-panel:first-child {
+    padding-top: calc(var(--top-ui) + var(--works-rail-height) + 28px);
   }
 
-  #contact h2 {
-    font-size: clamp(112px, 13vw, 205px);
-  }
-}
-
-/* 실제 브라우저 높이가 매우 짧은 노트북만 소폭 조정 */
-@media (min-width: 901px) and (max-width: 1700px) and (max-height: 720px) {
-  :root {
-    --works-rail-height: 86px;
+#works .case-panel::after {
+    top: 64px;
+    right: 12px;
+    font-size: 96px;
   }
 
-  #hero h1 {
-    margin-top: 42px;
-    font-size: clamp(70px, 8.5vw, 132px);
+#works .case-panel:first-child::after {
+    top: calc(var(--top-ui) + var(--works-rail-height) + 14px);
   }
 
-  .hero-bottom-meta {
-    margin-top: 38px;
+#works .case-text::before {
+    margin-bottom: 17px;
   }
 
-  #about {
-    padding-top: calc(var(--top-ui) + 34px);
-    padding-bottom: 28px;
+#works .case-text h2 {
+    font-size: clamp(40px, 13vw, 50px);
   }
 
-  #about h2 {
-    font-size: clamp(60px, 6.4vw, 96px);
+#works .case_list {
+    margin-top: 28px;
   }
 
-  .profile-grid {
-    margin-top: 20px;
-    padding-top: 22px;
+#works .case_list h4 {
+    flex-basis: 56px;
+    font-size: 13px;
   }
 
-  .profile_img {
-    height: 108px;
+#works .case_list p,
+  #works .case-text p {
+    font-size: 14px;
+    line-height: 1.65;
   }
 
-  #works .case-panel {
-    padding-top:
-      calc(var(--top-ui) + var(--works-rail-height) + 22px);
-    padding-bottom: 32px;
+#works .case-tag {
+    margin-top: 25px;
   }
 
-  #works .case-text h2 {
-    font-size: clamp(44px, 4.1vw, 66px);
+#works .case-tag a {
+    min-width: 190px;
+    height: 52px;
+    font-size: 14px;
   }
 
-  #works .device-stage > img {
-    bottom: 28px;
-    width: min(960px, 56vw);
+#works .device-stage {
+    aspect-ratio: 1 / .88;
   }
 
-  .gallery-copy {
-    top: calc(var(--top-ui) + 38px);
+#works .device-stage > img {
+    width: 108%;
+    filter: drop-shadow(0 14px 18px rgba(0, 0, 0, .12));
   }
 
-  .gallery-copy h2,
-  #projects h2 {
-    font-size: clamp(70px, 7vw, 108px);
+#works .case-panel .decor-a {
+    right: -16vw !important;
+    width: min(66vw, 260px) !important;
+    height: min(66vw, 260px) !important;
   }
 
-  .gallery-perspective {
-    height: 49vh;
+#works .case-panel .decor-b {
+    right: 0 !important;
+    width: min(27vw, 104px) !important;
+    height: min(27vw, 104px) !important;
   }
 
-  #projects h2 {
-    top: calc(var(--top-ui) + 38px);
+#contact {
+    height: auto;
+    justify-content: flex-start;
   }
 
-  .project-guide {
-    top: calc(var(--top-ui) + 140px);
+#contact .contact_group {
+    margin-top: 210px; /* LET'S WORK 위치 */
   }
 
-  .stage3d {
-    padding-top: 190px;
-    padding-bottom: 30px;
+#contact p {
+    margin-top: 36px;
   }
 
-  .ring {
-    width: 245px;
-    height: 335px;
-  }
+/* ---------------- PROJECT HIGHLIGHTS ---------------- */
 
-  .p-card {
-    transform:
-      rotateY(calc(var(--i) * 60deg))
-      translateZ(clamp(295px, 23vw, 390px));
-  }
-}
-
-/* =========================================================
-   DETAIL PAGES — GRAM LAPTOP CARD SIZE FIX
-   새 CSS 기준 / 제목과 전체 배치는 유지 / 카드만 축소
-========================================================= */
-
-/* 일반 노트북·그램: 실제 브라우저 높이 900px 이하 */
-@media (min-width: 901px) and (max-width: 1700px) and (max-height: 900px) {
-  #projects .ring {
-    width: min(240px, 18vw);
-    height: min(330px, 42vh);
-  }
-
-  #projects .p-card {
-    transform:
-      rotateY(calc(var(--i) * 60deg))
-      translateZ(clamp(280px, 22vw, 380px));
-  }
-
-  #projects .p-card > div {
-    padding: 22px;
-  }
-
-  #projects .card_img {
-    width: 158px;
-    height: 148px;
-    margin-top: 17px;
-  }
-
-  #projects .p-card strong {
-    left: 22px;
-    right: 20px;
-    bottom: 56px;
-    font-size: clamp(30px, 2.8vw, 47px);
-  }
-
-  #projects .p-card em {
-    left: 22px;
-    bottom: 27px;
-  }
-
-  /* 카드 아래쪽에 약간의 여백 확보 */
-  #projects .stage3d {
-    padding-bottom: clamp(48px, 6vh, 72px);
-  }
-}
-
-/* 그램처럼 브라우저 실제 높이가 특히 짧은 화면 */
-@media (min-width: 901px) and (max-width: 1700px) and (max-height: 720px) {
-  #projects .ring {
-    width: 220px;
-    height: 300px;
-  }
-
-  #projects .p-card {
-    transform:
-      rotateY(calc(var(--i) * 60deg))
-      translateZ(clamp(255px, 20vw, 345px));
-  }
-
-  #projects .p-card > div {
-    padding: 20px;
-  }
-
-  #projects .card_img {
-    width: 142px;
-    height: 132px;
-    margin-top: 14px;
-  }
-
-  #projects .p-card strong {
-    left: 20px;
-    right: 18px;
-    bottom: 50px;
-    font-size: clamp(28px, 2.5vw, 42px);
-  }
-
-  #projects .p-card em {
-    left: 20px;
-    bottom: 24px;
-  }
-
-  #projects .stage3d {
-    padding-bottom: 60px;
-  }
-}
-
-/* =========================================================
-   MOBILE — PROJECT HIGHLIGHTS / DETAIL PAGES GAP FIX
-   설명과 다음 콘텐츠 사이 간격을 24px로 통일
-========================================================= */
-@media (max-width: 600px) {
-  /* ---------------- PROJECT HIGHLIGHTS ---------------- */
-  #galleryshowcase {
+#galleryshowcase {
     height: auto;
     min-height: 0;
     padding:
@@ -4794,7 +4343,7 @@ body.motion-ready .case-text.fx-in::before {
       40px;
   }
 
-  #galleryshowcase .gallery-copy {
+#galleryshowcase .gallery-copy {
     position: relative;
     top: auto;
     left: auto;
@@ -4804,12 +4353,12 @@ body.motion-ready .case-text.fx-in::before {
     transform: none;
   }
 
-  #galleryshowcase .gallery-copy p {
+#galleryshowcase .gallery-copy p {
     margin-right: auto;
     margin-left: auto;
   }
 
-  #galleryshowcase .gallery-perspective {
+#galleryshowcase .gallery-perspective {
     position: relative;
     top: auto;
     bottom: auto;
@@ -4825,8 +4374,9 @@ body.motion-ready .case-text.fx-in::before {
     transform-origin: center top;
   }
 
-  /* ---------------- DETAIL PAGES ---------------- */
-  #projects {
+/* ---------------- DETAIL PAGES ---------------- */
+
+#projects {
     height: auto;
     min-height: 0;
     padding:
@@ -4835,7 +4385,7 @@ body.motion-ready .case-text.fx-in::before {
       48px;
   }
 
-  #projects h2 {
+#projects h2 {
     position: relative;
     top: auto;
     left: auto;
@@ -4846,7 +4396,7 @@ body.motion-ready .case-text.fx-in::before {
     transform: none;
   }
 
-  #projects .project-guide {
+#projects .project-guide {
     position: relative;
     top: auto;
     left: auto;
@@ -4859,7 +4409,7 @@ body.motion-ready .case-text.fx-in::before {
     font-size: 13px;
   }
 
-  #projects .stage3d {
+#projects .stage3d {
     position: relative;
     inset: auto;
     width: 100%;
@@ -4871,44 +4421,648 @@ body.motion-ready .case-text.fx-in::before {
     overflow: visible;
   }
 
-  #projects .project-btn {
+#projects .project-btn {
     top: 145px;
   }
-}
 
-/* =========================================================
-   MOBILE — GAP 60PX + PROJECT ARROW POSITION FIX
-   기존 24px 여백을 60px로 조정하고
-   좌우 버튼을 제목이 아닌 3D 카드 중앙에 정렬
-========================================================= */
-@media (max-width: 600px) {
-  /* PROJECT HIGHLIGHTS: 설명과 갤러리 사이 */
-  #galleryshowcase .gallery-perspective {
+/* PROJECT HIGHLIGHTS: 설명과 갤러리 사이 */
+
+#galleryshowcase .gallery-perspective {
     margin-top: 60px;
   }
 
-  /* DETAIL PAGES: 설명과 카드 사이 */
-  #projects .stage3d {
+/* DETAIL PAGES: 설명과 카드 사이 */
+
+#projects .stage3d {
     margin-top: 60px;
   }
 
-  /*
+/*
     버튼은 #projects 기준 absolute 요소임.
     모바일 카드 높이 315px의 중앙에 맞도록
     섹션 하단에서 위치를 역산해 배치한다.
   */
-  #projects .project-btn {
+
+#projects .project-btn {
     top: calc(100% - 241px);
     bottom: auto;
     transform: translateY(-50%);
   }
 
-  #projects .project-prev {
+#projects .project-prev {
     left: 18px;
   }
 
-  #projects .project-next {
+#projects .project-next {
     right: 18px;
+  }
+
+/* CONTACT MOBILE HEIGHT FIX
+   100svh + margin-top:210px 조합을 제거해 섹션을 짧게 정리 */
+
+#contact {
+  min-height: 650px;
+  height: auto;
+  padding: 72px 20px 36px;
+  justify-content: center;
+}
+
+#contact .contact_group {
+  width: calc(100% - 12px);
+  margin-top: 72px;
+  gap: 32px;
+}
+
+#contact h2 {
+  font-size: clamp(68px, 21vw, 86px);
+}
+
+#contact p {
+  margin-top: 22px;
+}
+
+#contact .contact-links {
+  gap: 20px;
+}
+
+#contact hr {
+  width: calc(100% - 12px);
+  margin-top: 28px;
+}
+}
+
+@media (hover:none), (pointer:coarse) {
+.cursor {
+    display: none;
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+html {
+    scroll-behavior: auto;
+  }
+
+*,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+
+.reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+body.motion-ready .fx-item,
+  body.motion-ready .fx-item.fx-in,
+  .device-stage > img.fx-in {
+    opacity: 1 !important;
+    transform: none !important;
+    translate: none !important;
+    filter: none !important;
+    clip-path: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+
+.mobile-menu,
+  #header .mobile-menu-btn span {
+    transition: none !important;
+  }
+
+.box-drag-arrow {
+    animation: none !important;
+  }
+}
+
+@media (min-width: 901px) {
+.device-stage > img.fx-in {
+    animation: portfolioDeviceFloat 5.8s ease-in-out 1.15s infinite;
+  }
+
+.profile-grid > .fx-in:hover {
+    transform: translateY(-8px);
+    transition-duration: .32s;
+  }
+}
+
+@media (max-width: 380px) {
+.mobile-menu-inner {
+    padding-top: 24px;
+  }
+
+.mobile-menu-kicker {
+    margin-bottom: 17px;
+  }
+
+.mobile-menu-links a {
+    min-height: 54px;
+  }
+
+.mobile-menu-links a strong {
+    font-size: 31px;
+  }
+
+/* 작은 모바일에서는 높이와 상단 간격을 한 번 더 축소 */
+
+#contact {
+  min-height: 620px;
+  padding-top: 68px;
+  padding-bottom: 32px;
+}
+
+#contact .contact_group {
+  margin-top: 58px;
+  gap: 28px;
+}
+
+#contact h2 {
+  font-size: clamp(64px, 21vw, 78px);
+}
+}
+
+@media (min-width: 901px) and (max-width: 1700px) and (max-height: 900px) {
+:root {
+    --works-rail-height: 96px;
+  }
+
+.snap-section,
+  #works,
+  #box_project {
+    height: 100vh;
+    height: 100dvh;
+  }
+
+/* 공통: 헤더 아래에 최소한의 숨 쉴 공간 확보 */
+
+#hero,
+  #about,
+  #galleryshowcase,
+  #projects,
+  #box_project,
+  #contact {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+/* HERO — 기존 크기를 크게 줄이지 않고 간격만 보정 */
+
+#hero {
+    padding:
+      calc(var(--top-ui) + clamp(34px, 5vh, 58px))
+      4vw
+      clamp(30px, 4vh, 48px);
+  }
+
+#hero h1 {
+    margin-top: clamp(54px, 8vh, 88px);
+    font-size: clamp(76px, 9.2vw, 150px);
+  }
+
+.hero-bottom-meta {
+    margin-top: clamp(46px, 7vh, 76px);
+  }
+
+/* ABOUT — 화면 위쪽에 몰리지 않도록 세로 여백 분배 */
+
+#about {
+    padding:
+      calc(var(--top-ui) + clamp(42px, 6vh, 68px))
+      var(--side)
+      clamp(34px, 5vh, 58px);
+  }
+
+#about .sub_title {
+    margin-bottom: 20px;
+  }
+
+#about h2 {
+    font-size: clamp(64px, 7vw, 112px);
+  }
+
+#about > p {
+    margin-top: 20px;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+.profile-grid {
+    grid-template-columns: minmax(200px, 245px) 1fr 1fr;
+    gap: clamp(36px, 5vw, 84px);
+  }
+
+.profile_img {
+    height: clamp(115px, 17vh, 145px);
+  }
+
+.profile-grid .info p {
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+/* WORKS — 티커와 본문 사이에 여유를 유지 */
+
+.works-impact-rail {
+    height: var(--works-rail-height);
+  }
+
+.works-impact-rail-track span {
+    font-size: clamp(64px, 6.6vw, 108px);
+  }
+
+#works .case-panel {
+    grid-template-columns: 43% 57%;
+    padding:
+      calc(var(--top-ui) + var(--works-rail-height) + clamp(26px, 4vh, 44px))
+      0
+      clamp(34px, 5vh, 54px)
+      6vw;
+  }
+
+#works .case-text h2 {
+    font-size: clamp(48px, 4.5vw, 76px);
+    line-height: .94;
+  }
+
+#works .case_list {
+    margin-top: clamp(28px, 4vh, 42px);
+  }
+
+#works .case-tag {
+    margin-top: clamp(20px, 3vh, 30px);
+  }
+
+#works .device-stage > img {
+    right: 3vw;
+    bottom: clamp(26px, 4vh, 48px);
+    width: min(1050px, 59vw);
+  }
+
+#works .works-controls {
+    bottom: 18px;
+  }
+
+/* =====================================================
+     PROJECT HIGHLIGHTS
+     제목과 설명을 화면 중앙에 배치
+  ===================================================== */
+
+#galleryshowcase {
+    padding-top: var(--top-ui);
+  }
+
+.gallery-copy {
+    top: calc(var(--top-ui) + clamp(48px, 7vh, 78px));
+    left: 50%;
+    width: min(920px, 84vw);
+    text-align: center;
+    transform: translateX(-50%);
+  }
+
+.gallery-copy .mini {
+    margin-bottom: 14px;
+    font-size: 12px;
+  }
+
+.gallery-copy h2 {
+    font-size: clamp(76px, 7.8vw, 126px);
+    line-height: .8;
+  }
+
+.gallery-copy p {
+    max-width: 620px;
+    margin: 18px auto 0;
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+.gallery-perspective {
+    bottom: clamp(12px, 2.5vh, 28px);
+    width: 124vw;
+    height: clamp(390px, 54vh, 520px);
+    transform:
+      translateX(-50%)
+      perspective(1200px)
+      rotateX(34deg);
+    transform-origin: center 86%;
+  }
+
+.gallery-wrapper,
+  .gallery-row {
+    gap: 13px;
+  }
+
+.gallery-thumb {
+    width: clamp(270px, 19vw, 315px);
+    height: clamp(164px, 11.6vw, 192px);
+  }
+
+/* =====================================================
+     DETAIL PAGES
+     left와 기존 transform 충돌 제거 + 완전 중앙 정렬
+  ===================================================== */
+
+#projects h2 {
+    top: calc(var(--top-ui) + clamp(48px, 7vh, 78px));
+    left: 50%;
+    width: 100%;
+    padding: 0 24px;
+    text-align: center;
+    transform: translateX(-50%);
+    font-size: clamp(76px, 7.8vw, 126px);
+  }
+
+.project-guide {
+    top: calc(var(--top-ui) + clamp(165px, 22vh, 205px));
+    left: 50%;
+    width: min(720px, 76vw);
+    text-align: center;
+    transform: translateX(-50%);
+    font-size: 16px;
+  }
+
+.stage3d {
+    inset: var(--top-ui) 0 0;
+    padding:
+      clamp(205px, 27vh, 245px)
+      0
+      clamp(36px, 5vh, 60px);
+    place-items: center;
+  }
+
+.ring {
+    width: min(270px, 20vw);
+    height: min(370px, 48vh);
+  }
+
+.p-card {
+    transform:
+      rotateY(calc(var(--i) * 60deg))
+      translateZ(clamp(315px, 25vw, 430px));
+  }
+
+.card_img {
+    width: 180px;
+    height: 170px;
+    margin-top: 20px;
+  }
+
+.p-card strong {
+    font-size: clamp(34px, 3.1vw, 53px);
+  }
+
+.project-btn {
+    top: 62%;
+    width: 48px;
+    height: 48px;
+  }
+
+/* OTHER DESIGN WORKS — 지나친 축소 대신 위아래 간격 정리 */
+
+#box_project {
+    padding:
+      calc(var(--top-ui) + clamp(42px, 6vh, 68px))
+      0
+      clamp(28px, 4vh, 48px);
+  }
+
+.box-head {
+    margin-bottom: clamp(24px, 4vh, 40px);
+  }
+
+.box-head h2 {
+    font-size: clamp(68px, 7vw, 112px);
+  }
+
+.box-marquee {
+    padding: clamp(40px, 6vh, 70px) 0;
+  }
+
+.box {
+    width: clamp(250px, 18vw, 300px);
+    height: clamp(250px, 18vw, 300px);
+  }
+
+/* CONTACT */
+
+#contact {
+    padding:
+      calc(var(--top-ui) + clamp(42px, 6vh, 70px))
+      5vw
+      clamp(32px, 5vh, 56px);
+  }
+
+#contact h2 {
+    font-size: clamp(112px, 13vw, 205px);
+  }
+
+#projects .ring {
+    width: min(240px, 18vw);
+    height: min(330px, 42vh);
+  }
+
+#projects .p-card {
+    transform:
+      rotateY(calc(var(--i) * 60deg))
+      translateZ(clamp(280px, 22vw, 380px));
+  }
+
+#projects .p-card > div {
+    padding: 22px;
+  }
+
+#projects .card_img {
+    width: 158px;
+    height: 148px;
+    margin-top: 17px;
+  }
+
+#projects .p-card strong {
+    left: 22px;
+    right: 20px;
+    bottom: 56px;
+    font-size: clamp(30px, 2.8vw, 47px);
+  }
+
+#projects .p-card em {
+    left: 22px;
+    bottom: 27px;
+  }
+
+/* 카드 아래쪽에 약간의 여백 확보 */
+
+#projects .stage3d {
+    padding-bottom: clamp(48px, 6vh, 72px);
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1700px) and (max-height: 720px) {
+:root {
+    --works-rail-height: 86px;
+  }
+
+#hero h1 {
+    margin-top: 42px;
+    font-size: clamp(70px, 8.5vw, 132px);
+  }
+
+.hero-bottom-meta {
+    margin-top: 38px;
+  }
+
+#about {
+    padding-top: calc(var(--top-ui) + 34px);
+    padding-bottom: 28px;
+  }
+
+#about h2 {
+    font-size: clamp(60px, 6.4vw, 96px);
+  }
+
+.profile-grid {
+    margin-top: 20px;
+    padding-top: 22px;
+  }
+
+.profile_img {
+    height: 108px;
+  }
+
+#works .case-panel {
+    padding-top:
+      calc(var(--top-ui) + var(--works-rail-height) + 22px);
+    padding-bottom: 32px;
+  }
+
+#works .case-text h2 {
+    font-size: clamp(44px, 4.1vw, 66px);
+  }
+
+#works .device-stage > img {
+    bottom: 28px;
+    width: min(960px, 56vw);
+  }
+
+.gallery-copy {
+    top: calc(var(--top-ui) + 38px);
+  }
+
+.gallery-copy h2,
+  #projects h2 {
+    font-size: clamp(70px, 7vw, 108px);
+  }
+
+.gallery-perspective {
+    height: 49vh;
+  }
+
+#projects h2 {
+    top: calc(var(--top-ui) + 38px);
+  }
+
+.project-guide {
+    top: calc(var(--top-ui) + 140px);
+  }
+
+.stage3d {
+    padding-top: 190px;
+    padding-bottom: 30px;
+  }
+
+.ring {
+    width: 245px;
+    height: 335px;
+  }
+
+.p-card {
+    transform:
+      rotateY(calc(var(--i) * 60deg))
+      translateZ(clamp(295px, 23vw, 390px));
+  }
+
+#projects .ring {
+    width: 220px;
+    height: 300px;
+  }
+
+#projects .p-card {
+    transform:
+      rotateY(calc(var(--i) * 60deg))
+      translateZ(clamp(255px, 20vw, 345px));
+  }
+
+#projects .p-card > div {
+    padding: 20px;
+  }
+
+#projects .card_img {
+    width: 142px;
+    height: 132px;
+    margin-top: 14px;
+  }
+
+#projects .p-card strong {
+    left: 20px;
+    right: 18px;
+    bottom: 50px;
+    font-size: clamp(28px, 2.5vw, 42px);
+  }
+
+#projects .p-card em {
+    left: 20px;
+    bottom: 24px;
+  }
+
+#projects .stage3d {
+    padding-bottom: 60px;
+  }
+}
+/* DETAIL PAGES 제목·설명 중앙 정렬과 등장 모션 충돌 해결 */
+@media (min-width: 601px) {
+  body.motion-ready #projects h2.fx-mask {
+    transform:
+      translateX(-50%)
+      translateY(18px);
+  }
+
+  body.motion-ready #projects h2.fx-mask.fx-in {
+    transform:
+      translateX(-50%)
+      translateY(0);
+  }
+
+  body.motion-ready #projects .project-guide.fx-up {
+    transform:
+      translateX(-50%)
+      translateY(24px);
+  }
+
+  body.motion-ready #projects .project-guide.fx-up.fx-in {
+    transform:
+      translateX(-50%)
+      translateY(0);
+  }
+}
+
+/* 모바일 WORKS 이미지가 도형 앞으로 오도록 수정 */
+@media (max-width: 768px) {
+  #works .device-stage {
+    position: relative;
+    isolation: isolate;
+  }
+
+  #works .device-stage .decor {
+    position: absolute;
+    z-index: 1 !important;
+  }
+
+  #works .device-stage > img {
+    position: relative;
+    z-index: 5 !important;
+
+    /* 도형 색상이 이미지에 비쳐 보이는 현상 제거 */
+    mix-blend-mode: normal !important;
+  }
+}
