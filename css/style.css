@@ -1916,7 +1916,7 @@ padding-top: 160px;
 .project-modal-desc {
   margin-top: 24px;
   color: var(--gray);
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.85;
 }
 
@@ -1930,7 +1930,6 @@ padding-top: 160px;
 .project-modal-card {
   padding: 20px;
   border: 1px solid var(--line);
-  background: var(--paper);
 }
 
 .project-modal-card h4 {
@@ -1941,7 +1940,7 @@ padding-top: 160px;
 
 .project-modal-card p {
   color: var(--gray);
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.8;
 }
 
@@ -1998,7 +1997,7 @@ padding-top: 160px;
   max-width: 650px;
   margin-top: 25px;
   color: var(--gray);
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.85;
 }
 
@@ -4415,10 +4414,23 @@ body.mobile-menu-open .mobile-menu {
     width: 100%;
     height: 350px;
     margin-top: 24px;
-    padding: 0;
+    padding: 6px 0 0;
     display: grid;
     place-items: start center;
     overflow: visible;
+
+    /*
+      모바일에서는 등장 모션의 clip-path가 카드 윗부분을 잘라 보이게 하므로
+      3D 카드 영역의 마스크와 블러를 해제합니다.
+    */
+    clip-path: none !important;
+    -webkit-clip-path: none !important;
+    filter: none !important;
+  }
+
+#projects .p-card,
+#projects .p-card > div {
+    border-radius: 6px;
   }
 
 #projects .project-btn {

@@ -1071,14 +1071,28 @@ li {
   line-height: 2;
 }
 
+/* 분석표: PC에서는 부모 영역 전체 너비 사용 */
 .analysis-table {
+  width: 100%;
+  max-width: none;
+  overflow: visible;
   border-top: 1px solid var(--black);
 }
 
 .analysis-head,
 .analysis-row {
+  width: 100%;
+  min-width: 0;
   display: grid;
-  grid-template-columns: .52fr 1fr 1fr;
+
+  /*
+    헤더와 각 행은 서로 다른 grid 요소이므로
+    fr의 기본 최소 너비(auto)를 제거해 세로선을 동일하게 맞춥니다.
+  */
+  grid-template-columns:
+    minmax(0, .52fr)
+    minmax(0, 1fr)
+    minmax(0, 1fr);
 }
 
 .analysis-head > div {
@@ -3861,13 +3875,32 @@ li {
     margin-left: 0;
   }
 
+  /* 분석표: 모바일에서만 가로 스크롤 */
   .analysis-table {
+    width: 100%;
+    max-width: 100%;
     overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
   }
 
   .analysis-head,
   .analysis-row {
+    width: 760px;
     min-width: 760px;
+    grid-template-columns: 200px 280px 280px;
+  }
+
+  .analysis-head > div,
+  .analysis-row > div {
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  /* 모바일에서는 행이 옆으로 밀리는 hover 효과 제거 */
+  .analysis-row:hover {
+    transform: none;
   }
 
   .insight-heading h3 {
@@ -5419,6 +5452,7 @@ li {
   */
   .hero::after {
     display: none;
+  }
 }
 
 @supports not (overflow: clip) {
@@ -5433,39 +5467,5 @@ li {
 @media (prefers-reduced-motion: reduce) {
   .case-mobile-menu {
     transition: none !important;
-  }
-}
-
-}
-.analysis-head,
-  .analysis-row {
-    width: 760px;
-    min-width: 760px;
-
-    /* 헤더와 모든 행이 정확히 같은 열 너비 사용 */
-    grid-template-columns: 200px 280px 280px;
-  }
-
-  .analysis-head > div,
-  .analysis-row > div {
-    min-width: 0;
-    box-sizing: border-box;
-  }
-
-  .analysis-head > div {
-    padding: 17px 20px;
-  }
-
-  .analysis-row > div {
-    padding: 34px 20px;
-  }
-
-  .analysis-row > div:first-child {
-    gap: 12px;
-  }
-
-  /* 모바일에서는 밀리는 hover 효과 제거 */
-  .analysis-row:hover {
-    transform: none;
   }
 }
