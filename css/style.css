@@ -422,6 +422,10 @@ body.loaded .page-wrap {
   letter-spacing: .13em;
   cursor: pointer;
 }
+.intro-skip:hover{
+  background-color: #000;
+  color: #fff;
+}
 
 /* -------------------- HERO -------------------- */
 
@@ -1759,7 +1763,7 @@ padding-top: 160px;
 /* 마우스 올렸을 때 */
 
 #contact .contact-link:hover {
-    border-color: var(--accent);
+    border-color: var(--accent-soft);
     background: var(--accent);
     transform: translateY(-7px);
 }

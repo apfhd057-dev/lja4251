@@ -1,3 +1,15 @@
+/* ===== FIRST VIEW: ALWAYS START FROM HERO ===== */
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+
+/* 로딩 화면이 보이는 동안 브라우저가 이전 위치를 복원해도 즉시 맨 위로 되돌림 */
+window.addEventListener('pageshow', function(){
+  if(document.body.classList.contains('loading')){
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }
+});
+
 /* ===== FULLPAGE WHEEL SNAP CONTROLLER ===== */
 (function(){
   const SECTION_SELECTOR = '#hero,#about,#works,#galleryshowcase,#projects,#box_project,#contact';
@@ -102,7 +114,7 @@
   }, {passive:false, capture:true});
 
   window.addEventListener('resize', () => goToSection(nearestSectionIndex(), true));
-  window.addEventListener('load', () => setTimeout(() => goToSection(nearestSectionIndex(), true), 120));
+  window.addEventListener('load', () => setTimeout(() => goToSection(0, true), 120));
   worksDots.forEach((dot, i) => {
     dot.addEventListener('click', () => setWorksPanel(i));
   });
@@ -193,14 +205,45 @@ document.querySelectorAll('.browser').forEach(card => {
   const loader = document.getElementById('introLoader');
   const skip = document.getElementById('introSkip');
 
+  let hasEntered = false;
+  let autoEnterTimer = null;
+
+  function resetToHero(){
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'auto'
+    });
+  }
+
   function enterSite(){
+    /* SKIP과 자동 종료가 중복 실행되지 않도록 한 번만 처리 */
+    if(hasEntered) return;
+    hasEntered = true;
+
+    if(autoEnterTimer){
+      clearTimeout(autoEnterTimer);
+      autoEnterTimer = null;
+    }
+
+    /* 최초 입장 순간에만 HERO부터 표시 */
+    resetToHero();
+
     document.body.classList.remove('loading');
     document.body.classList.add('loaded');
+
     if(loader) loader.classList.add('hide');
+
+    /* overflow:hidden 해제 직후의 브라우저 위치 복원만 한 번 차단 */
+    requestAnimationFrame(resetToHero);
   }
 
   window.addEventListener('load', function(){
-    setTimeout(enterSite, 3400);
+    /* 로딩 완료 전에 SKIP했다면 다시 위로 보내거나 타이머를 만들지 않음 */
+    if(hasEntered) return;
+
+    resetToHero();
+    autoEnterTimer = setTimeout(enterSite, 3400);
   });
 
   if(skip){
