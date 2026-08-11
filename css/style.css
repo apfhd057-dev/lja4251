@@ -182,9 +182,10 @@ body.loaded .page-wrap {
 }
 
 #header .logo {
+  font-family: var(--impact);
   font-size: 24px;
-  font-weight: 700;
-  letter-spacing: -.05em;
+  letter-spacing: -.02em;
+  
 }
 
 #header .nav {
